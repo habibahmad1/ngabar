@@ -14,5 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('beranda');
+});
+
+Route::get('/artikel', function () {
+    return view('artikel');
+});
+
+Route::get('/quran', function () {
+    return view('quran');
+});
+
+Route::get('/galeri', function () {
+    return view('galeri');
+});
+
+Route::get('/about', function () {
+    return view('about', [
+        "title" => "Ngabar",
+        "description" => "Tempat Diskusi Online",
+        "image" => "kabah.jpg"
+    ]);
 });
