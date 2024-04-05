@@ -31,15 +31,38 @@ nav .container {
     margin-top: 10px;
 }
 
+.nav-item {
+    display: flex;
+    justify-content: center;
+}
+
 .nav-item .nav-link {
-    margin-right: 20px;
+    margin-right: 30px;
+    border: 2px solid transparent;
+    border-radius: 10px;
 }
 
 .nav-item .nav-link:hover {
     box-sizing: border-box;
-    border: 1px solid #b5ffe1;
     color: #b5ffe1;
     border-radius: 10px;
+    animation: borderMuter 3s infinite linear;
+}
+
+/* Animasi Border Mutar di Navbar */
+@keyframes borderMuter {
+    25% {
+        border-top: 2px solid #b5ffe1;
+    }
+    50% {
+        border-right: 2px solid #b5ffe1;
+    }
+    75% {
+        border-bottom: 2px solid #b5ffe1;
+    }
+    100% {
+        border-left: 2px solid #b5ffe1;
+    }
 }
 
 nav .logo-nav {
@@ -57,6 +80,10 @@ nav .logo-nav {
     }
     .garis .bulat {
         left: 10px;
+    }
+    .nav-item .nav-link {
+        display: inline-block;
+        padding: 10px 30px;
     }
 }
 

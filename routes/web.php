@@ -14,24 +14,45 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('beranda');
+    return view('beranda', [
+        'title' => 'Beranda'
+    ]);
 });
 
 Route::get('/artikel', function () {
-    return view('artikel');
+    // Simulasi Data
+    $dataArtikel = [
+        [
+            "judul" => "Post Pertama",
+            "penulis" => "Tohsaka Sparkle",
+            "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel commodi laborum corporis adipisci facere, explicabo facilis necessitatibus omnis nam maxime, dolorem eaque, voluptatum nesciunt reiciendis id ut velit! Ut, iusto impedit libero sunt velit assumenda, quo non reprehenderit optio quisquam distinctio. Natus ab odio adipisci necessitatibus, dolorem nostrum dolorum nihil sunt, iusto architecto illo molestias consequatur earum dolores illum voluptate."
+        ], [
+            "judul" => "Post Kedua",
+            "penulis" => "Shido Maret",
+            "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel commodi laborum corporis adipisci facere, explicabo facilis necessitatibus omnis nam maxime, dolorem eaque, voluptatum nesciunt reiciendis id ut velit! Ut, iusto impedit libero sunt velit assumenda, quo non reprehenderit optio quisquam distinctio. Natus ab odio adipisci necessitatibus, dolorem nostrum dolorum nihil sunt, iusto architecto illo molestias consequatur earum dolores illum voluptate. Reprehenderit optio quisquam distinctio. Natus ab odio adipisci necessitatibus, dolorem nostrum dolorum nihil sunt, iusto architecto illo molestias consequatur earum dolores illum voluptate"
+        ]
+    ];
+    return view('artikel',  [
+        'title' => 'Artikel',
+        "article" => $dataArtikel
+    ]);
 });
 
 Route::get('/quran', function () {
-    return view('quran');
+    return view('quran',  [
+        'title' => "Al-Qur'an"
+    ]);
 });
 
 Route::get('/galeri', function () {
-    return view('galeri');
+    return view('galeri',  [
+        'title' => 'Galeri'
+    ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
-        "title" => "Ngabar",
+        "title" => "Tentang Kami",
         "description" => "Tempat Diskusi Online",
         "image" => "kabah.jpg"
     ]);
