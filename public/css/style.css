@@ -71,6 +71,82 @@ nav .logo-nav {
     font-weight: bold;
 }
 
+/* CSS Artikel */
+.container-artikel {
+    padding-bottom: 700px;
+}
+.tag {
+    display: flex;
+    text-align: center;
+    margin-top: 30px;
+    background-color: white;
+    padding: 10px;
+    justify-content: space-evenly;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.tag a {
+    text-decoration: none;
+    background-color: #41a77e;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.tag a:hover {
+    background-color: #2d3a3a;
+}
+
+.kanvas {
+    display: flex;
+    height: 700px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    overflow: auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.kanvas h5 {
+    color: gray;
+}
+
+.artikelPost {
+    margin-top: 40px;
+}
+
+/* CSS Tiap Artikel */
+.kanvasAll {
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    padding: 20px 30px;
+    display: flex;
+}
+
+.kanvasAll h5 {
+    color: gray;
+}
+
+.kembaliButton {
+    background-color: #41a77e;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    float: right;
+}
+
+.kembaliButton:hover {
+    background-color: #2d3a3a;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     hr {
