@@ -4,10 +4,11 @@
     <h1>Halaman Artikel</h1>
 </center>
 <div class="container-artikel">
-
+    
     <div class="tag">
         <a href="">Informasi</a>
         <a href="">Pengetahuan</a>
+        <a href="">Kuis</a>
         <a href="">Pemberitahuan</a>
     </div>
     <div class="kanvas">

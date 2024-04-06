@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\ArtikelController;
+use App\Models\Artikel;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,26 +23,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/artikel', function () {
-    // Simulasi Data
-    $dataArtikel = [
-        [
-            "judul" => "Post Pertama",
-            "slug" => "post-pertama",
-            "penulis" => "Tohsaka Sparkle",
-            "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel commodi laborum corporis adipisci facere, explicabo facilis necessitatibus omnis nam maxime, dolorem eaque, voluptatum nesciunt reiciendis id ut velit! Ut, iusto impedit libero sunt velit assumenda, quo non reprehenderit optio quisquam distinctio. Natus ab odio adipisci necessitatibus, dolorem nostrum dolorum nihil sunt, iusto architecto illo molestias consequatur earum dolores illum voluptate."
-        ], [
-            "judul" => "Post Kedua",
-            "slug" => "post-kedua",
-            "penulis" => "Shido Maret",
-            "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel commodi laborum corporis adipisci facere, explicabo facilis necessitatibus omnis nam maxime, dolorem eaque, voluptatum nesciunt reiciendis id ut velit! Ut, iusto impedit libero sunt velit assumenda, quo non reprehenderit optio quisquam distinctio. Natus ab odio adipisci necessitatibus, dolorem nostrum dolorum nihil sunt, iusto architecto illo molestias consequatur earum dolores illum voluptate. Reprehenderit optio quisquam distinctio. Natus ab odio adipisci necessitatibus, dolorem nostrum dolorum nihil sunt, iusto architecto illo molestias consequatur earum dolores illum voluptate"
-        ]
-    ];
-    return view('artikel',  [
-        'title' => 'Artikel',
-        "article" => $dataArtikel
-    ]);
-});
 
 Route::get('/quran', function () {
     return view('quran',  [
@@ -60,31 +44,9 @@ Route::get('/about', function () {
     ]);
 });
 
-// Rute ke setiap artikel
-Route::get('/artikel/{slug}', function ($slug) {
-    // Simulasi Data
-    $dataArtikel = [
-        [
-            "judul" => "Post Pertama",
-            "slug" => "post-pertama",
-            "penulis" => "Tohsaka Sparkle",
-            "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel commodi laborum corporis adipisci facere, explicabo facilis necessitatibus omnis nam maxime, dolorem eaque, voluptatum nesciunt reiciendis id ut velit! Ut, iusto impedit libero sunt velit assumenda, quo non reprehenderit optio quisquam distinctio. Natus ab odio adipisci necessitatibus, dolorem nostrum dolorum nihil sunt, iusto architecto illo molestias consequatur earum dolores illum voluptate."
-        ], [
-            "judul" => "Post Kedua",
-            "slug" => "post-kedua",
-            "penulis" => "Shido Maret",
-            "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel commodi laborum corporis adipisci facere, explicabo facilis necessitatibus omnis nam maxime, dolorem eaque, voluptatum nesciunt reiciendis id ut velit! Ut, iusto impedit libero sunt velit assumenda, quo non reprehenderit optio quisquam distinctio. Natus ab odio adipisci necessitatibus, dolorem nostrum dolorum nihil sunt, iusto architecto illo molestias consequatur earum dolores illum voluptate. Reprehenderit optio quisquam distinctio. Natus ab odio adipisci necessitatibus, dolorem nostrum dolorum nihil sunt, iusto architecto illo molestias consequatur earum dolores illum voluptate"
-        ]
-    ];
+// Route semua artikel
+Route::get('/artikel', [ArtikelController::class, "index"]);
 
-    $newArtikel = [];
-    foreach ($dataArtikel as $post) {
-        if ($post["slug"] === $slug) {
-            $newArtikel = $post;
-        }
-    }
-    return view('setiapArtikel', [
-        "title" => "Semua Artikel",
-        "articlePost" => $newArtikel
-    ]);
-});
+
+// Rute ke setiap artikel
+Route::get('/artikel/{slug}', [ArtikelController::class, "show"]);
