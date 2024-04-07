@@ -122,13 +122,27 @@ nav .logo-nav {
 
 .artikelPost {
     margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .artikelPost article {
+    width: 450px;
+    height: 200px;
     border: 1px solid black;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 5px 5px 5px #2d3a3a;
+}
+
+.artikelPost article a {
+    text-decoration: none;
+    color: #008000;
+}
+
+.artikelPost article:hover {
+    background-color: #9ef01a;
 }
 
 /* CSS Tiap Artikel */

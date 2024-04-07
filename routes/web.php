@@ -49,4 +49,4 @@ Route::get('/artikel', [ArtikelController::class, "index"]);
 
 
 // Rute ke setiap artikel
-Route::get('/artikel/{slug}', [ArtikelController::class, "show"]);
+Route::get('/artikel/{artikel:slug}', [ArtikelController::class, "show"]);

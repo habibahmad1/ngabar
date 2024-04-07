@@ -15,11 +15,11 @@
         <div class="artikelPost">
             @foreach ($article as $post)
                 <article class="mb-5"> 
-                    <a href="/artikel/{{ $post['slug'] }}">
-                        <h2>{{ $post['judul'] }}</h2>
+                    <a href="/artikel/{{ $post->slug }}">
+                        <h2>{{ $post->judul }}</h2>
                     </a>   
-                    <h5>By: {{ $post['penulis'] }}</h5>
-                    <p>{{ $post['artikelPost'] }}</p>
+                    <h5>By: {{ $post->penulis }}</h5>
+                    <p>{{ $post->excerpt }}</p>
                 </article>
             @endforeach
         </div>

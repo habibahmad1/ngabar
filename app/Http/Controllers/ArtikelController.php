@@ -14,11 +14,11 @@ class ArtikelController extends Controller
             "article" => Artikel::all()
         ]);
     }
-    public function show($slug)
+    public function show(Artikel $artikel)
     {
         return view('setiapArtikel', [
             "title" => "Artikel",
-            "articlePost" => Artikel::find($slug)
+            "articlePost" => $artikel
         ]);
     }
 }
