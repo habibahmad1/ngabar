@@ -81,28 +81,61 @@ nav .logo-nav {
 }
 .tag {
     display: flex;
-    text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
     background-color: #b5ffe1;
-    padding: 40px 10px;
-    justify-content: space-evenly;
+    color: #2d3a3a;
+    height: 100px;
+    align-items: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    border-bottom: 5px solid #41a77e;
+    border-bottom: 5px solid #27187e;
+    overflow: hidden;
 }
 
-.tag a {
-    text-decoration: none;
-    background-color: #41a77e;
+.tag .informasi {
+    background-color: #27187e;
+    flex-grow: 1;
     color: white;
+    line-height: 100px;
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
     font-weight: bold;
-    padding: 15px 80px;
-    border-radius: 10px;
-    margin-top: 20px;
 }
 
-.tag a:hover {
-    background-color: #2d3a3a;
+.tag .pengetahuan {
+    background-color: #758bfd;
+    flex-grow: 1;
+    color: white;
+    line-height: 100px;
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+.tag .kuis {
+    background-color: #758bfd;
+    flex-grow: 1;
+    color: white;
+    line-height: 100px;
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+.tag .pemberitahuan {
+    background-color: #758bfd;
+    flex-grow: 1;
+    color: white;
+    line-height: 100px;
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+.tag div:hover {
+    background-color: #27187e;
 }
 
 .kanvas {
@@ -116,11 +149,11 @@ nav .logo-nav {
     border-bottom-right-radius: 20px;
 }
 
-.kanvas h5 {
-    color: gray;
+.artikelPost {
+    margin: 10px;
 }
 
-.artikelPost {
+.content-informasi {
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
@@ -133,16 +166,19 @@ nav .logo-nav {
     border: 1px solid black;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px #2d3a3a;
+    box-shadow: 5px 5px 5px #0289ff;
 }
 
 .artikelPost article a {
     text-decoration: none;
-    color: #008000;
+    color: black;
 }
 
 .artikelPost article:hover {
-    background-color: #9ef01a;
+    background-color: #758bfd;
+    box-shadow: 5px 5px 5px #27187e;
+
+    color: white;
 }
 
 /* CSS Tiap Artikel */

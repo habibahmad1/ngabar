@@ -6,22 +6,31 @@
 <div class="container-artikel">
     
     <div class="tag">
-        <a href="">Informasi</a>
-        <a href="">Pengetahuan</a>
-        <a href="">Kuis</a>
-        <a href="">Pemberitahuan</a>
+        <div class="informasi">Informasi</div>
+        <div class="pengetahuan">Pengetahuan</div>
+        <div class="kuis">Kuis</div>
+        <div class="pemberitahuan">Pemberitahuan</div>
     </div>
     <div class="kanvas">
         <div class="artikelPost">
-            @foreach ($article as $post)
-                <article class="mb-5"> 
-                    <a href="/artikel/{{ $post->slug }}">
-                        <h2>{{ $post->judul }}</h2>
-                    </a>   
-                    <h5>By: {{ $post->penulis }}</h5>
-                    <p>{{ $post->excerpt }}</p>
-                </article>
-            @endforeach
+            {{-- Content Informasi --}}
+            <div class="content-informasi">
+                @foreach ($article as $post)
+                    <article class="mb-5"> 
+                        <a href="/artikel/{{ $post->slug }}">
+                            <h2>{{ $post->judul }}</h2>
+                        </a>   
+                        <h5>By: {{ $post->penulis }}</h5>
+                        <p>{{ $post->excerpt }}</p>
+                    </article>
+                    @endforeach
+            </div>
+                {{-- Content Pengetahuan --}}
+                <div class="content-pengetahuan"></div>
+                {{-- Content kuis --}}
+                <div class="content-kuis"></div>
+                {{-- Content pemberitahuan --}}
+                <div class="content-pemberitahuan"></div>
         </div>
     </div>
     
