@@ -95,7 +95,7 @@ nav .logo-nav {
 .tag .informasi {
     background-color: #27187e;
     flex-grow: 1;
-    color: white;
+    color: #fff;
     line-height: 100px;
     cursor: pointer;
     text-align: center;
