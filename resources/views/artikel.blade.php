@@ -26,11 +26,17 @@
                     @endforeach
             </div>
                 {{-- Content Pengetahuan --}}
-                <div class="content-pengetahuan"></div>
+                <div class="content-pengetahuan">
+                    <h1>Content Pengetahuan</h1>
+                </div>
                 {{-- Content kuis --}}
-                <div class="content-kuis"></div>
+                <div class="content-kuis">
+                    <h1>Content Kuis</h1>
+                </div>
                 {{-- Content pemberitahuan --}}
-                <div class="content-pemberitahuan"></div>
+                <div class="content-pemberitahuan">
+                    <h1>Content Pemberitahuan</h1>
+                </div>
         </div>
     </div>
     

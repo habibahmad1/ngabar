@@ -154,8 +154,29 @@ nav .logo-nav {
 }
 
 .content-informasi {
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.content-pengetahuan {
+    margin-top: 30px;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.content-kuis {
+    margin-top: 30px;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.content-pemberitahuan {
+    margin-top: 30px;
+    display: none;
     flex-wrap: wrap;
     justify-content: space-around;
 }
