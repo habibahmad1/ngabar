@@ -134,6 +134,30 @@ nav .logo-nav {
     font-weight: bold;
 }
 
+.tag .modeGrid {
+    background-color: #758bfd;
+    flex-grow: 0.5;
+    color: white;
+    line-height: 100px;
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+}
+
+.tag .modeBar {
+    background-color: #758bfd;
+    flex-grow: 0.5;
+    color: white;
+    line-height: 100px;
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
 .tag div:hover {
     background-color: #27187e;
 }
@@ -146,7 +170,6 @@ nav .logo-nav {
     overflow: auto;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    text-align: center;
 }
 
 .category {
@@ -154,6 +177,7 @@ nav .logo-nav {
     background-color: #0289ff;
     padding: 10px 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .category:hover {

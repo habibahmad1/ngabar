@@ -11,6 +11,11 @@ const contentPemberitahuan = document.querySelector(".content-pemberitahuan");
 
 const Allcategory = document.querySelector(".category");
 
+// Mode Grid
+const grid = document.querySelector(".modeGrid");
+const bar = document.querySelector(".modeBar");
+const artikelGrid = document.querySelectorAll(".artikelPost article");
+
 // Fungsi ganti bar artikel yg aktif
 
 function toggleDisplay(elementShow, elementHide1, elementHide2, elementHide3) {
@@ -68,4 +73,24 @@ pemberitahuan.addEventListener("click", () => {
     );
     isActive(pemberitahuan, informasi, pengetahuan, kuis);
     Allcategory.style.display = "none";
+});
+
+// Mode Grid
+grid.addEventListener("click", () => {
+    // Mengubah gaya untuk mode grid
+    artikelGrid.forEach(function (item) {
+        item.style.width = "450px";
+        item.style.border = "1px solid black";
+        item.style.boxShadow = "5px 5px 5px #0289ff";
+    });
+});
+
+// Mode Bar
+bar.addEventListener("click", () => {
+    // Mengubah gaya untuk mode bar
+    artikelGrid.forEach(function (item) {
+        item.style.width = "100%";
+        // item.style.border = "none";
+        item.style.boxShadow = "none";
+    });
 });

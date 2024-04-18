@@ -10,9 +10,14 @@
         <div class="pengetahuan">Pengetahuan</div>
         <div class="kuis">Kuis</div>
         <div class="pemberitahuan">Pemberitahuan</div>
-    </div>
+        <div class="modeGrid"><i class="fa-solid fa-border-all"></i></div>
+        <div class="modeBar"><i class="fa-solid fa-bars"></i></div>
+        </div>
     <div class="kanvas">
-        <div class="category"><a href="/categories">All Category</a></div>
+        <center>
+            <div class="category"><a href="/categories">All Category</a></div>
+        </center>
+
         <div class="artikelPost">
             {{-- Content Informasi --}}
             <div class="content-informasi">
