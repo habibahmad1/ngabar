@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArtikelController;
 use App\Models\Artikel;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 
@@ -50,3 +51,20 @@ Route::get('/artikel', [ArtikelController::class, "index"]);
 
 // Rute ke setiap artikel
 Route::get('/artikel/{artikel:slug}', [ArtikelController::class, "show"]);
+
+// Route ke category
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('category', [
+        "title" => $category->nama,
+        "artikelPost" => $category->artikel,
+        "category" => $category->nama
+    ]);
+});
+
+// Route ke Semua category
+Route::get('/categories', function (Category $category) {
+    return view('categories', [
+        "title" => 'All Categories',
+        "categories" => Category::all()
+    ]);
+});

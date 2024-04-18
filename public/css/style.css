@@ -139,7 +139,6 @@ nav .logo-nav {
 }
 
 .kanvas {
-    display: flex;
     height: 700px;
     background-color: white;
     color: black;
@@ -147,6 +146,24 @@ nav .logo-nav {
     overflow: auto;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    text-align: center;
+}
+
+.category {
+    display: inline-block;
+    background-color: #0289ff;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.category:hover {
+    background-color: #27187e;
+}
+
+.category a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .artikelPost {

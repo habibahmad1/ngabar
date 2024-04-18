@@ -12,6 +12,7 @@
         <div class="pemberitahuan">Pemberitahuan</div>
     </div>
     <div class="kanvas">
+        <div class="category"><a href="/categories">All Category</a></div>
         <div class="artikelPost">
             {{-- Content Informasi --}}
             <div class="content-informasi">

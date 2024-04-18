@@ -9,6 +9,8 @@ const contentPengetahuan = document.querySelector(".content-pengetahuan");
 const contentKuis = document.querySelector(".content-kuis");
 const contentPemberitahuan = document.querySelector(".content-pemberitahuan");
 
+const Allcategory = document.querySelector(".category");
+
 // Fungsi ganti bar artikel yg aktif
 
 function toggleDisplay(elementShow, elementHide1, elementHide2, elementHide3) {
@@ -35,6 +37,7 @@ informasi.addEventListener("click", () => {
         contentPemberitahuan
     );
     isActive(informasi, pengetahuan, kuis, pemberitahuan);
+    Allcategory.style.display = "inline-block";
 });
 pengetahuan.addEventListener("click", () => {
     toggleDisplay(
@@ -44,6 +47,7 @@ pengetahuan.addEventListener("click", () => {
         contentPemberitahuan
     );
     isActive(pengetahuan, informasi, kuis, pemberitahuan);
+    Allcategory.style.display = "none";
 });
 kuis.addEventListener("click", () => {
     toggleDisplay(
@@ -53,6 +57,7 @@ kuis.addEventListener("click", () => {
         contentPemberitahuan
     );
     isActive(kuis, informasi, pengetahuan, pemberitahuan);
+    Allcategory.style.display = "none";
 });
 pemberitahuan.addEventListener("click", () => {
     toggleDisplay(
@@ -62,4 +67,5 @@ pemberitahuan.addEventListener("click", () => {
         contentKuis
     );
     isActive(pemberitahuan, informasi, pengetahuan, kuis);
+    Allcategory.style.display = "none";
 });
