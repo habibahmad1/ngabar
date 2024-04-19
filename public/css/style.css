@@ -237,10 +237,8 @@ nav .logo-nav {
 }
 
 .artikelPost article:hover {
-    background-color: #758bfd;
+    background-color: #c6cfff;
     box-shadow: 5px 5px 5px #27187e;
-
-    color: white;
 }
 
 /* CSS Tiap Artikel */
