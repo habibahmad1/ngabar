@@ -1,7 +1,7 @@
 @extends('./layouts/main')
 @section('content')
 
-<h1>Post Category : {{ $category }}</h1>
+<h1>Artikel Category : {{ $category }}</h1>
 <div class="kanvas">
     <div class="artikelPost">
         <div class="content-informasi">

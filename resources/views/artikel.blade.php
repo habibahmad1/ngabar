@@ -1,7 +1,7 @@
 @extends('./layouts/main')
 @section('content')
 <center>
-    <h1>Halaman Artikel</h1>
+    <h1>Halaman {{ $title }}</h1>
 </center>
 <div class="container-artikel">
     
