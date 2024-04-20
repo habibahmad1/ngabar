@@ -15,64 +15,77 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
-        User::create([
-            "name" => "Habib",
-            "email" => "habib@mail.com",
-            "password" => bcrypt("123"),
-        ]);
-        User::create([
-            "name" => "Robin",
-            "email" => "robin@mail.com",
-            "password" => bcrypt("123"),
-        ]);
+        // User::create([
+        //     "name" => "Habib",
+        //     "email" => "habib@mail.com",
+        //     "password" => bcrypt("123"),
+        // ]);
+        // User::create([
+        //     "name" => "Robin",
+        //     "email" => "robin@mail.com",
+        //     "password" => bcrypt("123"),
+        // ]);
 
-        Category::create([
-            "nama" => "Tutorial",
-            "slug" => "tutorial",
-        ]);
-        Category::create([
-            "nama" => "Personal",
-            "slug" => "personal",
-        ]);
+        // User::factory(5)->create();
 
-        Artikel::create([
-            "judul" => "Judul Pertama",
-            "slug" => "judul-pertama",
-            "excerpt" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum",
-            "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum, reprehenderit qui itaque vel molestias delectus laboriosam eligendi at quae blanditiis commodi ut quia dignissimos id expedita aperiam ducimus ad! Itaque suscipit, voluptate eaque, cum libero autem alias quas nam molestiae nostrum quibusdam ullam voluptas",
-            "category_id" => 1,
-            "user_id" => 1
-        ]);
-        Artikel::create([
-            "judul" => "Judul Kedua",
-            "slug" => "judul-kedua",
-            "excerpt" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum",
-            "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum, reprehenderit qui itaque vel molestias delectus laboriosam eligendi at quae blanditiis commodi ut quia dignissimos id expedita aperiam ducimus ad! Itaque suscipit, voluptate eaque, cum libero autem alias quas nam molestiae nostrum quibusdam ullam voluptas",
-            "category_id" => 1,
-            "user_id" => 1
-        ]);
-        Artikel::create([
-            "judul" => "Judul Ketiga",
-            "slug" => "judul-ketiga",
-            "excerpt" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum",
-            "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum, reprehenderit qui itaque vel molestias delectus laboriosam eligendi at quae blanditiis commodi ut quia dignissimos id expedita aperiam ducimus ad! Itaque suscipit, voluptate eaque, cum libero autem alias quas nam molestiae nostrum quibusdam ullam voluptas",
-            "category_id" => 2,
-            "user_id" => 2
-        ]);
-        Artikel::create([
-            "judul" => "Judul Empat",
-            "slug" => "judul-empat",
-            "excerpt" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum",
-            "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum, reprehenderit qui itaque vel molestias delectus laboriosam eligendi at quae blanditiis commodi ut quia dignissimos id expedita aperiam ducimus ad! Itaque suscipit, voluptate eaque, cum libero autem alias quas nam molestiae nostrum quibusdam ullam voluptas",
-            "category_id" => 2,
-            "user_id" => 2
-        ]);
+
+        // Category::factory()->tutorial()->create();
+        // Category::factory()->informasi()->create();
+        // Category::factory()->personal()->create();
+
+
+        // Category::create([
+        //     "nama" => "Tutorial",
+        //     "slug" => "tutorial",
+        // ]);
+        // Category::create([
+        //     "nama" => "Informasi",
+        //     "slug" => "informasi",
+        // ]);
+        // Category::create([
+        //     "nama" => "Personal",
+        //     "slug" => "personal",
+        // ]);
+
+        Artikel::factory(2)->create();
+
+        // Artikel::create([
+        //     "judul" => "Judul Pertama",
+        //     "slug" => "judul-pertama",
+        //     "excerpt" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum",
+        //     "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum, reprehenderit qui itaque vel molestias delectus laboriosam eligendi at quae blanditiis commodi ut quia dignissimos id expedita aperiam ducimus ad! Itaque suscipit, voluptate eaque, cum libero autem alias quas nam molestiae nostrum quibusdam ullam voluptas",
+        //     "category_id" => 1,
+        //     "user_id" => 1
+        // ]);
+        // Artikel::create([
+        //     "judul" => "Judul Kedua",
+        //     "slug" => "judul-kedua",
+        //     "excerpt" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum",
+        //     "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum, reprehenderit qui itaque vel molestias delectus laboriosam eligendi at quae blanditiis commodi ut quia dignissimos id expedita aperiam ducimus ad! Itaque suscipit, voluptate eaque, cum libero autem alias quas nam molestiae nostrum quibusdam ullam voluptas",
+        //     "category_id" => 1,
+        //     "user_id" => 1
+        // ]);
+        // Artikel::create([
+        //     "judul" => "Judul Ketiga",
+        //     "slug" => "judul-ketiga",
+        //     "excerpt" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum",
+        //     "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum, reprehenderit qui itaque vel molestias delectus laboriosam eligendi at quae blanditiis commodi ut quia dignissimos id expedita aperiam ducimus ad! Itaque suscipit, voluptate eaque, cum libero autem alias quas nam molestiae nostrum quibusdam ullam voluptas",
+        //     "category_id" => 2,
+        //     "user_id" => 2
+        // ]);
+        // Artikel::create([
+        //     "judul" => "Judul Empat",
+        //     "slug" => "judul-empat",
+        //     "excerpt" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum",
+        //     "artikelPost" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam ullam deleniti natus eligendi ab porro praesentium. Consectetur odit cupiditate ipsum, reprehenderit qui itaque vel molestias delectus laboriosam eligendi at quae blanditiis commodi ut quia dignissimos id expedita aperiam ducimus ad! Itaque suscipit, voluptate eaque, cum libero autem alias quas nam molestiae nostrum quibusdam ullam voluptas",
+        //     "category_id" => 2,
+        //     "user_id" => 2
+        // ]);
     }
 }

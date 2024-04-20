@@ -11,7 +11,9 @@ class ArtikelController extends Controller
     {
         return view('artikel',  [
             'title' => 'Artikel',
-            "article" => Artikel::all()
+            // "article" => Artikel::all()
+            // agar urut terbaru
+            "article" => Artikel::latest()->get()
         ]);
     }
     public function show(Artikel $artikel)

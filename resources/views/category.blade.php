@@ -8,9 +8,9 @@
             @foreach ($artikelPost as $post)
                 <article class="mb-5"> 
                   <a href="/artikel/{{ $post->slug }}">
-                      <h2>{{ $post->judul }}</h2>
+                      <h2 style="color: #41a77e">{{ $post->judul }}</h2>
                   </a>   
-                  <h5>By: {{ $post->penulis }}</h5>
+                  <h5>By: {{ $post->user->name }} in <span style="color: #41a77e">{{ $post->category->nama }}</span></h5>
                   <p>{{ $post->excerpt }}</p>
                 </article>
             @endforeach
