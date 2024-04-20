@@ -249,6 +249,11 @@ nav .logo-nav {
     display: flex;
 }
 
+.gambarTiapPost img {
+    width: 100%;
+    height: auto;
+}
+
 .kanvasAll h5 {
     color: gray;
 }
@@ -261,6 +266,15 @@ nav .logo-nav {
     color: white;
     font-weight: bold;
     float: right;
+}
+
+.selengkapnya {
+    background-color: #41a77e;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
 .kembaliButton:hover {

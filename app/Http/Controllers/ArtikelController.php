@@ -13,7 +13,7 @@ class ArtikelController extends Controller
             'title' => 'Artikel',
             // "article" => Artikel::all()
             // agar urut terbaru
-            "article" => Artikel::with(['user', 'category'])->latest()->get()
+            "article" => Artikel::latest()->get()
         ]);
     }
     public function show(Artikel $artikel)
