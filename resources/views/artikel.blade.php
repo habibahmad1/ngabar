@@ -26,7 +26,7 @@
                         <a href="/artikel/{{ $post->slug }}">
                             <h2 style="color: #41a77e">{{ $post->judul }}</h2>
                         </a>   
-                        <h5>By: <a href="#" style="color: #41a77e">{{ $post->user->name }}</a> in <a href="/categories/{{ $post->category->slug }}" style="color: #41a77e">{{ $post->category->nama }}</a> </h5>
+                        <h5>By: <a href="/authors/{{ $post->user->username }}" style="color: #41a77e">{{ $post->user->name }}</a> in <a href="/categories/{{ $post->category->slug }}" style="color: #41a77e">{{ $post->category->nama }}</a> </h5>
                         <p>{{ $post->excerpt }}</p>
 
                         <a href="/artikel/{{ $post->slug }}" class="kembaliButton" style="color: white">Baca Selengkapnya</a>

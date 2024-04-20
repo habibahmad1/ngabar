@@ -27,9 +27,11 @@ class UserFactory extends Factory
         $lastName = $this->faker->lastName();
 
         $name = $firstName . ' ' . $lastName;
+        $username = $firstName;
 
         return [
             'name' => $name,
+            'username' => $username,
             'email' => strtolower(str_replace(' ', '.', $name)) . '@gmail.com',
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),

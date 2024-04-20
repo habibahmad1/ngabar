@@ -32,12 +32,12 @@ class DatabaseSeeder extends Seeder
         //     "password" => bcrypt("123"),
         // ]);
 
-        // User::factory(5)->create();
+        User::factory(5)->create();
 
 
-        // Category::factory()->tutorial()->create();
-        // Category::factory()->informasi()->create();
-        // Category::factory()->personal()->create();
+        Category::factory()->tutorial()->create();
+        Category::factory()->informasi()->create();
+        Category::factory()->personal()->create();
 
 
         // Category::create([
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         //     "slug" => "personal",
         // ]);
 
-        Artikel::factory(2)->create();
+        Artikel::factory(20)->create();
 
         // Artikel::create([
         //     "judul" => "Judul Pertama",
