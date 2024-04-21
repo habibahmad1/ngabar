@@ -27,14 +27,14 @@
                 @if ($article->count())
 
                 <div class="card mb-5 text-center">
-                    <img src="https://source.unsplash.com/1200x400/?japan" class="card-img-top" alt="...">
+                    <img src="https://source.unsplash.com/1200x400?japan" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h3 class="card-title" style="color: #41a77e"><a href="/artikel/{{ $article[0]->slug }}" class="text-decoration-none" style="color: #41a77e">{{ $article[0]->judul }}</a></h3>
 
-                      <h5>By: <a href="/authors/{{ $article[0]->user->username }}" style="color: #41a77e" class="text-decoration-none">{{ $article[0]->user->name }}</a> in <a href="/categories/{{ $article[0]->category->slug }}" style="color: #41a77e" class="text-decoration-none">{{ $article[0]->category->nama }}</a> </h5>
+                      <h5>Penulis : <a href="/authors/{{ $article[0]->user->username }}" style="color: #41a77e" class="text-decoration-none">{{ $article[0]->user->name }}</a> <a href="/categories/{{ $article[0]->category->slug }}" style="color: #41a77e" class="text-decoration-none badge text-bg-danger">{{ $article[0]->category->nama }}</a> </h5>
 
                       <p class="card-text">{{ $article[0]->excerpt }}</p>
-                      <p class="card-text"><small class="text-info fw-bold">Last updated {{ $article[0]->created_at->diffForHumans() }}</small></p>
+                      <p class="card-text"><small class="text-info fw-bold">{{ $article[0]->created_at->diffForHumans() }}</small></p>
 
                       <a href="/artikel/{{ $article[0]->slug }}" class="selengkapnya" style="color: white">Baca Selengkapnya</a>
                     </div>
@@ -43,18 +43,24 @@
                     <p class="text-center fs-4  ">Artikel Tidak Ditemukan</p>    
                 @endif
 
-                @foreach ($article as $post)
+                @foreach ($article->skip(1) as $post)
                     <article class="mb-5">
-                        <div class="text-center">
-                            <img src="https://source.unsplash.com/420x100/?{{ $post->category->nama }}"  alt="imgPost" class="rounded mb-3">
+                        <div class="text-center gambarTiapPost">
+                            <img src="https://source.unsplash.com/500x400?{{ $post->category->nama }}"  alt="imgPost" class="rounded mb-3">
                         </div>
+
                         <a href="/artikel/{{ $post->slug }}">
                             <h2 style="color: #41a77e">{{ $post->judul }}</h2>
-                        </a>   
-                        <h5>By: <a href="/authors/{{ $post->user->username }}" style="color: #41a77e">{{ $post->user->name }}</a> in <a href="/categories/{{ $post->category->slug }}" style="color: #41a77e">{{ $post->category->nama }}</a> </h5>
-                        <p>{{ $post->excerpt }}</p>
+                        </a>
+                           
+                        <small class="fw-bold">Penulis :<a href="/authors/{{ $post->user->username }}" style="color: #41a77e" > {{ $post->user->name }} </a>                         
+                            
+                        <div class="badge text-bg-danger"><a href="/categories/{{ $post->category->slug }}" class="text-white">{{ $post->category->nama }}</a></div>
+                            <a class="text-info">{{ $post->created_at->diffForHumans() }}</a>
+                        </small> 
+                        
 
-                        <p class="card-text"><small class="text-info fw-bold">Last updated {{ $post->created_at->diffForHumans() }}</small></p>
+                        <p>{{ $post->excerpt }}</p>
 
                         <a href="/artikel/{{ $post->slug }}" class="kembaliButton" style="color: white">Baca Selengkapnya</a>
                     </article>
