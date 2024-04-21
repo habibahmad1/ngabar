@@ -250,10 +250,6 @@ nav .logo-nav {
     justify-content: space-evenly;
 }
 
-.banner1 {
-    order: 2;
-}
-
 .setiapArtikel {
     width: 800px;
     background-color: white;

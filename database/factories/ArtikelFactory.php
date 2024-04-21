@@ -21,20 +21,22 @@ class ArtikelFactory extends Factory
     {
         $judul = $this->faker->sentence(mt_rand(2, 7));
         $slug = Str::slug($judul);
-        $artikelPost = $this->faker->paragraphs(mt_rand(10, 20), true); // Menghasilkan beberapa paragraf sebagai satu string
+        // $artikelPost = ; // Menghasilkan beberapa paragraf sebagai satu string
 
         // Memisahkan teks menjadi paragraf
-        $paragraf = explode("\n\n", $artikelPost);
+        // $paragraf = explode("\n\n", $artikelPost);
 
         // Mengambil dua paragraf pertama
-        $excerpt = implode("\n\n", array_slice($paragraf, 0, 2));
+        // $excerpt = implode("\n\n", array_slice($paragraf, 0, 2));
 
         return [
             "judul" => $judul,
             "slug" => $slug,
-            "excerpt" => $excerpt,
-            "artikelPost" => $artikelPost, // Menggunakan $artikelPost asli untuk artikel lengkap
-            "category_id" => mt_rand(1, 3),
+            "excerpt" => $this->faker->paragraph(mt_rand(5, 6)),
+            "artikelPost" => collect($this->faker->paragraphs(mt_rand(10, 20)))
+                ->map(fn ($p) => "<p>$p</p>")
+                ->implode(''), // Menggunakan $artikelPost asli untuk artikel lengkap
+            "category_id" => mt_rand(1, 4),
             "user_id" => mt_rand(1, 5)
         ];
     }

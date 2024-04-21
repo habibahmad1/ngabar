@@ -55,4 +55,15 @@ class CategoryFactory extends Factory
             ];
         });
     }
+
+    // State for Bebas category
+    public function bebas()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'nama' => 'Bebas',
+                'slug' => 'bebas',
+            ];
+        });
+    }
 }
