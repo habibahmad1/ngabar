@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ArtikelController;
-use App\Http\Controllers\UserController;
 use App\Models\Artikel;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\ArtikelController;
 
 
 
@@ -33,11 +34,11 @@ Route::get('/quran', function () {
     ]);
 });
 
-Route::get('/galeri', function () {
-    return view('galeri',  [
-        'title' => 'Galeri'
-    ]);
-});
+// Route ke semua galery
+Route::get('/galeri', [GaleriController::class, 'index']);
+
+// Route ke detail galery
+Route::get('/detail/{galeri}', [GaleriController::class, 'detail']);
 
 Route::get('/about', function () {
     return view('about', [

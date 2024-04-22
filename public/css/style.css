@@ -238,6 +238,8 @@ nav .logo-nav {
 .artikelPost article:hover {
     background-color: #fff3b0;
     box-shadow: 5px 5px 5px #e09f3e;
+    transform: scale(0.98);
+    transition: 0.5s;
 }
 
 /* CSS Tiap Artikel */
@@ -297,6 +299,131 @@ nav .logo-nav {
 .aboutJudul {
     padding: 15px;
     border-bottom: 2px solid #b5ffe1;
+}
+
+/* CSS Hal Galeri */
+.container-galeri {
+    background-color: white;
+    margin: 20px 0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 800px;
+    overflow: auto;
+    padding-bottom: 100px;
+}
+
+.boxImg {
+    width: 380px;
+    margin-top: 40px;
+    background-color: #fff;
+    border-radius: 20px;
+    color: black;
+    display: flex;
+    position: relative;
+    box-shadow: 5px 5px 5px #fed766;
+}
+
+@keyframes kartu {
+    50% {
+        transform: rotate(5deg) scale(0.97);
+        border: 1px solid #fff3b0;
+    }
+    100% {
+        transform: rotate(-5deg) scale(0.97);
+        border: 1px solid #fff3b0;
+    }
+}
+
+.boxImg:hover {
+    animation: kartu 2s infinite forwards;
+}
+
+.boxImg img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.galeriKategori {
+    position: absolute;
+    right: 0;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgba(244, 9, 9, 0.6);
+    padding: 5px 10px;
+}
+
+.judulGaleri {
+    width: 380px;
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity 1s;
+    position: absolute;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    bottom: 0;
+    align-items: center;
+}
+
+/* Halaman Detail Galeri */
+.detailGaleri {
+    background-color: white;
+    margin: 20px 0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 800px;
+    overflow: auto;
+    padding-bottom: 100px;
+}
+
+.boxDetail {
+    width: 800px;
+    color: black;
+    margin-top: 40px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+}
+.boxDetail img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.galeriTiapKategori {
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    background-color: rgba(244, 9, 9, 0.6);
+    padding: 5px 10px;
+}
+
+.downloadGambar {
+    background-color: #0289ff;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    float: right;
+}
+
+.lapor {
+    background-color: #ef233c;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    float: right;
+    margin-right: 10px;
+}
+
+.clearfix {
+    clear: both;
+    margin-bottom: 20px;
 }
 
 /* Responsive */

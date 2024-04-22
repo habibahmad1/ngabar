@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Artikel;
+use App\Models\Galeri;
 
 class DatabaseSeeder extends Seeder
 {
@@ -40,6 +41,9 @@ class DatabaseSeeder extends Seeder
         Category::factory()->personal()->create();
         Category::factory()->bebas()->create();
 
+        $this->call(GaleriSeeder::class);
+
+        $this->call(KategoriGaleriSeeder::class);
 
         // Category::create([
         //     "nama" => "Tutorial",
