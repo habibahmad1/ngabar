@@ -16,6 +16,7 @@ class KategoriGaleriSeeder extends Seeder
         KategoriGaleri::factory()->kegiatan()->create();
         KategoriGaleri::factory()->pemandangan()->create();
         KategoriGaleri::factory()->personal()->create();
-        KategoriGaleri::factory()->bebas()->create();
+        KategoriGaleri::factory()->ilmu()->create();
+        KategoriGaleri::factory()->random()->create();
     }
 }

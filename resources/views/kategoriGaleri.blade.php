@@ -1,15 +1,15 @@
 @extends('./layouts/main')
 @section('content')
 
-<h1>All Category </h1>
+<h1 class="text-center my-3">{{ $judulPage }} </h1>
 <div class="kanvas">
     <div class="artikelPost">
         <div class="content-informasi">
-            @foreach ($categories as $category)
+            @foreach ($kategoriGaleri as $category)
                 <article class="mb-5 mt-5 text-center position-relative">
                   <a href="/categories/{{ $category->slug }}"> 
                     <div class="text-center gambarTiapPost">
-                        <img src="https://source.unsplash.com/400x200/?{{ $category->nama }}"  alt="imgPost" class="rounded">
+                        <img src="https://source.unsplash.com/400x265/?{{ $category->nama }}"  alt="imgPost" class="rounded">
                     </div>
                     <div class="position-absolute top-50 start-50 translate-middle ">
                        <p>
@@ -20,7 +20,7 @@
                 </article>
                 @endforeach
             </div>
-            <a href="/artikel" class="kembaliButton">Back</a>
+            <a href="/galeri" class="kembaliButton">Back</a>
     </div>
 </div>
 

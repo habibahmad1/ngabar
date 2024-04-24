@@ -23,7 +23,7 @@ class KategoriGaleriFactory extends Factory
         ];
     }
 
-    // State for Tutorial category
+    // State for kegiatan category
     public function kegiatan()
     {
         return $this->state(function (array $attributes) {
@@ -55,14 +55,24 @@ class KategoriGaleriFactory extends Factory
             ];
         });
     }
-
-    // State for Bebas category
-    public function bebas()
+    // State for ilmu category
+    public function ilmu()
     {
         return $this->state(function (array $attributes) {
             return [
-                'nama' => 'Bebas',
-                'slug' => 'bebas',
+                'nama' => 'Ilmu',
+                'slug' => 'ilmu',
+            ];
+        });
+    }
+
+    // State for Random category
+    public function random()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'nama' => 'Random',
+                'slug' => 'random',
             ];
         });
     }

@@ -11,14 +11,15 @@ class Galeri extends Model
 
     protected $guarded = ['id'];
 
+    protected $with = ["user", "kategoriGaleri"];
 
     public function kategoriGaleri()
     {
-        return $this->belongsTo(KategoriGaleri::class);
+        return $this->belongsTo(KategoriGaleri::class, 'kategoriGaleri_id');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap");
+
 body {
     background-image: linear-gradient(to right, #2d3a3a, #41a77e);
-
+    font-family: "Mukta", sans-serif;
     color: #b5ffe1;
 }
 
@@ -325,19 +327,9 @@ nav .logo-nav {
     box-shadow: 5px 5px 5px #fed766;
 }
 
-@keyframes kartu {
-    50% {
-        transform: rotate(5deg) scale(0.97);
-        border: 1px solid #fff3b0;
-    }
-    100% {
-        transform: rotate(-5deg) scale(0.97);
-        border: 1px solid #fff3b0;
-    }
-}
-
 .boxImg:hover {
-    animation: kartu 2s infinite forwards;
+    opacity: 0.8;
+    box-shadow: 5px 5px 5px #00bbf9;
 }
 
 .boxImg img {
@@ -357,14 +349,29 @@ nav .logo-nav {
 .judulGaleri {
     width: 380px;
     height: 40%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     transition: opacity 1s;
     position: absolute;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    display: flex;
     bottom: 0;
     align-items: center;
+}
+
+.uploadBy {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #fed766;
+    font-weight: bold;
+    font-size: smaller;
+}
+
+.judulGaleri p {
+    float: right;
+    margin-right: 10px;
+    font-size: smaller;
+    color: #4cc9f0;
+    font-weight: bold;
 }
 
 /* Halaman Detail Galeri */
@@ -424,6 +431,12 @@ nav .logo-nav {
 .clearfix {
     clear: both;
     margin-bottom: 20px;
+}
+
+.detailUploadBy {
+    text-decoration: none;
+    color: #41a77e;
+    font-weight: bold;
 }
 
 /* Responsive */

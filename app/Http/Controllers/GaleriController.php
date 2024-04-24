@@ -15,6 +15,7 @@ class GaleriController extends Controller
     {
         return view('galeri',  [
             'title' => 'Galeri',
+            'judulPage' => 'Galeri',
             'galeri' => Galeri::latest()->get()
         ]);
     }

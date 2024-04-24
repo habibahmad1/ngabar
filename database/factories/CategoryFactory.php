@@ -57,12 +57,12 @@ class CategoryFactory extends Factory
     }
 
     // State for Bebas category
-    public function bebas()
+    public function random()
     {
         return $this->state(function (array $attributes) {
             return [
-                'nama' => 'Bebas',
-                'slug' => 'bebas',
+                'nama' => 'Random',
+                'slug' => 'random',
             ];
         });
     }

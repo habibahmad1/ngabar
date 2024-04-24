@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Artikel;
+use App\Models\Galeri;
 
 class UserController extends Controller
 {
@@ -18,6 +19,19 @@ class UserController extends Controller
         return view('artikel', [
             'title' => "Artikel By: $author->name",
             'article' => $articles,
+        ]);
+    }
+
+    public function index2(User $uploaded)
+    {
+        $galeri = Galeri::with(['kategoriGaleri', 'user'])
+            ->where('user_id', $uploaded->id)
+            ->get();
+
+        return view('galeri', [
+            'title' => "Galeri",
+            'judulPage' => 'Uploaded By : ' . $uploaded->name,
+            'galeri' => $galeri,
         ]);
     }
 }

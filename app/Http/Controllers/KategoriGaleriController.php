@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\KategoriGaleri;
+use App\Models\Galeri;
 use App\Http\Requests\StoreKategoriGaleriRequest;
 use App\Http\Requests\UpdateKategoriGaleriRequest;
 
@@ -16,6 +17,29 @@ class KategoriGaleriController extends Controller
         return view('galeriKategori',  [
             'title' => 'Galeri',
             'galeri' => KategoriGaleri::get()
+        ]);
+    }
+
+    public function allKategori()
+    {
+        return view('kategoriGaleri',  [
+            'title' => 'Galeri',
+            'judulPage' => 'Kategori Galeri',
+            'kategoriGaleri' => KategoriGaleri::all()
+
+        ]);
+    }
+    public function index2(KategoriGaleri $kategoriGaleri)
+    {
+
+        $kategori = Galeri::with(['kategoriGaleri', 'user'])
+            ->where('kategoriGaleri_id', $kategoriGaleri->id)
+            ->get();
+
+        return view('Galeri', [
+            'title' => 'Galeri',
+            'judulPage' => 'Kategori Galeri',
+            'galeri' => $kategori,
         ]);
     }
 

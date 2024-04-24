@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         Category::factory()->tutorial()->create();
         Category::factory()->informasi()->create();
         Category::factory()->personal()->create();
-        Category::factory()->bebas()->create();
+        Category::factory()->random()->create();
 
         $this->call(GaleriSeeder::class);
 

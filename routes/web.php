@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ArtikelController;
-
-
-
+use App\Http\Controllers\KategoriGaleriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +34,12 @@ Route::get('/quran', function () {
 
 // Route ke semua galery
 Route::get('/galeri', [GaleriController::class, 'index']);
+
+// Route ke semua KategoriGaleri
+Route::get('/kategoriGaleri', [KategoriGaleriController::class, 'allKategori']);
+
+// Route ke tiap post KategoriGaleri
+Route::get('/kategoriGaleri/{kategoriGaleri:slug}', [KategoriGaleriController::class, 'index2']);
 
 // Route ke detail galery
 Route::get('/detail/{galeri}', [GaleriController::class, 'detail']);
@@ -65,7 +69,7 @@ Route::get('/categories/{category:slug}', function (Category $category) {
 });
 
 // Route ke Semua category
-Route::get('/categories', function (Category $category) {
+Route::get('/categories', function () {
     return view('categories', [
         "title" => 'All Categories',
         "categories" => Category::all()
@@ -74,3 +78,6 @@ Route::get('/categories', function (Category $category) {
 
 // Route ke user posting
 Route::get('/authors/{author:username}', [UserController::class, "index"]);
+
+// Route ke user galeri
+Route::get('/uploaded/{uploaded:username}', [UserController::class, "index2"]);
