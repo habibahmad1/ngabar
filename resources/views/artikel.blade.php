@@ -2,6 +2,7 @@
 @section('content')
 <center>
     <h1>Halaman {{ $title }}</h1>
+    <div class="category"><a href="/categories">All Category</a></div>
 </center>
 <div class="container-artikel">
     
@@ -12,11 +13,17 @@
         <div class="pemberitahuan">Pemberitahuan</div>
         <div class="modeGrid"><i class="fa-solid fa-border-all"></i></div>
         <div class="modeBar"><i class="fa-solid fa-bars"></i></div>
-        </div>
+    </div>
     <div class="kanvas">
-        <center>
-            <div class="category"><a href="/categories">All Category</a></div>
-        </center>
+        <h1 class="text-center">Semua Artikel</h1>
+        <div class="search">
+            <form action="/artikel">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Cari Artikel ..." name="search" value="{{ request('search') }}">
+                    <button class="btn btn-primary" type="submit" >Search</button>
+                  </div>
+            </form>
+        </div>
 
         <div class="artikelPost">
             {{-- Content Informasi --}}
@@ -39,9 +46,7 @@
                       <a href="/artikel/{{ $article[0]->slug }}" class="selengkapnya" style="color: white">Baca Selengkapnya</a>
                     </div>
                   </div>
-                @else
-                    <p class="text-center fs-4  ">Artikel Tidak Ditemukan</p>    
-                @endif
+                
 
                 @foreach ($article->skip(1) as $post)
                     <article class="mb-5">
@@ -79,7 +84,10 @@
                     <h1>Content Pemberitahuan</h1>
                 </div>
         </div>
+        @else
+            <p class="text-center fs-4  ">Artikel Tidak Ditemukan</p>    
+        @endif
+        {{ $article->links() }}
     </div>
-    
 </div>
 @endsection

@@ -17,6 +17,14 @@ class Artikel extends Model
 
     protected $with = ["user", "category"];
 
+    public function scopeFiltercoy($query)
+    {
+        if (request('search')) {
+            return $query->where('judul', 'like', '%' . request('search') . '%')
+                ->orWhere('artikelPost', 'like', '%' . request('search') . '%');
+        }
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);

@@ -1,12 +1,12 @@
 <?php
 
-use App\Models\Artikel;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KategoriGaleriController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,3 +81,6 @@ Route::get('/authors/{author:username}', [UserController::class, "index"]);
 
 // Route ke user galeri
 Route::get('/uploaded/{uploaded:username}', [UserController::class, "index2"]);
+
+// Route ke Login
+Route::get('login', [LoginController::class, 'index']);

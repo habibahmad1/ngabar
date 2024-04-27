@@ -55,6 +55,10 @@ nav .container {
     animation: borderMuter 3s infinite linear;
 }
 
+.login {
+    margin-left: 448px;
+}
+
 /* Animasi Border Mutar di Navbar */
 @keyframes borderMuter {
     25% {
@@ -176,7 +180,7 @@ nav .logo-nav {
 
 .category {
     display: inline-block;
-    background-color: #0289ff;
+    background-color: #ff2424;
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
@@ -242,6 +246,12 @@ nav .logo-nav {
     box-shadow: 5px 5px 5px #e09f3e;
     transform: scale(0.98);
     transition: 0.5s;
+}
+
+/* unutk search */
+.search {
+    width: 800px;
+    margin: 40px auto;
 }
 
 /* CSS Tiap Artikel */
@@ -439,7 +449,133 @@ nav .logo-nav {
     font-weight: bold;
 }
 
-/* Responsive */
+/* CSS Login */
+.loginPage {
+    background-color: white;
+    width: 1000px;
+    height: 500px;
+    display: flex;
+    margin: 70px auto 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px #424242;
+}
+
+.gambarKiri {
+    width: 350px;
+    overflow: hidden;
+}
+
+.gambarKiri img {
+    width: 100%;
+    height: auto;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    color: black;
+    box-sizing: border-box;
+}
+
+.username,
+.password {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    font-weight: bold;
+    color: grey;
+}
+
+.pentingIcon {
+    color: #f90074;
+}
+
+.iconEye {
+    position: absolute;
+    margin-top: 38px;
+    margin-left: 320px;
+    color: #e09f3e;
+}
+
+input[type="password"],
+[type="text"] {
+    width: 350px;
+    border: 2px solid #e09f3e;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+input:focus {
+    border: 2px solid #00fd83;
+}
+
+.cekBox {
+    margin: 5px;
+}
+
+.forgotPw {
+    margin-left: 160px;
+    text-decoration: none;
+}
+
+.loginButton {
+    display: flex;
+    justify-content: center;
+}
+
+.loginButton button {
+    border: none;
+    width: 350px;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: #0289ff;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.loginButton button:hover {
+    background-color: #27187e;
+}
+
+.daftarSlider {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.daftarSlider p {
+    text-align: left;
+}
+
+.slider {
+    width: 70px;
+    height: 30px;
+    background-color: #2d3a3a;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+}
+
+.bolaSlider {
+    width: 26px;
+    height: 26px;
+    background-color: #eaeaea;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* CSS Daftar */
+.form-daftar {
+    display: none;
+}
+
+/* Responsive hp */
 @media (max-width: 600px) {
     hr {
         margin-left: 15px;
@@ -456,6 +592,20 @@ nav .logo-nav {
     .tag a {
         padding: 2%;
     }
+
+    .search {
+        width: 100%;
+    }
+
+    .login {
+        margin-left: 0;
+    }
+    .gambarKiri {
+        display: none;
+    }
+    .loginPage {
+        width: 100%;
+    }
 }
 
 /* Responsive untuk tablet */
@@ -470,5 +620,14 @@ nav .logo-nav {
     }
     .tag a {
         padding: 2% 4%;
+    }
+    .search {
+        width: 100%;
+    }
+    .login {
+        margin-left: 0;
+    }
+    .loginPage {
+        width: 100%;
     }
 }

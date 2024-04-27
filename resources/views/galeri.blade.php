@@ -8,7 +8,8 @@
         
         @foreach ($galeri as $item)
         <div class="boxImg">
-            <img src="https://source.unsplash.com/500x400?{{ $item->kategoriGaleri->nama }}" alt="" class="img-fluid" >
+            <img src="https://source.unsplash.com/500x400?{{ ($item->kategoriGaleri->nama == 'Kegiatan') ? 'Wallpaper' : $item->kategoriGaleri->nama }}" alt="" class="img-fluid">
+
             
             <div class="galeriKategori"><a href="/kategoriGaleri/{{ $item->kategoriGaleri->slug }}" class="text-decoration-none text-white">{{ $item->kategoriGaleri->nama }}</a></div>
 
