@@ -453,15 +453,16 @@ nav .logo-nav {
 .loginPage {
     background-color: white;
     width: 1000px;
-    height: 500px;
+    height: 550px;
     display: flex;
-    margin: 70px auto 0;
+    margin: 30px auto 0;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 5px 5px 15px #424242;
 }
 
 .gambarKiri {
+    display: flex;
     width: 350px;
     overflow: hidden;
 }
@@ -479,11 +480,21 @@ nav .logo-nav {
     box-sizing: border-box;
 }
 
-.username,
-.password {
+.form-login,
+.form-daftar {
+    transition: transform 1s;
+    transform: rotateY("360deg");
+}
+
+.email,
+.emailDaftar,
+.password,
+.passwordDaftar,
+.passwordRepeat,
+.noHp {
     display: flex;
     flex-direction: column;
-    margin: 10px 0;
+    margin: 5px 0;
     font-weight: bold;
     color: grey;
 }
@@ -500,7 +511,9 @@ nav .logo-nav {
 }
 
 input[type="password"],
-[type="text"] {
+[type="email"],
+.password [type="text"],
+[type="number"] {
     width: 350px;
     border: 2px solid #e09f3e;
     border-radius: 10px;
@@ -521,12 +534,14 @@ input:focus {
     text-decoration: none;
 }
 
-.loginButton {
+.loginButton,
+.daftarButton {
     display: flex;
     justify-content: center;
 }
 
-.loginButton button {
+.loginButton button,
+.daftarButton button {
     border: none;
     width: 350px;
     margin-top: 10px;
@@ -538,7 +553,8 @@ input:focus {
     border-radius: 10px;
 }
 
-.loginButton button:hover {
+.loginButton button:hover,
+.daftarButton button:hover {
     background-color: #27187e;
 }
 
@@ -571,10 +587,48 @@ input:focus {
 }
 
 /* CSS Daftar */
-.form-daftar {
+.gambarKanan {
     display: none;
+    width: 350px;
+    overflow: hidden;
 }
 
+.form-daftar {
+    display: none;
+    flex-direction: column;
+    margin: auto;
+    color: black;
+    box-sizing: border-box;
+}
+
+.loginSlider {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.loginSlider p {
+    text-align: left;
+}
+
+.sliderDaftar {
+    width: 70px;
+    height: 30px;
+    background-color: #2d3a3a;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    justify-content: end;
+}
+
+.bolaDaftarSlider {
+    width: 26px;
+    height: 26px;
+    background-color: #eaeaea;
+    border-radius: 20px;
+    cursor: pointer;
+}
 /* Responsive hp */
 @media (max-width: 600px) {
     hr {
@@ -605,6 +659,9 @@ input:focus {
     }
     .loginPage {
         width: 100%;
+    }
+    .gambarKanan {
+        display: none;
     }
 }
 

@@ -9,7 +9,15 @@ const contentPengetahuan = document.querySelector(".content-pengetahuan");
 const contentKuis = document.querySelector(".content-kuis");
 const contentPemberitahuan = document.querySelector(".content-pemberitahuan");
 
+// Menyembunyikan elemen saat Content informasi aktif
 const Allcategory = document.querySelector(".category");
+const AllArtikel = document.querySelector(".allArtikel");
+const search = document.querySelector(".search");
+const pagination = document.querySelector(".pagination");
+
+// menyimpan nilai sebelumnya
+const previousSearch = search.style.display;
+const previousArtikel = AllArtikel.style.display;
 
 // Mode Grid
 const grid = document.querySelector(".modeGrid");
@@ -44,6 +52,9 @@ if (informasi) {
         );
         isActive(informasi, pengetahuan, kuis, pemberitahuan);
         Allcategory.style.display = "inline-block";
+        pagination.style.display = "flex";
+        search.style.display = previousSearch;
+        AllArtikel.style.display = previousArtikel;
     });
 }
 
@@ -57,6 +68,9 @@ if (pengetahuan) {
         );
         isActive(pengetahuan, informasi, kuis, pemberitahuan);
         Allcategory.style.display = "none";
+        pagination.style.display = "none";
+        search.style.display = "none";
+        AllArtikel.style.display = "none";
     });
 }
 
@@ -131,11 +145,30 @@ if (iconEye) {
 
 // Switch ke Daftar
 const loginPage = document.querySelector(".form-login");
+const imgLogin = document.querySelector(".gambarKiri");
 const sliderDaftar = document.querySelector(".bolaSlider");
 
 if (sliderDaftar) {
     sliderDaftar.addEventListener("click", () => {
-        loginPage.style.display = "none";
         sliderDaftar.style.transform = "translateX(26px)";
+        loginPage.style.display = "none";
+        imgLogin.style.display = "none";
+        daftarPage.style.display = "flex";
+        imgDaftar.style.display = "flex";
+    });
+}
+
+// Switch Ke Login
+const daftarPage = document.querySelector(".form-daftar");
+const imgDaftar = document.querySelector(".gambarKanan");
+const sliderLogin = document.querySelector(".bolaDaftarSlider");
+
+if (sliderLogin) {
+    sliderLogin.addEventListener("click", () => {
+        sliderLogin.style.transform = "translateX(-26px)";
+        daftarPage.style.display = "none";
+        imgDaftar.style.display = "none";
+        loginPage.style.display = "flex";
+        imgLogin.style.display = "flex";
     });
 }

@@ -15,7 +15,7 @@
         <div class="modeBar"><i class="fa-solid fa-bars"></i></div>
     </div>
     <div class="kanvas">
-        <h1 class="text-center">Semua Artikel</h1>
+        <h1 class="text-center allArtikel">Semua Artikel</h1>
         <div class="search">
             <form action="/artikel">
                 <div class="input-group mb-3">
@@ -87,7 +87,9 @@
         @else
             <p class="text-center fs-4  ">Artikel Tidak Ditemukan</p>    
         @endif
-        {{ $article->links() }}
+        <div class="pagination justify-content-center">
+            {{ $article->links() }}
+        </div>
     </div>
 </div>
 @endsection
