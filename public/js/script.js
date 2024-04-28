@@ -15,10 +15,6 @@ const AllArtikel = document.querySelector(".allArtikel");
 const search = document.querySelector(".search");
 const pagination = document.querySelector(".pagination");
 
-// menyimpan nilai sebelumnya
-const previousSearch = search.style.display;
-const previousArtikel = AllArtikel.style.display;
-
 // Mode Grid
 const grid = document.querySelector(".modeGrid");
 const bar = document.querySelector(".modeBar");
@@ -43,6 +39,9 @@ function isActive(active, inactive1, inactive2, inactive3) {
 }
 
 if (informasi) {
+    // menyimpan nilai sebelumnya
+    const previousSearch = search.style.display;
+    const previousArtikel = AllArtikel.style.display;
     informasi.addEventListener("click", () => {
         toggleDisplay(
             contentInformasi,

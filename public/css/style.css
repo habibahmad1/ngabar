@@ -457,7 +457,7 @@ nav .logo-nav {
     display: flex;
     margin: 30px auto 0;
     border-radius: 10px;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 5px 5px 15px #424242;
 }
 
@@ -480,12 +480,8 @@ nav .logo-nav {
     box-sizing: border-box;
 }
 
-.form-login,
-.form-daftar {
-    transition: transform 1s;
-    transform: rotateY("360deg");
-}
-
+.namaDaftar,
+.username,
 .email,
 .emailDaftar,
 .password,
@@ -513,6 +509,8 @@ nav .logo-nav {
 input[type="password"],
 [type="email"],
 .password [type="text"],
+.namaDaftar [type="text"],
+.username [type="text"],
 [type="number"] {
     width: 350px;
     border: 2px solid #e09f3e;
@@ -590,6 +588,7 @@ input:focus {
 .gambarKanan {
     display: none;
     width: 350px;
+    height: 700px;
     overflow: hidden;
 }
 
