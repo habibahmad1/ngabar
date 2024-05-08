@@ -470,6 +470,7 @@ nav .logo-nav {
 .gambarKiri img {
     width: 100%;
     height: auto;
+    animation: animateImg 3s alternate;
 }
 
 .form-login {
@@ -478,6 +479,28 @@ nav .logo-nav {
     margin: auto;
     color: black;
     box-sizing: border-box;
+    animation: animateLogin 3s alternate;
+}
+
+@keyframes animateLogin {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes animateImg {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
 
 .googleLogin {
@@ -613,6 +636,7 @@ input:focus {
     width: 350px;
     height: 700px;
     overflow: hidden;
+    animation: animateImg 3s alternate;
 }
 
 .form-daftar {
@@ -621,6 +645,7 @@ input:focus {
     margin: auto;
     color: black;
     box-sizing: border-box;
+    animation: animateLogin 3s alternate;
 }
 
 .loginSlider {
