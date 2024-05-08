@@ -26,6 +26,8 @@
             <div class="loginButton">
                 <button type="submit">Login</button>
             </div>
+            <div class="googleLogin"><a href="https://accounts.google.com/o/oauth2/v2/auth?scope=email%20profile&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fgooglelogin&response_type=code&client_id=609385636534-lhdf545kp0eafo508hv1adgn2114k3rj.apps.googleusercontent.com&access_type=offline" class="text-decoration-none"><i class="fa-brands fa-google"></i> Login With Google</a>
+            </div>
             <div class="daftarSlider">
                 <p>Klik Untuk Daftar Akun </p>
                 <div class="slider">

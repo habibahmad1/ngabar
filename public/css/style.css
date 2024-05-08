@@ -480,6 +480,29 @@ nav .logo-nav {
     box-sizing: border-box;
 }
 
+.googleLogin {
+    background-color: #fff;
+    padding: 10px 15px;
+    margin: 20px 5px 0;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.googleLogin:hover {
+    background-color: #000;
+    color: #fff;
+}
+.googleLogin:hover a {
+    color: #fff;
+}
+
+.googleLogin a {
+    color: #000;
+}
+
 .namaDaftar,
 .username,
 .email,

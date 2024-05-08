@@ -7,6 +7,7 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KategoriGaleriController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GoogleLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,3 +85,6 @@ Route::get('/uploaded/{uploaded:username}', [UserController::class, "index2"]);
 
 // Route ke Login
 Route::get('login', [LoginController::class, 'index']);
+
+// Route ke Google
+Route::get('/googlelogin', [GoogleLoginController::class, 'handleGoogleCallback']);
