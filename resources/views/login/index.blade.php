@@ -40,33 +40,64 @@
         <div class="gambarKanan">
             <img src="./img/imgDaftar.jpg" alt="imgLogin">
         </div>
-        <form class="form-daftar">
+        <form class="form-daftar" action="/register" method="POST">
+            @csrf
             <center>
                 <h3 class="mt-4">Daftar Buat Akun</h3>
             </center>
             <div class="namaDaftar">
                 <label for="namaDaftar">Nama Lengkap <span class="pentingIcon">*</span></label>
-                <input type="text" id="namaDaftar" name="namaDaftar" placeholder="Masukan Nama Lengkap" required>
+                <input type="text" id="namaDaftar" name="name" placeholder="Masukan Nama Lengkap" class="form-control @error('name')is-invalid @enderror">
+                @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="username">
                 <label for="username">Username <span class="pentingIcon">*</span></label>
-                <input type="text" id="username" name="username" placeholder="Masukan Username" required>
+                <input type="text" id="username" name="username" placeholder="Masukan Username" class="form-control @error('username')is-invalid @enderror">
+                @error('username')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="emailDaftar">
                 <label for="email">Email <span class="pentingIcon">*</span></label>
-                <input type="email" id="emailDaftar" name="emailDaftar" placeholder="Masukan Email" required>
+                <input type="email" id="emailDaftar" name="email" placeholder="Masukan Email" class="form-control @error('email')is-invalid @enderror">
+                @error('email')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="noHp">
                 <label for="noHp">No.Hp <span class="pentingIcon">*</span></label>
-                <input type="number" id="noHp" name="noHp" placeholder="Nomor Telepon" required>
+                <input type="number" id="noHp" name="noHp" placeholder="Nomor Telepon" class="form-control @error('noHp')is-invalid @enderror">
+                @error('noHp')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="passwordDaftar">
                 <label for="passwordDaftar">Password <span class="pentingIcon">*</span></label>
-                <input type="password" id="passwordDaftar" name="passwordDaftar" placeholder="Masukan Password" required>
+                <input type="password" id="passwordDaftar" name="password" placeholder="Masukan Password" class="form-control @error('password')is-invalid @enderror">
+                @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
-            <div class="passwordRepeat">
-                <label for="passwordRepeat">Ulangi Password <span class="pentingIcon">*</span></label>
-                <input type="password" id="passwordRepeat" name="passwordRepeat" placeholder="Ketik Ulang Password" required>
+            <div class="password_confirmation">
+                <label for="password_confirmation">Ulangi Password <span class="pentingIcon">*</span></label>
+                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Ketik Ulang Password" class="form-control @error('password_confirmation')is-invalid @enderror">
+                @error('password_confirmation')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="daftarButton">
                 <button type="submit">Daftar</button>

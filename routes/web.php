@@ -3,11 +3,12 @@
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ArtikelController;
-use App\Http\Controllers\KategoriGaleriController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GoogleLoginController;
+use App\Http\Controllers\KategoriGaleriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,3 +89,6 @@ Route::get('login', [LoginController::class, 'index']);
 
 // Route ke Google
 Route::get('/googlelogin', [GoogleLoginController::class, 'handleGoogleCallback']);
+
+// Route untuk Daftar
+Route::post('/register', [RegisterController::class, 'store']);

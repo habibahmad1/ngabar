@@ -532,7 +532,7 @@ nav .logo-nav {
 .emailDaftar,
 .password,
 .passwordDaftar,
-.passwordRepeat,
+.password_confirmation,
 .noHp {
     display: flex;
     flex-direction: column;
@@ -634,7 +634,7 @@ input:focus {
 .gambarKanan {
     display: none;
     width: 350px;
-    height: 700px;
+    height: 840px;
     overflow: hidden;
     animation: animateImg 3s alternate;
 }
