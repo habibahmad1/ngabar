@@ -615,7 +615,7 @@ input:focus {
 .slider {
     width: 70px;
     height: 30px;
-    background-color: #2d3a3a;
+    background-color: #787777;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -661,7 +661,7 @@ input:focus {
 .sliderDaftar {
     width: 70px;
     height: 30px;
-    background-color: #2d3a3a;
+    background-color: #787777;
     border-radius: 20px;
     display: flex;
     align-items: center;
