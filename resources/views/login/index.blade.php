@@ -7,6 +7,14 @@
             <img src="./img/imgLogin.jpg" alt="imgLogin">
         </div>
         <form class="form-login">
+            {{-- Alert Success Register --}}
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ session('success') }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+            @endif
+
             <center>
                 <h3>Masuk Ke Akun Anda</h3>
             </center>
@@ -21,7 +29,7 @@
             </div>
             <div class="cekBox">
                 <input type="checkbox"> Ingat Saya
-                <a href="" class="forgotPw">Lupa Password</a>
+                <a href="" class="forgotPw">Lupa Password?</a>
             </div>
             <div class="loginButton">
                 <button type="submit">Login</button>
@@ -47,7 +55,7 @@
             </center>
             <div class="namaDaftar">
                 <label for="namaDaftar">Nama Lengkap <span class="pentingIcon">*</span></label>
-                <input type="text" id="namaDaftar" name="name" placeholder="Masukan Nama Lengkap" class="form-control @error('name')is-invalid @enderror">
+                <input type="text" id="namaDaftar" name="name" placeholder="Masukan Nama Lengkap" class="form-control @error('name')is-invalid @enderror" value="{{ old('name') }}">
                 @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -56,7 +64,7 @@
             </div>
             <div class="username">
                 <label for="username">Username <span class="pentingIcon">*</span></label>
-                <input type="text" id="username" name="username" placeholder="Masukan Username" class="form-control @error('username')is-invalid @enderror">
+                <input type="text" id="username" name="username" placeholder="Masukan Username" class="form-control @error('username')is-invalid @enderror"  value="{{ old('username') }}">
                 @error('username')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -65,7 +73,7 @@
             </div>
             <div class="emailDaftar">
                 <label for="email">Email <span class="pentingIcon">*</span></label>
-                <input type="email" id="emailDaftar" name="email" placeholder="Masukan Email" class="form-control @error('email')is-invalid @enderror">
+                <input type="email" id="emailDaftar" name="email" placeholder="Masukan Email" class="form-control @error('email')is-invalid @enderror"  value="{{ old('email') }}">
                 @error('email')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -74,7 +82,7 @@
             </div>
             <div class="noHp">
                 <label for="noHp">No.Hp <span class="pentingIcon">*</span></label>
-                <input type="number" id="noHp" name="noHp" placeholder="Nomor Telepon" class="form-control @error('noHp')is-invalid @enderror">
+                <input type="number" id="noHp" name="noHp" placeholder="Nomor Telepon" class="form-control @error('noHp')is-invalid @enderror" value="{{ old('noHp') }}">
                 @error('noHp')
                     <div class="invalid-feedback">
                         {{ $message }}

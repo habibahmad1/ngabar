@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
+
 class RegisterController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
+        $prosesValidasi = $request->validate([
             'name' => 'required|max:255',
             'username' => ['required', 'unique:users'],
             'email' => 'required|email:dns|unique:users',
@@ -17,6 +19,11 @@ class RegisterController extends Controller
             'password_confirmation' => 'required|min:8|same:password',
         ]);
 
-        dd("Berhasil");
+        User::create($prosesValidasi);
+
+        // $request = session();
+        // $request->flash('success', 'Registration successfull! Please login');
+
+        return redirect('/login')->with('success', 'Registration successfull! Please login');
     }
 }
