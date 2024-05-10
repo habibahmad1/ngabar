@@ -7,8 +7,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\KategoriGaleriController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,10 +87,19 @@ Route::get('/authors/{author:username}', [UserController::class, "index"]);
 Route::get('/uploaded/{uploaded:username}', [UserController::class, "index2"]);
 
 // Route ke Login
-Route::get('login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+
+// Route untuk Login Form
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+// Route untuk Logout Form
+Route::post('/logout', [LoginController::class, 'logout']);
 
 // Route ke Google
 Route::get('/googlelogin', [GoogleLoginController::class, 'handleGoogleCallback']);
 
 // Route untuk Daftar
 Route::post('/register', [RegisterController::class, 'store']);
+
+// Route untuk Dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');;

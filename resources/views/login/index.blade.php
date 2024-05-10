@@ -6,11 +6,18 @@
         <div class="gambarKiri">
             <img src="./img/imgLogin.jpg" alt="imgLogin">
         </div>
-        <form class="form-login">
+        <form class="form-login" action="/login" method="POST">
+            @csrf
             {{-- Alert Success Register --}}
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>{{ session('success') }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+            @endif
+            @if (session()->has('loginError'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ session('loginError') }}</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
             @endif
@@ -20,7 +27,12 @@
             </center>
             <div class="email">
                 <label for="email">Email <span class="pentingIcon">*</span></label>
-                <input type="email" id="email" name="email" placeholder="Masukan Email" required>
+                <input type="email" id="email" name="email" placeholder="Masukan Email" required autofocus class="@error('email') is-invalid @enderror" value="{{ old('email') }}">
+                @error('email')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="password">
                 <label for="password">Password <span class="pentingIcon">*</span></label>
@@ -28,7 +40,7 @@
                 <span class="iconEye" style="cursor: pointer"><i class="fa-solid fa-eye-slash"></i></span>
             </div>
             <div class="cekBox">
-                <input type="checkbox"> Ingat Saya
+                <input type="checkbox" name="remember"> Ingat Saya
                 <a href="" class="forgotPw">Lupa Password?</a>
             </div>
             <div class="loginButton">
@@ -55,7 +67,7 @@
             </center>
             <div class="namaDaftar">
                 <label for="namaDaftar">Nama Lengkap <span class="pentingIcon">*</span></label>
-                <input type="text" id="namaDaftar" name="name" placeholder="Masukan Nama Lengkap" class="form-control @error('name')is-invalid @enderror" value="{{ old('name') }}">
+                <input type="text" id="namaDaftar" name="name" placeholder="Masukan Nama Lengkap" class="form-control @error('name')is-invalid @enderror"required value="{{ old('name') }}">
                 @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -64,7 +76,7 @@
             </div>
             <div class="username">
                 <label for="username">Username <span class="pentingIcon">*</span></label>
-                <input type="text" id="username" name="username" placeholder="Masukan Username" class="form-control @error('username')is-invalid @enderror"  value="{{ old('username') }}">
+                <input type="text" id="username" name="username" placeholder="Masukan Username" class="form-control @error('username')is-invalid @enderror" required value="{{ old('username') }}">
                 @error('username')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -73,7 +85,7 @@
             </div>
             <div class="emailDaftar">
                 <label for="email">Email <span class="pentingIcon">*</span></label>
-                <input type="email" id="emailDaftar" name="email" placeholder="Masukan Email" class="form-control @error('email')is-invalid @enderror"  value="{{ old('email') }}">
+                <input type="email" id="emailDaftar" name="email" placeholder="Masukan Email" class="form-control @error('email')is-invalid @enderror" required value="{{ old('email') }}">
                 @error('email')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -82,7 +94,7 @@
             </div>
             <div class="noHp">
                 <label for="noHp">No.Hp <span class="pentingIcon">*</span></label>
-                <input type="number" id="noHp" name="noHp" placeholder="Nomor Telepon" class="form-control @error('noHp')is-invalid @enderror" value="{{ old('noHp') }}">
+                <input type="number" id="noHp" name="noHp" placeholder="Nomor Telepon" class="form-control @error('noHp')is-invalid @enderror" required value="{{ old('noHp') }}">
                 @error('noHp')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -91,7 +103,7 @@
             </div>
             <div class="passwordDaftar">
                 <label for="passwordDaftar">Password <span class="pentingIcon">*</span></label>
-                <input type="password" id="passwordDaftar" name="password" placeholder="Masukan Password" class="form-control @error('password')is-invalid @enderror">
+                <input type="password" id="passwordDaftar" name="password" placeholder="Masukan Password" class="form-control @error('password')is-invalid @enderror" required>
                 @error('password')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -100,7 +112,7 @@
             </div>
             <div class="password_confirmation">
                 <label for="password_confirmation">Ulangi Password <span class="pentingIcon">*</span></label>
-                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Ketik Ulang Password" class="form-control @error('password_confirmation')is-invalid @enderror">
+                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Ketik Ulang Password" class="form-control @error('password_confirmation')is-invalid @enderror" required>
                 @error('password_confirmation')
                     <div class="invalid-feedback">
                         {{ $message }}

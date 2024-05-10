@@ -59,6 +59,10 @@ nav .container {
     margin-left: 448px;
 }
 
+.loginAuth {
+    margin-left: 300px;
+}
+
 /* Animasi Border Mutar di Navbar */
 @keyframes borderMuter {
     25% {
@@ -701,6 +705,9 @@ input:focus {
     .login {
         margin-left: 0;
     }
+    .loginAuth {
+        margin-left: 0;
+    }
     .gambarKiri {
         display: none;
     }
@@ -729,6 +736,9 @@ input:focus {
         width: 100%;
     }
     .login {
+        margin-left: 0;
+    }
+    .loginAuth {
         margin-left: 0;
     }
     .loginPage {

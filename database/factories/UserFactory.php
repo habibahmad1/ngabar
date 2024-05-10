@@ -27,7 +27,7 @@ class UserFactory extends Factory
         $lastName = $this->faker->lastName();
 
         $name = $firstName . ' ' . $lastName;
-        $username = $firstName;
+        $username = $this->faker->numerify($firstName . '_###');
 
         return [
             'name' => $name,
@@ -36,6 +36,8 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'noHp' => '08' . $this->faker->regexify('[0-9]{10}'),
+            'google_id' => $this->faker->numerify('########')
         ];
     }
 
