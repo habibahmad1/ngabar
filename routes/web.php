@@ -7,8 +7,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GoogleLoginController;
+use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\KategoriGaleriController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -102,4 +102,9 @@ Route::get('/googlelogin', [GoogleLoginController::class, 'handleGoogleCallback'
 Route::post('/register', [RegisterController::class, 'store']);
 
 // Route untuk Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');;
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware('auth');;
+
+// Route untuk Dashboard pada hal My Artikel
+Route::resource('/dashboard/artikel', DashboardPostController::class)->middleware('auth');

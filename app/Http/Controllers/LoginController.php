@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\User;
+
 class LoginController extends Controller
 {
     public function index()
@@ -20,6 +22,15 @@ class LoginController extends Controller
             'email' => 'required|email:dns',
             'password' => 'required'
         ]);
+
+        // Cari pengguna dengan email yang diberikan
+        $user = User::where('email', $validasiData['email'])->first();
+
+        // Periksa apakah pengguna tidak memiliki kata sandi di database
+        if ($user && empty($user->password)) {
+            // Jika pengguna tidak memiliki kata sandi, tampilkan pesan untuk login menggunakan Google
+            return back()->with('loginError', 'Please login using Google.');
+        }
 
         $remember = $request->has('remember') ? true : false;
 

@@ -41,7 +41,7 @@
             </div>
             <div class="cekBox">
                 <input type="checkbox" name="remember"> Ingat Saya
-                <a href="" class="forgotPw">Lupa Password?</a>
+                <a href="" class="forgotPw" onclick="alert('Sedang Pengembangan');">Lupa Password?</a>
             </div>
             <div class="loginButton">
                 <button type="submit">Login</button>
