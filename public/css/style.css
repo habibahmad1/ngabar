@@ -486,6 +486,24 @@ nav .logo-nav {
     animation: animateLogin 3s alternate;
 }
 
+.formForget {
+    display: none;
+    flex-direction: column;
+    margin: auto;
+    color: black;
+    box-sizing: border-box;
+    animation: animateLogin 3s alternate;
+}
+
+.formChangePW {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    color: black;
+    box-sizing: border-box;
+    animation: animateLogin 3s alternate;
+}
+
 @keyframes animateLogin {
     0% {
         transform: translateY(-100px);
@@ -510,7 +528,7 @@ nav .logo-nav {
 .googleLogin {
     background-color: #fff;
     padding: 10px 15px;
-    margin: 20px 5px 0;
+    margin: 20px 8px 0;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
@@ -537,7 +555,8 @@ nav .logo-nav {
 .password,
 .passwordDaftar,
 .password_confirmation,
-.noHp {
+.noHp,
+.forget {
     display: flex;
     flex-direction: column;
     margin: 5px 0;
@@ -583,13 +602,15 @@ input:focus {
 }
 
 .loginButton,
-.daftarButton {
+.daftarButton,
+.forgetButton {
     display: flex;
     justify-content: center;
 }
 
 .loginButton button,
-.daftarButton button {
+.daftarButton button,
+.forgetButton button {
     border: none;
     width: 350px;
     margin-top: 10px;
@@ -602,7 +623,8 @@ input:focus {
 }
 
 .loginButton button:hover,
-.daftarButton button:hover {
+.daftarButton button:hover,
+.forgetButton button:hover {
     background-color: #27187e;
 }
 

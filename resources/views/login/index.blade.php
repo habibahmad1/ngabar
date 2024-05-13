@@ -15,9 +15,17 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
             @endif
+            {{-- Alert Gagal Login --}}
             @if (session()->has('loginError'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>{{ session('loginError') }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+            @endif
+            {{-- Alert Berhasil Change PW --}}
+            @if (session()->has('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ session('status') }}</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
             @endif
@@ -41,7 +49,7 @@
             </div>
             <div class="cekBox">
                 <input type="checkbox" name="remember"> Ingat Saya
-                <a href="" class="forgotPw" onclick="alert('Sedang Pengembangan');">Lupa Password?</a>
+                <a href="" class="forgotPw">Lupa Password?</a>
             </div>
             <div class="loginButton">
                 <button type="submit">Login</button>
@@ -127,6 +135,31 @@
                 <div class="sliderDaftar">
                     <div class="bolaDaftarSlider"></div>
                 </div>
+            </div>
+        </form>
+        {{-- Form Lupa Password --}}
+        <form class="formForget" action="{{ route('password.email') }}" method="POST">
+            @csrf
+            <center>
+                <h3 class="mt-4">Lupa Password</h3>
+            </center>
+            @if (session('status'))
+                <div class="status-message">{{ session('status') }}</div>
+            @endif
+            @if ($errors->any())
+                <div class="error-message">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br>
+                    @endforeach
+                </div>
+            @endif
+            <div class="forget">
+                <label for="forget">Email <span class="pentingIcon">*</span></label>
+                <input type="email" id="forget" name="email" placeholder="Masukan Email Anda" class="form-control"required value="{{ old('email') }}">
+            </div>
+            <a href="/login" class="text-decoration-none px-2 d-flex justify-content-end backLogin">Kembali Login</a>
+            <div class="forgetButton">
+                <button type="submit">Kirim</button>
             </div>
         </form>
     </div>

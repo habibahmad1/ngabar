@@ -171,3 +171,22 @@ if (sliderLogin) {
         imgLogin.style.display = "flex";
     });
 }
+
+const forgetPW = document.querySelector(".forgotPw");
+const formPW = document.querySelector(".formForget");
+const backLogin = document.querySelector(".backLogin");
+if (forgetPW) {
+    forgetPW.addEventListener("click", (e) => {
+        loginPage.style.display = "none";
+        formPW.style.display = "flex";
+        e.preventDefault();
+    });
+}
+
+if (backLogin) {
+    backLogin.addEventListener("click", (e) => {
+        formPW.style.display = "none";
+        loginPage.style.display = "flex";
+        e.preventDefault();
+    });
+}

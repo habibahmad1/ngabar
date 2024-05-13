@@ -9,6 +9,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\KategoriGaleriController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -108,3 +109,16 @@ Route::get('/dashboard', function () {
 
 // Route untuk Dashboard pada hal My Artikel
 Route::resource('/dashboard/artikel', DashboardPostController::class)->middleware('auth');
+
+// Route untuk tampil form lupa pw
+Route::get('forgot-password', [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('password.request')->middleware('guest');
+
+
+// Route untuk kirim email
+Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email')->middleware('guest');
+
+// Untuk tampil form Lupa PW
+Route::get('reset-password/{token}/{email}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
+
+// Untuk proses form lupa pw
+Route::post('reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
