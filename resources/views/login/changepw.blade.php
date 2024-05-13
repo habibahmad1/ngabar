@@ -4,7 +4,7 @@
 <div class="container-login">
     <div class="loginPage">
         <div class="gambarKiri">
-            <img src="../img/pw.jpg" alt="imgLogin">
+            <img src="{{ asset('img/pw.jpg') }}" alt="imgLogin">
         </div>
         {{-- Form Ganti Password --}}
         <form class="formChangePW" action="{{ route('password.update') }}" method="POST">

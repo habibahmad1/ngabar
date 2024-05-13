@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use App\Models\User;
 
 class ForgotPasswordController extends Controller
@@ -17,7 +16,17 @@ class ForgotPasswordController extends Controller
 
     public function sendResetLinkEmail(Request $request)
     {
-        $request->validate(['email' => 'required|email']);
+
+        $validasiData = $request->validate(['email' => 'required|email']);
+
+        // Cari pengguna dengan email yang diberikan
+        $user = User::where('email', $validasiData['email'])->first();
+
+        // Periksa apakah pengguna tidak memiliki kata sandi di database
+        if ($user && empty($user->password)) {
+            // Jika pengguna tidak memiliki kata sandi, tampilkan pesan untuk login menggunakan Google
+            return back()->with('loginError', 'Please login using Google.');
+        }
 
         $status = Password::sendResetLink(
             $request->only('email')
@@ -56,7 +65,7 @@ class ForgotPasswordController extends Controller
 
         switch ($status) {
             case Password::PASSWORD_RESET:
-                return redirect()->route('login')->with('status', __('Berhasil direset. Silakan login dengan password baru Anda.'));
+                return redirect()->route('login')->with('status', __('Berhasil direset. Silakan login :)'));
             case Password::INVALID_TOKEN:
                 return back()->withErrors(['token' => __('Token reset password tidak valid.')]);
             case Password::INVALID_USER:
