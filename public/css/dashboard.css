@@ -74,3 +74,77 @@
 .kembaliButton:hover {
     background-color: #2d3a3a;
 }
+
+/* Page profil */
+.container-profil {
+    width: 700px;
+    background-color: #caf0f8;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px auto;
+    box-shadow: 5px 5px 5px #2470dc;
+    border: 2px solid #000000;
+}
+
+.infoProfil {
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+    margin: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-weight: 600;
+}
+
+.infoProfil input {
+    width: 300px;
+    height: 35px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    overflow: auto;
+}
+
+.imgProfil {
+    display: flex;
+    justify-content: center;
+}
+
+.imgProfil img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 3px 3px 3px #0a346e;
+    transition: all 2s;
+}
+
+.imgProfil img:hover {
+    cursor: pointer;
+    transform: rotateY(360deg);
+}
+
+.btn-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .container-profil {
+        width: 100%;
+    }
+    .infoProfil input {
+        width: 300px;
+    }
+    .infoProfil {
+        justify-content: center;
+        margin: 10px;
+        flex-direction: column;
+    }
+    .infoProfil span {
+        margin: 10px;
+    }
+}

@@ -11,6 +11,7 @@ use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\KategoriGaleriController;
+use App\Models\User;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -122,3 +123,10 @@ Route::get('reset-password/{token}/{email}', [ForgotPasswordController::class, '
 
 // Untuk proses form lupa pw
 Route::post('reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
+
+// Route untuk my profil
+Route::get('/dashboard/profil', function () {
+    return view('dashboard.profil', [
+        'dataProfil' => User::all()
+    ]);
+});
