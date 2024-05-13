@@ -82,8 +82,7 @@
     padding: 20px;
     border-radius: 10px;
     margin: 30px auto;
-    box-shadow: 5px 5px 5px #2470dc;
-    border: 2px solid #000000;
+    border: 2px solid #fb911f;
 }
 
 .infoProfil {
@@ -104,6 +103,7 @@
     border-radius: 5px;
     text-align: center;
     overflow: auto;
+    cursor: pointer;
 }
 
 .imgProfil {

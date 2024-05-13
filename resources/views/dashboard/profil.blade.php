@@ -1,8 +1,9 @@
 @extends('./dashboard.layouts.main')
 
 @section('content')
-<h2 class="text-center my-3">Kartu Nama <span style="color: #2470dc"><i class="fa-solid fa-address-card"></i></span></h2>
+
 <div class="container-profil">
+    <h2 class="text-center my-3">Kartu Nama <br> <span style="color: #f68718"> {{ auth()->user()->name }}</span></h2>
     <div class="imgProfil">
         <img src="../img/pw.jpg" alt="ProfilImg" >
     </div>
@@ -23,9 +24,12 @@
         <span for="noHpProfil">No.Hp</span>
         <input type="text" id="noHpProfil" placeholder="{{ auth()->user()->noHp }}" disabled>
     </div>
-    <div class="btn-edit">
-        <a href="/editprofil" class="btn btn-primary">Edit Profil</a>
-    </div>
-    
 </div>
+<div class="btn-edit">
+    <a href="/editprofil" class="btn btn-primary"><i class="fa-solid fa-pen"></i> Edit Profil </a>
+    <button class="btn btn-success mx-2" onclick="capture()"> <i class="fa-solid fa-camera"></i> Screenshot</button>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @endsection
