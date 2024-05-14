@@ -164,6 +164,39 @@ th {
     margin-left: 5px;
 }
 
+/* CSS Reedem page */
+.container-reedem {
+    width: 600px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fbd79d;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-image: url("../img/pw.jpg");
+}
+
+.container-reedem label {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.container-reedem input {
+    width: 250px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+}
+
+.container-reedem input:focus {
+    border: none;
+}
+
 @media (max-width: 600px) {
     .container-profil {
         width: 100%;
@@ -178,5 +211,8 @@ th {
     }
     .infoProfil span {
         margin: 10px;
+    }
+    .container-reedem {
+        width: 100%;
     }
 }

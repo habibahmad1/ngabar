@@ -2,7 +2,7 @@
     <div class="offcanvas-md offcanvas-end bg-dark" style="height: 100vh; background: #caf0f8" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title fs-3" id="sidebarMenuLabel" style="color: white">Ngabar</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+        <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
         <ul class="nav flex-column">
@@ -42,7 +42,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2 iconColor" href="#">
+            <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/reedem') ? 'activeSidebar' : '' }}" href="/dashboard/reedem">
               <i class="fa-solid fa-gift iconColor"></i>
               Reedem Code
             </a>

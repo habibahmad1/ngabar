@@ -1,17 +1,18 @@
 <?php
 
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\ReedemController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\KategoriGaleriController;
-use App\Models\User;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -137,3 +138,9 @@ Route::get('/dashboard/data', function () {
         'data' => User::all()
     ]);
 });
+
+// Route untuk Redem Code
+Route::get('/dashboard/reedem', [ReedemController::class, 'index'])->middleware('auth');
+
+// Route untuk Form Redeem Code
+Route::post('/dashboard/reedem', [ReedemController::class, 'reedem'])->name('reedem')->middleware('auth');

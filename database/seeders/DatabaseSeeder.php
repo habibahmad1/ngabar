@@ -43,6 +43,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(GaleriSeeder::class);
 
+        $this->call(ReedemSeeder::class);
+
         $this->call(KategoriGaleriSeeder::class);
 
         // Category::create([

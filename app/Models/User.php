@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Galeri::class);
     }
+
+    public function reedem()
+    {
+        return $this->hasMany(Reedem::class);
+    }
 }
