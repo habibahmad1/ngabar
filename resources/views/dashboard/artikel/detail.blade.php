@@ -7,8 +7,8 @@
         
         <h2>{{ $artikel->judul }}</h2>
 
-        <a href="" class="badge bg-success py-2"><i class="fa-solid fa-pencil"> Edit</i></a>
-        <a href="" class="badge bg-danger py-2"><i class="fa-solid fa-trash-can"> Delete</i></i></a>
+        <a href="" class="badge bg-success py-2 text-decoration-none"><i class="fa-solid fa-pencil"></i> Edit</a>
+        <a href="" class="badge bg-danger py-2 text-decoration-none"><i class="fa-solid fa-trash-can"> </i> Delete</a>
 
         <div class="text-center gambarTiapPost mb-4 mt-1">
             <img src="https://source.unsplash.com/1200x400?{{ $artikel->category->nama }}"  alt="imgPost" class="rounded mb-3">

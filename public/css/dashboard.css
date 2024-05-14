@@ -48,12 +48,12 @@
 }
 
 .iconColor {
-    color: #000;
-    font-size: 20px;
+    color: #fff;
+    font-size: 26px;
 }
 
 .activeSidebar {
-    color: #d4159e;
+    color: #ffd60a;
 }
 
 .gambarTiapPost img {
@@ -130,6 +130,38 @@
     justify-content: center;
     align-items: center;
     padding: 20px 0;
+}
+
+/* CSS Data Page */
+.container-table {
+    display: flex;
+    overflow: auto;
+    text-align: center;
+    justify-content: center;
+}
+table {
+    margin-top: 10px;
+    border: 1px solid black;
+}
+table th {
+    color: #fff;
+    background-color: #2470dc;
+}
+
+table tr,
+td,
+th {
+    border: 1px solid black;
+}
+
+.buttonExport {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.buttonExport button {
+    margin-left: 5px;
 }
 
 @media (max-width: 600px) {

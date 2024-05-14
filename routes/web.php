@@ -130,3 +130,10 @@ Route::get('/dashboard/profil', function () {
         'dataProfil' => User::all()
     ]);
 });
+
+// Route untuk data page
+Route::get('/dashboard/data', function () {
+    return view('dashboard.data', [
+        'data' => User::all()
+    ]);
+});

@@ -18,6 +18,20 @@
     <link href="/css/dashboard.css" rel="stylesheet">
     <link rel="icon" href="{{ asset('img/logo.png') }}" type="image/png">
 
+    {{-- Excel --}}
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.0/dist/xlsx.full.min.js"></script>
+    
+    {{-- PDF --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    
+    {{-- Word --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-docx-js/0.2.2/html-docx.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html-docx-js/dist/html-docx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+
+
   </head>
   <body>
 
