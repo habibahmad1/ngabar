@@ -307,14 +307,101 @@ nav .logo-nav {
 }
 
 /* CSS Hal About */
-.fiturList li {
-    list-style-type: decimal;
-    margin-bottom: 25px;
+.container-about {
+    display: flex;
+    justify-content: center;
+    margin: 18px 0;
 }
 
-.aboutJudul {
-    padding: 15px;
-    border-bottom: 2px solid #b5ffe1;
+.title-ngabar {
+    display: flex;
+    width: 1000px;
+    justify-content: space-evenly;
+}
+
+.fitur-ngabar {
+    display: none;
+    width: 1000px;
+    justify-content: space-evenly;
+}
+
+.tujuan-ngabar {
+    display: none;
+    width: 1000px;
+    justify-content: space-evenly;
+}
+
+.title-ngabar,
+.fitur-ngabar,
+.tujuan-ngabar {
+    margin-top: 50px;
+    animation: contentAbout 3s;
+}
+
+.title-ngabar hr,
+.fitur-ngabar hr,
+.tujuan-ngabar hr {
+    height: 3px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.fitur-ngabar ul li {
+    text-align: justify;
+    font-size: small;
+    margin: 10px;
+    list-style-type: decimal;
+}
+
+.title-ngabar img,
+.tujuan-ngabar img,
+.fitur-ngabar img {
+    width: 400px;
+    margin-right: 120px;
+}
+.title-ngabar p {
+    text-align: justify;
+}
+
+.tujuanAbout p {
+    text-align: justify;
+}
+
+.selectViewNgabar {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.selectViewNgabar button {
+    border: none;
+    padding: 10px 85px;
+    background-color: #36e694;
+    color: #fff;
+    margin: 0 5px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px black;
+    text-shadow: 3px 3px 3px #000;
+    transition: all 1s;
+}
+
+.selectViewNgabar button:hover {
+    box-shadow: 5px 5px 5px black;
+    background-color: #ff465b;
+}
+
+@keyframes contentAbout {
+    10% {
+        opacity: 0;
+        transform: translateY(-400px);
+    }
+}
+
+@keyframes buttonAbout {
+    10% {
+        background-color: #36e694;
+    }
 }
 
 /* CSS Hal Galeri */
@@ -741,6 +828,21 @@ input:focus {
     .gambarKanan {
         display: none;
     }
+    .title-ngabar img,
+    .tujuan-ngabar img,
+    .fitur-ngabar img {
+        width: 85%;
+        margin: 20px;
+    }
+    .selectViewNgabar button {
+        padding: 10px 20px;
+    }
+    .title-ngabar,
+    .fitur-ngabar,
+    .tujuan-ngabar {
+        flex-wrap: wrap;
+        margin: 30px;
+    }
 }
 
 /* Responsive untuk tablet */
@@ -767,5 +869,20 @@ input:focus {
     }
     .loginPage {
         width: 100%;
+    }
+    .title-ngabar img,
+    .tujuan-ngabar img,
+    .fitur-ngabar img {
+        width: 50%;
+        margin: 20px;
+    }
+    .selectViewNgabar button {
+        padding: 10px 40px;
+    }
+    .title-ngabar,
+    .fitur-ngabar,
+    .tujuan-ngabar {
+        margin-top: 80px;
+        align-items: center;
     }
 }

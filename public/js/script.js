@@ -190,3 +190,54 @@ if (backLogin) {
         e.preventDefault();
     });
 }
+
+// Function swap about
+function swapAbout(el1, el2, el3) {
+    el1.style.display = "flex";
+    el2.style.display = "none";
+    el3.style.display = "none";
+}
+
+function isActived(ac1, ac2, ac3) {
+    ac1.style.backgroundColor = "#ff465b";
+    ac2.style.backgroundColor = "#36e694";
+    ac3.style.backgroundColor = "#36e694";
+}
+
+function animateSwap(anim1, anim2, anim3) {
+    anim1.style.animation = "buttonAbout 3s infinite";
+    anim2.style.animation = "none";
+    anim3.style.animation = "none";
+}
+
+// Button Swap About
+const title = document.querySelector("#title");
+const fitur = document.querySelector("#fitur");
+const tujuan = document.querySelector("#tujuan");
+
+// Content ABout
+const titleNgabar = document.querySelector(".title-ngabar");
+const fiturNgabar = document.querySelector(".fitur-ngabar");
+const tujuanNgabar = document.querySelector(".tujuan-ngabar");
+
+if (title) {
+    title.addEventListener("click", () => {
+        swapAbout(titleNgabar, fiturNgabar, tujuanNgabar);
+        isActived(title, fitur, tujuan);
+        animateSwap(title, fitur, tujuan);
+    });
+}
+if (fitur) {
+    fitur.addEventListener("click", () => {
+        swapAbout(fiturNgabar, titleNgabar, tujuanNgabar);
+        isActived(fitur, title, tujuan);
+        animateSwap(fitur, title, tujuan);
+    });
+}
+if (tujuan) {
+    tujuan.addEventListener("click", () => {
+        swapAbout(tujuanNgabar, titleNgabar, fiturNgabar);
+        isActived(tujuan, title, fitur);
+        animateSwap(tujuan, fitur, title);
+    });
+}
