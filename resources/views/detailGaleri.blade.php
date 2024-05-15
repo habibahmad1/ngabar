@@ -8,10 +8,10 @@
             <img src="https://source.unsplash.com/1200x600?{{ $galeriDetail->kategoriGaleri->nama }}" alt="">
             
             {{-- unduh gambar --}}
-            <a href="https://source.unsplash.com/1200x600?japan" target="_blank" class="downloadGambar" download> <i class="fa-solid fa-download"></i></a>
+            <a href="https://source.unsplash.com/1200x600?japan" target="_blank" class="downloadGambar" download> <i class="fa-solid fa-download"></i> Unduh</a>
 
             {{-- Laporkan --}}
-            <a href="" class="lapor"><i class="fa-solid fa-flag"></i></a>
+            <a href="" class="lapor"><i class="fa-solid fa-flag"></i> Lapor</a>
 
             <a href="" class="detailUploadBy">Upload By : {{ $galeriDetail->user->name }}</a>
 

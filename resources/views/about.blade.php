@@ -1,12 +1,8 @@
 @extends('./layouts/main')
 @section('content')
-        <h1>Halaman About</h1>
-        <h3>{{ $title }}</h3>
-        <p>{{ $description }}</p>
-        <img src="./img/{{ $image }}" alt="picture" width="200" />
 
-        <div class="row d-flex justify-content-center">
-                <div class="col-md-8">
+<div class="row d-flex justify-content-center">
+        <div class="col-md-8 my-5">
         <h1 class="text-center aboutJudul">Apa itu Ngabar?</h1>
         <p>Ngabar adalah sebuah platform daring yang dirancang khusus sebagai tempat untuk diskusi online. Dengan fokus pada keterlibatan pengguna dan interaksi antaranggota komunitas, Ngabar menjadi sarana yang ideal bagi individu untuk berbagi pandangan, ide, dan informasi dalam beragam topik.</p>
         <p>Dibangun dengan antarmuka yang intuitif dan ramah pengguna, Ngabar menawarkan pengalaman yang menyenangkan dan mudah dipahami bagi para penggunanya. Sebagai sebuah tempat diskusi online</p>
@@ -27,7 +23,7 @@
         </ul>
         <h1 class="text-center aboutJudul">Apa Tujuan nya?</h1>
         <p>Ngabar bertujuan untuk menjadi tempat yang ramah dan inklusif bagi semua orang yang ingin berpartisipasi dalam diskusi online, menciptakan ruang di mana ide-ide dapat bertemu, pandangan dapat ditukar, dan komunitas dapat tumbuh bersama.</p> 
-                </div>
         </div>
-        
+</div>
+
 @endsection

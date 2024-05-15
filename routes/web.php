@@ -54,8 +54,6 @@ Route::get('/detail/{galeri}', [GaleriController::class, 'detail']);
 Route::get('/about', function () {
     return view('about', [
         "title" => "Tentang Kami",
-        "description" => "Tempat Diskusi Online",
-        "image" => "kabah.jpg"
     ]);
 });
 

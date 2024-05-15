@@ -7,7 +7,7 @@
     <div class="container-galeri">
         
         @foreach ($galeri as $item)
-        <div class="boxImg">
+        <div class="boxImg m-4">
             <img src="https://source.unsplash.com/500x400?{{ ($item->kategoriGaleri->nama == 'Kegiatan') ? 'Wallpaper' : $item->kategoriGaleri->nama }}" alt="" class="img-fluid">
 
             
