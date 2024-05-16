@@ -313,6 +313,13 @@ nav .logo-nav {
     margin: 18px 0;
 }
 
+.container-about p,
+.container-about h1,
+.container-about hr,
+.fitur-ngabar ul li {
+    animation: teksHomeAnimate 5s;
+}
+
 .title-ngabar {
     display: flex;
     width: 1000px;
@@ -335,12 +342,12 @@ nav .logo-nav {
 .fitur-ngabar,
 .tujuan-ngabar {
     margin-top: 50px;
-    animation: contentAbout 3s;
 }
 
 .title-ngabar hr,
 .fitur-ngabar hr,
-.tujuan-ngabar hr {
+.tujuan-ngabar hr,
+.teks-home hr {
     height: 3px;
     margin-left: 0;
     margin-right: 0;
@@ -358,6 +365,7 @@ nav .logo-nav {
 .fitur-ngabar img {
     width: 400px;
     margin-right: 120px;
+    animation: contentAbout 2s;
 }
 .title-ngabar p {
     text-align: justify;
@@ -791,6 +799,59 @@ input:focus {
     cursor: pointer;
 }
 
+/* CSS Home Page */
+
+.container-homes {
+    width: 1000px;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px auto;
+    align-items: center;
+}
+
+.teks-home p {
+    text-align: justify;
+}
+
+#songButton {
+    background-color: #00bbf9;
+    padding: 0 3px;
+    border: none;
+    border-radius: 5px;
+    font-size: small;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px #ff465b;
+}
+
+button#songButton:active {
+    transform: scale(0.8);
+}
+
+.container-homes img {
+    width: 90%;
+    animation: homeAnimate 2s;
+}
+.teks-home {
+    margin: 20px;
+    animation: teksHomeAnimate 4s;
+}
+
+@keyframes homeAnimate {
+    10% {
+        opacity: 0;
+        transform: translateX(400px);
+    }
+}
+
+@keyframes teksHomeAnimate {
+    10% {
+        transform: scale(0);
+    }
+    20% {
+        transform: scale(1);
+    }
+}
+
 /* Responsive hp */
 @media (max-width: 600px) {
     hr {
@@ -842,6 +903,14 @@ input:focus {
     .tujuan-ngabar {
         flex-wrap: wrap;
         margin: 30px;
+    }
+    .container-homes {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .container-homes img {
+        width: 100%;
+        order: -1;
     }
 }
 

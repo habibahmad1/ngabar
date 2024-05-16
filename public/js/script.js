@@ -241,3 +241,18 @@ if (tujuan) {
         animateSwap(tujuan, fitur, title);
     });
 }
+
+// Function Play Song Home Page
+const song = document.querySelector("#myAudio");
+const songButton = document.querySelector("#songButton");
+function songBGM() {
+    if (song.paused) {
+        song.play();
+    } else {
+        song.pause();
+    }
+}
+
+if (songButton) {
+    songButton.addEventListener("click", songBGM);
+}
