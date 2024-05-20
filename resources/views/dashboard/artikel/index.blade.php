@@ -5,6 +5,7 @@
     <h1 class="h2">My Artikel</h1>
   </div>
   <div class="table-responsive small col-lg-8">
+    <a href="/dashboard/artikel/create" class="btn btn-primary">Buat Artikel</a>
     <table class="table table-warning table-striped table-sm text-center">
       <thead>
         <tr class="table-primary">

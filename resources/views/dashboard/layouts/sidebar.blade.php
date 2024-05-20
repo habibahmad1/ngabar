@@ -13,7 +13,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/artikel') ? 'activeSidebar' : '' }}" href="/dashboard/artikel">
+            <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/artikel*') ? 'activeSidebar' : '' }}" href="/dashboard/artikel">
               <i class="fa-regular fa-file-lines iconColor"></i>
               My Artikel
             </a>

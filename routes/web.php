@@ -105,7 +105,11 @@ Route::post('/register', [RegisterController::class, 'store']);
 // Route untuk Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard.index');
-})->middleware('auth');;
+})->middleware('auth');
+
+
+// Route untuk slug
+Route::get('/dashboard/artikel/cekSlug', [DashboardPostController::class, 'cekSlug']);
 
 // Route untuk Dashboard pada hal My Artikel
 Route::resource('/dashboard/artikel', DashboardPostController::class)->middleware('auth');
