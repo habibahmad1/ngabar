@@ -14,8 +14,23 @@
         </div>
         <div class="mb-3">
           <label for="slug" class="form-label">Slug</label>
-          <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
+          <input type="text" class="form-control" id="slug" name="slug" readonly>
         </div>
+        <div class="mb-3">
+          <label for="kategori" class="form-label">Kategori Artikel</label>
+          <select class="form-select" name="kategori">
+            @foreach ($data as $item)
+            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+            @endforeach
+          </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="bodyPost" class="form-label">Isi Artikel</label>
+            <input id="bodyPost" type="hidden" name="bodyPost">
+            <trix-editor input="bodyPost"></trix-editor>
+        </div>
+        
         <button type="submit" class="btn btn-primary">Buat Artikel</button>
     </form>
 </div>
@@ -30,5 +45,9 @@
         .then(response => response.json())
         .then(data => slug.value = data.slug)
     });
+
+    document.addEventListener('trix-file-accept',(e)=>{
+        e.prevendDefault();
+    })
 </script>
 @endsection
