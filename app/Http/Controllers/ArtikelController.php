@@ -11,7 +11,7 @@ class ArtikelController extends Controller
     {
         return view('artikel',  [
             'title' => 'Artikel',
-            "article" => Artikel::latest()->filtercoy()->paginate(7)->withQueryString()
+            "article" => Artikel::latest()->filtercoy()->paginate(10)->withQueryString()
         ]);
     }
     public function show(Artikel $artikel)

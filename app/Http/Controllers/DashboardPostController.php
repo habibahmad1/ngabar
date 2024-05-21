@@ -6,6 +6,7 @@ use App\Models\Artikel;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Str;
 
 class DashboardPostController extends Controller
 {
@@ -34,7 +35,19 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validasiData = $request->validate([
+            'judul' => 'required | max:255',
+            'slug' => 'required|unique:artikels',
+            'category_id' => 'required',
+            'artikelPost' => 'required'
+        ]);
+
+        $validasiData['user_id'] = auth()->user()->id;
+        $validasiData['excerpt'] = Str::limit(strip_tags($request->artikelPost), 120);
+
+        Artikel::create($validasiData);
+
+        return redirect('/dashboard/artikel')->with('success', 'Berhasil Menambahkan Artikel');
     }
 
     /**

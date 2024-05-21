@@ -14,13 +14,14 @@ class UserController extends Controller
     {
         $articles = Artikel::with(['category', 'user'])
             ->where('user_id', $author->id)
-            ->get();
+            ->paginate(7);
 
         return view('artikel', [
             'title' => "Artikel By: $author->name",
             'article' => $articles,
         ]);
     }
+
 
     public function index2(User $uploaded)
     {

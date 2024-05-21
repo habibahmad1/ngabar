@@ -9,29 +9,50 @@
     <form action="/dashboard/artikel" method="POST">
         @csrf
         <div class="mb-3">
-          <label for="judul" class="form-label">Judul</label>
-          <input type="text" class="form-control" id="judul" name="judul">
+          <label for="judul" class="form-label">Judul Artikel</label>
+          <input type="text" class="form-control @error('judul')
+            is-invalid
+          @enderror" id="judul" name="judul" required autofocus value="{{ old('judul') }}">
+          @error('judul')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+          @enderror
         </div>
         <div class="mb-3">
           <label for="slug" class="form-label">Slug</label>
-          <input type="text" class="form-control" id="slug" name="slug" readonly>
+          <input type="text" class="form-control @error('slug')
+          is-invalid
+        @enderror" id="slug" name="slug" readonly value="{{ old('slug') }}">
+        @error('slug')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+          @enderror
         </div>
         <div class="mb-3">
-          <label for="kategori" class="form-label">Kategori Artikel</label>
-          <select class="form-select" name="kategori">
+          <label for="category_id" class="form-label">Kategori Artikel</label>
+          <select class="form-select" name="category_id">
             @foreach ($data as $item)
-            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+            <option value="{{ $item->id }}" {{ old('category_id') == $item->id ? 'selected' : '' }}>{{ $item->nama }}</option>
             @endforeach
           </select>
         </div>
 
         <div class="mb-3">
-            <label for="bodyPost" class="form-label">Isi Artikel</label>
-            <input id="bodyPost" type="hidden" name="bodyPost">
-            <trix-editor input="bodyPost"></trix-editor>
+            <label for="artikelPost" class="form-label">Isi Artikel</label>
+            <input id="artikelPost" type="hidden" name="artikelPost" value="{{ old('artikelPost') }}">
+            <trix-editor input="artikelPost" class="@error('artikelPost')
+            is-invalid
+          @enderror"></trix-editor>
+          @error('artikelPost')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+          @enderror
         </div>
         
-        <button type="submit" class="btn btn-primary">Buat Artikel</button>
+        <button type="submit" class="btn btn-primary mb-5">Buat Artikel</button>
     </form>
 </div>
 
