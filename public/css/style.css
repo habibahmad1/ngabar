@@ -836,6 +836,24 @@ button#songButton:active {
     animation: teksHomeAnimate 4s;
 }
 
+#ImgHome {
+    animation: imgHome 6s infinite linear;
+    cursor: pointer;
+}
+
+#ImgHome:hover {
+    filter: saturate(150%);
+}
+
+@keyframes imgHome {
+    10% {
+        transform: rotate(4deg) translateX(50px);
+    }
+    30% {
+        transform: rotate(-4deg) translateX(-50px);
+    }
+}
+
 @keyframes homeAnimate {
     10% {
         opacity: 0;

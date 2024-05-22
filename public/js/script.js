@@ -256,3 +256,12 @@ function songBGM() {
 if (songButton) {
     songButton.addEventListener("click", songBGM);
 }
+
+// Sound Hello Home
+const buttonHome = document.getElementById("ImgHome");
+const hello = document.getElementById("hello");
+if (buttonHome) {
+    buttonHome.addEventListener("click", () => {
+        hello.play();
+    });
+}
