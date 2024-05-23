@@ -56,6 +56,11 @@
     color: #ffd60a;
 }
 
+.gambarTiapPost {
+    max-height: 350px;
+    overflow: hidden;
+}
+
 .gambarTiapPost img {
     width: 100%;
     height: auto;

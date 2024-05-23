@@ -2,17 +2,18 @@
 @section('content')
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Buat Artikel Baru</h1>
+    <h1 class="h2">Edit Artikel</h1>
 </div>
 
 <div class="col-lg-7">
-    <form action="/dashboard/artikel" method="POST" enctype="multipart/form-data">
+    <form action="/dashboard/artikel/{{ $artikel->slug }}" method="POST">
+      @method('put')
         @csrf
         <div class="mb-3">
           <label for="judul" class="form-label">Judul Artikel</label>
           <input type="text" class="form-control @error('judul')
             is-invalid
-          @enderror" id="judul" name="judul" required autofocus value="{{ old('judul') }}">
+          @enderror" id="judul" name="judul" required autofocus value="{{ old('judul', $artikel->judul) }}">
           @error('judul')
             <div class="invalid-feedback">
               {{ $message }}
@@ -23,19 +24,18 @@
           <label for="slug" class="form-label">Slug</label>
           <input type="text" class="form-control @error('slug')
           is-invalid
-        @enderror" id="slug" name="slug" readonly value="{{ old('slug') }}">
+        @enderror" id="slug" name="slug" value="{{ old('slug', $artikel->slug) }}">
         @error('slug')
             <div class="invalid-feedback">
               {{ $message }}
             </div>
           @enderror
         </div>
-
         <div class="mb-3">
           <label for="category_id" class="form-label">Kategori Artikel</label>
           <select class="form-select" name="category_id">
             @foreach ($data as $item)
-            <option value="{{ $item->id }}" {{ old('category_id') == $item->id ? 'selected' : '' }}>{{ $item->nama }}</option>
+            <option value="{{ $item->id }}" {{ old('category_id', $artikel->category_id) == $item->id ? 'selected' : '' }}>{{ $item->nama }}</option>
             @endforeach
           </select>
         </div>
@@ -54,7 +54,7 @@
 
         <div class="mb-3">
             <label for="artikelPost" class="form-label">Isi Artikel</label>
-            <input id="artikelPost" type="hidden" name="artikelPost" value="{{ old('artikelPost') }}">
+            <input id="artikelPost" type="hidden" name="artikelPost" value="{{ old('artikelPost', $artikel->artikelPost) }}">
             <trix-editor input="artikelPost" class="@error('artikelPost')
             is-invalid
           @enderror"></trix-editor>
@@ -65,7 +65,7 @@
           @enderror
         </div>
         
-        <button type="submit" class="btn btn-primary mb-5">Buat Artikel</button>
+        <button type="submit" class="btn btn-primary mb-5">Edit Artikel</button>
     </form>
 </div>
 

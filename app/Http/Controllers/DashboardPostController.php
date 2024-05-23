@@ -38,9 +38,14 @@ class DashboardPostController extends Controller
         $validasiData = $request->validate([
             'judul' => 'required | max:255',
             'slug' => 'required|unique:artikels',
+            'image' => 'image|file|max:2048',
             'category_id' => 'required',
             'artikelPost' => 'required'
         ]);
+
+        if ($request->file('image')) {
+            $validasiData['image'] = $request->file('image')->store('artikel-image');
+        }
 
         $validasiData['user_id'] = auth()->user()->id;
         $validasiData['excerpt'] = Str::limit(strip_tags($request->artikelPost), 120);
@@ -65,7 +70,10 @@ class DashboardPostController extends Controller
      */
     public function edit(Artikel $artikel)
     {
-        //
+        return view('dashboard.artikel.edit', [
+            'artikel' => $artikel,
+            'data' => Category::all()
+        ]);
     }
 
     /**
@@ -73,7 +81,25 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Artikel $artikel)
     {
-        //
+        $rules = [
+            'judul' => 'required | max:255',
+            'category_id' => 'required',
+            'artikelPost' => 'required'
+        ];
+
+        if ($request->slug != $artikel->slug) {
+            $rules['slug'] = 'required|unique:artikels';
+        }
+
+        $validasiData = $request->validate($rules);
+
+        $validasiData['user_id'] = auth()->user()->id;
+        $validasiData['excerpt'] = Str::limit(strip_tags($request->artikelPost), 120);
+
+        Artikel::where('id', $artikel->id)
+            ->update($validasiData);
+
+        return redirect('/dashboard/artikel')->with('success', 'Berhasil Edit Artikel');
     }
 
     /**
@@ -81,7 +107,9 @@ class DashboardPostController extends Controller
      */
     public function destroy(Artikel $artikel)
     {
-        //
+        Artikel::destroy($artikel->id);
+
+        return redirect('/dashboard/artikel')->with('success', 'Artikel Berhasil di Hapus');
     }
 
     public function cekSlug(Request $request)

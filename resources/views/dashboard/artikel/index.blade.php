@@ -30,8 +30,12 @@
           <td>{{ $artikel->category->nama }}</td>
           <td>
             <a href="/dashboard/artikel/{{ $artikel->slug }}" class="badge bg-info"><i class="fa-solid fa-eye text-white"></i></a>
-            <a href="" class="badge bg-success"><i class="fa-solid fa-pencil"></i></a>
-            <a href="" class="badge bg-danger"><i class="fa-solid fa-trash-can"></i></i></a>
+            <a href="/dashboard/artikel/{{ $artikel->slug }}/edit" class="badge bg-success"><i class="fa-solid fa-pencil"></i></a>
+            <form action="/dashboard/artikel/{{ $artikel->slug }}" method="POST" class="d-inline">
+              @method('delete')
+              @csrf
+              <button class="badge bg-danger border-0" onclick="return confirm('Yakin Mau Hapus?')"><i class="fa-solid fa-trash-can"></i></button>
+            </form>
           </td>
         </tr>
         @endforeach

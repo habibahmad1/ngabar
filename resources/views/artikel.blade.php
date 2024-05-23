@@ -34,7 +34,16 @@
                 @if ($article->count())
 
                 <div class="card mb-5 text-center">
-                    <img src="https://source.unsplash.com/1200x400?japan" class="card-img-top" alt="...">
+                    @if ($article[0]->image)
+
+                        <div class="text-center gambarTiapPost" style="max-height: 350px; overflow:hidden">
+                            <img src="{{ asset('storage/' . $article[0]->image) }}"  alt="imgPost" class="rounded">
+                        </div> 
+                    
+                    @else
+                        <img src="https://source.unsplash.com/1200x400?{{ $article[0]->category->nama }}" class="card-img-top" alt="{{ $article[0]->category->nama }}">
+                    @endif
+                    
                     <div class="card-body">
                       <h3 class="card-title" style="color: #41a77e"><a href="/artikel/{{ $article[0]->slug }}" class="text-decoration-none" style="color: #41a77e">{{ $article[0]->judul }}</a></h3>
 
@@ -43,16 +52,22 @@
                       <p class="card-text">{{ $article[0]->excerpt }}</p>
                       <p class="card-text"><small class="text-info fw-bold">{{ $article[0]->created_at->diffForHumans() }}</small></p>
 
-                      <a href="/artikel/{{ $article[0]->slug }}" class="selengkapnya" style="color: white">Baca Selengkapnya</a>
+                      <a href="/artikel/{{ $article[0]->slug }}" class="selengkapnya my-2 d-inline-block" style="color: white">Baca Selengkapnya</a>
                     </div>
                   </div>
                 
 
                 @foreach ($article->skip(1) as $post)
                     <article class="mb-5">
-                        <div class="text-center gambarTiapPost">
-                            <img src="https://source.unsplash.com/500x400?{{ $post->category->nama }}"  alt="imgPost" class="rounded mb-3">
-                        </div>
+                        @if ($post->image)
+                            <div class="text-center gambarTiapPost" style="max-height: 350px; overflow:hidden">
+                                <img src="{{ asset('storage/' . $post->image) }}"  alt="imgPost" class="rounded mb-3">
+                            </div> 
+                        @else
+                            <div class="text-center gambarTiapPost">
+                                <img src="https://source.unsplash.com/500x400?{{ $post->category->nama }}"  alt="imgPost" class="rounded mb-3">
+                            </div>
+                        @endif
 
                         <a href="/artikel/{{ $post->slug }}">
                             <h2 style="color: #41a77e">{{ $post->judul }}</h2>
@@ -67,7 +82,7 @@
 
                         <p>{{ $post->excerpt }}</p>
 
-                        <a href="/artikel/{{ $post->slug }}" class="kembaliButton" style="color: white">Baca Selengkapnya</a>
+                        <a href="/artikel/{{ $post->slug }}" class="more" style="color: white">Baca Selengkapnya</a>
                     </article>
                     @endforeach
             </div>
