@@ -6,7 +6,7 @@
 </div>
 
 <div class="col-lg-7">
-    <form action="/dashboard/artikel/{{ $artikel->slug }}" method="POST">
+    <form action="/dashboard/artikel/{{ $artikel->slug }}" method="POST" enctype="multipart/form-data">
       @method('put')
         @csrf
         <div class="mb-3">
@@ -42,9 +42,14 @@
 
         <div class="mb-3">
           <label for="image" class="form-label">Gambar Artikel</label>
+          @if ($artikel->image)
+            <img src="{{ asset('storage/'.$artikel->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+            @else
+            <img class="img-preview img-fluid mb-3 col-sm-5">
+          @endif
           <input class="form-control @error('image')
           is-invalid
-        @enderror" type="file" id="image" name="image">
+        @enderror" type="file" id="image" name="image" onchange="previewImage()">
         @error('image')
             <div class="invalid-feedback">
               {{ $message }}
@@ -83,5 +88,21 @@
     document.addEventListener('trix-file-accept',(e)=>{
         e.prevendDefault();
     })
+
+    function previewImage(){
+      const image = document.querySelector('#image');
+      const imagePreview = document.querySelector('.img-preview');
+      
+      imagePreview.style.display ="block";
+
+      const ofReader = new FileReader();
+
+      ofReader.readAsDataURL(image.files[0]);
+
+      ofReader.onload = function (ofRevent){
+        imagePreview.src = ofRevent.target.result;
+      }
+
+    }
 </script>
 @endsection

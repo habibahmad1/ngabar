@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardPostController extends Controller
 {
@@ -82,25 +83,39 @@ class DashboardPostController extends Controller
     public function update(Request $request, Artikel $artikel)
     {
         $rules = [
-            'judul' => 'required | max:255',
+            'judul' => 'required|max:255',
             'category_id' => 'required',
+            'image' => 'image|file|max:2048',
             'artikelPost' => 'required'
         ];
 
+        // Hanya validasi slug jika slug berubah
         if ($request->slug != $artikel->slug) {
             $rules['slug'] = 'required|unique:artikels';
         }
 
         $validasiData = $request->validate($rules);
 
+        // Cek jika ada file gambar baru
+        if ($request->file('image')) {
+            // Hapus gambar lama jika ada
+            if ($artikel->image) {
+                Storage::delete($artikel->image);
+            }
+            // Simpan gambar baru dan masukkan ke validasi data
+            $validasiData['image'] = $request->file('image')->store('artikel-image');
+        }
+
+        // Tambahkan user_id dan excerpt ke validasi data
         $validasiData['user_id'] = auth()->user()->id;
         $validasiData['excerpt'] = Str::limit(strip_tags($request->artikelPost), 120);
 
-        Artikel::where('id', $artikel->id)
-            ->update($validasiData);
+        // Update artikel dengan data yang telah divalidasi
+        $artikel->update($validasiData);
 
         return redirect('/dashboard/artikel')->with('success', 'Berhasil Edit Artikel');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -108,6 +123,10 @@ class DashboardPostController extends Controller
     public function destroy(Artikel $artikel)
     {
         Artikel::destroy($artikel->id);
+
+        if ($artikel->image) {
+            Storage::delete($artikel->image);
+        }
 
         return redirect('/dashboard/artikel')->with('success', 'Artikel Berhasil di Hapus');
     }

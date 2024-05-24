@@ -30,6 +30,12 @@
               Data
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('/') ? 'activeSidebar' : '' }}" href="/" target="_blank">
+              <i class="fa-solid fa-house iconColor"></i> 
+              Beranda
+            </a>
+          </li>
         </ul>
 
         <hr class="my-3">
@@ -60,6 +66,22 @@
             </form>
           </li>
         </ul>
+
+        @can('admin')
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-white">
+            <span>Administrator</span>
+          </h6>
+
+          <ul class="nav flex-column mb-auto">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/categories') ? 'activeSidebar' : '' }}" href="/dashboard/categories">
+                <i class="fa-solid fa-border-none iconColor"></i>
+                Create Category
+              </a>
+            </li>
+          </ul>
+        @endcan
+
       </div>
     </div>
   </div>

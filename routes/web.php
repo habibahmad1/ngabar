@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -146,3 +147,6 @@ Route::get('/dashboard/reedem', [ReedemController::class, 'index'])->middleware(
 
 // Route untuk Form Redeem Code
 Route::post('/dashboard/reedem', [ReedemController::class, 'reedem'])->name('reedem')->middleware('auth');
+
+// Route untuk Admin Category
+Route::resource('/dashboard/categories/', AdminCategoryController::class)->except('show')->middleware('admin');
