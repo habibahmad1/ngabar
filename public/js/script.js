@@ -265,3 +265,39 @@ if (buttonHome) {
         hello.play();
     });
 }
+
+// Dark Mode
+const bungkus = document.querySelector(".bungkus");
+const slider = document.querySelector(".sliderDark");
+const darkActive = document.querySelector(".darkActive");
+let isDarkMode = localStorage.getItem("isDarkMode") === "true"; // Ambil status isDarkMode dari localStorage
+
+if (slider) {
+    // Atur tampilan awal berdasarkan status isDarkMode
+    if (isDarkMode) {
+        document.body.classList.add("darkActive");
+        slider.style.transform = "translateX(36px)";
+        slider.style.backgroundColor = "#fff";
+    } else {
+        document.body.classList.remove("darkActive");
+        slider.style.transform = "translateX(0)";
+        slider.style.backgroundColor = "#f7c954";
+    }
+
+    slider.addEventListener("click", () => {
+        document.body.classList.toggle("darkActive");
+
+        // Toggle posisi slider
+        if (isDarkMode) {
+            slider.style.transform = "translateX(0)";
+            slider.style.backgroundColor = "#f7c954";
+        } else {
+            slider.style.transform = "translateX(36px)";
+            slider.style.backgroundColor = "#fff";
+        }
+
+        // Toggle status
+        isDarkMode = !isDarkMode;
+        localStorage.setItem("isDarkMode", isDarkMode); // Simpan status isDarkMode ke dalam localStorage
+    });
+}

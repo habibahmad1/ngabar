@@ -1,7 +1,7 @@
  <!-- Navbar -->
  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand logo-nav" href="/">Ngabar</a>
+      <a class="navbar-brand logo-nav titleHome" href="/">Ngabar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,6 +22,9 @@
           <li class="nav-item">
             <a class="nav-link {{ ($title === "Tentang Kami") ? 'active' : '' }}" href="/about">Tentang Kami</a>
           </li>
+              <div class="bungkus">
+                <div class="sliderDark"></i></div>
+              </div>
           @auth
           <center>
             <!-- Example single danger button -->

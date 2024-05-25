@@ -66,16 +66,16 @@ nav .container {
 /* Animasi Border Mutar di Navbar */
 @keyframes borderMuter {
     25% {
-        border-top: 2px solid #b5ffe1;
+        border-top: 2px solid #ffffff;
     }
     50% {
-        border-right: 2px solid #b5ffe1;
+        border-right: 2px solid #ffffff;
     }
     75% {
-        border-bottom: 2px solid #b5ffe1;
+        border-bottom: 2px solid #ffffff;
     }
     100% {
-        border-left: 2px solid #b5ffe1;
+        border-left: 2px solid #ffffff;
     }
 }
 
@@ -83,6 +83,47 @@ nav .logo-nav {
     color: #b5ffe1;
     font-size: 26px;
     font-weight: bold;
+}
+
+.bungkus {
+    width: 70px;
+    height: 30px;
+    background-color: #5e5e5e;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    margin: 5px auto;
+}
+.sliderDark {
+    width: 25px;
+    height: 25px;
+    background-color: #f7c954;
+    border-radius: 50px;
+    transition: transform 0.3s;
+}
+
+.darkActive {
+    background-image: linear-gradient(to right, #1d1f38, #0f206a);
+    color: #fff;
+}
+.darkActive hr,
+.darkActive .bulat,
+.darkActive button {
+    background-color: #00bbf9;
+}
+.darkActive .kanvas,
+.darkActive .container-galeri {
+    background-color: #7f83f7;
+}
+.darkActive article,
+.darkActive .card-body {
+    background-color: #cad6fb;
+}
+.darkActive .titleHome,
+.darkActive .nav-item .nav-link:hover,
+.darkActive h1 {
+    color: #fff;
 }
 
 /* CSS Artikel */
@@ -487,6 +528,13 @@ article:hover .more {
     bottom: 0;
     align-items: center;
     margin-right: 20px;
+}
+
+.imProfil {
+    width: 35px !important;
+    height: 35px !important;
+    border: 2px solid white;
+    border-radius: 50px;
 }
 
 .uploadBy {

@@ -13,6 +13,15 @@ class Galeri extends Model
 
     protected $with = ["user", "kategoriGaleri"];
 
+
+    public function scopeFiltercoy($query)
+    {
+        if (request('search')) {
+            return $query->where('judul', 'like', '%' . request('search') . '%')
+                ->orWhere('artikelPost', 'like', '%' . request('search') . '%');
+        }
+    }
+
     public function kategoriGaleri()
     {
         return $this->belongsTo(KategoriGaleri::class, 'kategoriGaleri_id');

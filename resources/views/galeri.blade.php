@@ -16,12 +16,17 @@
             <div class="judulGaleri">
                 <a href="/detail/{{ $item->id }}" class="text-decoration-none text-white"><h5 class="mx-3 mt-2">{{ $item->judul }}</h5></a>
 
-                <a href="/uploaded/{{ $item->user->username }}" class="uploadBy">Upload By : {{ $item->user->name }}</a>
+                <a href="/uploaded/{{ $item->user->username }}" class="uploadBy"><img src="../img/pw.jpg" alt="" class="imProfil"> {{ $item->user->name }}</a>
+
+                
 
                 <p>{{ $item->created_at->diffForHumans() }}</p>
             </div>
         </div>
 
         @endforeach
+    </div>
+    <div class="paginate justify-content-center d-flex text-white">
+        {{ $galeri->links() }}
     </div>
 @endsection

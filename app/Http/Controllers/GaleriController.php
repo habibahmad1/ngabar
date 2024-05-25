@@ -16,7 +16,7 @@ class GaleriController extends Controller
         return view('galeri',  [
             'title' => 'Galeri',
             'judulPage' => 'Galeri',
-            'galeri' => Galeri::latest()->get()
+            'galeri' => Galeri::latest()->filtercoy()->paginate(10)->withQueryString()
         ]);
     }
 
