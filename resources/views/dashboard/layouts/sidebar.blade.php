@@ -6,6 +6,9 @@
       </div>
       <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
         <ul class="nav flex-column">
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-1 mb-1 text-white">
+            <span>My Dashboard</span>
+          </h6>
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard') ? 'activeSidebar' : '' }}" aria-current="page" href="/dashboard">
               <i class="fa-solid fa-book iconColor"></i>
@@ -25,14 +28,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/data') ? 'activeSidebar' : '' }}" href="/dashboard/data">
-              <i class="fa-solid fa-folder iconColor"></i> 
-              Data
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('/') ? 'activeSidebar' : '' }}" href="/" target="_blank">
-              <i class="fa-solid fa-house iconColor"></i> 
+              <i class="fa-solid fa-house" style="font-size: 18px; color:white"></i> 
               Beranda
             </a>
           </li>
@@ -41,6 +38,15 @@
         <hr class="my-3">
 
         <ul class="nav flex-column mb-auto">
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-1 mb-1 text-white">
+            <span>Features</span>
+          </h6>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/member') ? 'activeSidebar' : '' }}" href="/dashboard/member">
+              <i class="fa-solid fa-users" style="font-size: 18px; color:white"></i> 
+              Member Online
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/profil') ? 'activeSidebar' : '' }}" href="/dashboard/profil">
                 <i class="fa-solid fa-user iconColor"></i>
@@ -77,6 +83,12 @@
               <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/categories') ? 'activeSidebar' : '' }}" href="/dashboard/categories">
                 <i class="fa-solid fa-border-none iconColor"></i>
                 Create Category
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/data') ? 'activeSidebar' : '' }}" href="/dashboard/data">
+                <i class="fa-solid fa-folder iconColor"></i> 
+                Data User
               </a>
             </li>
           </ul>

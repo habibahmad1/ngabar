@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reedem;
-use App\Models\User;
 use App\Http\Requests\StoreReedemRequest;
 use App\Http\Requests\UpdateReedemRequest;
 use Illuminate\Http\Request;

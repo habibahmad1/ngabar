@@ -14,6 +14,7 @@ use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\KategoriGaleriController;
+use App\Http\Controllers\MemberController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -140,7 +141,7 @@ Route::get('/dashboard/data', function () {
     return view('dashboard.data', [
         'data' => User::all()
     ]);
-});
+})->middleware('admin');
 
 // Route untuk Redem Code
 Route::get('/dashboard/reedem', [ReedemController::class, 'index'])->middleware('auth');
@@ -150,3 +151,6 @@ Route::post('/dashboard/reedem', [ReedemController::class, 'reedem'])->name('ree
 
 // Route untuk Admin Category
 Route::resource('/dashboard/categories/', AdminCategoryController::class)->except('show')->middleware('admin');
+
+// Route Member Online
+Route::get('/dashboard/member', [MemberController::class, 'getOnlineUsers'])->middleware('member');

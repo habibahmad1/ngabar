@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('noHp')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
+            $table->timestamp('last_active')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -56,7 +56,7 @@ nav .container {
 }
 
 .login {
-    margin-left: 448px;
+    margin-left: 360px;
 }
 
 .loginAuth {
@@ -100,11 +100,12 @@ nav .logo-nav {
     height: 25px;
     background-color: #f7c954;
     border-radius: 50px;
+    cursor: pointer;
     transition: transform 0.3s;
 }
 
 .darkActive {
-    background-image: linear-gradient(to right, #1d1f38, #0f206a);
+    background-image: linear-gradient(to right, #111222, #0a133c);
     color: #fff;
 }
 .darkActive hr,
@@ -113,8 +114,9 @@ nav .logo-nav {
     background-color: #00bbf9;
 }
 .darkActive .kanvas,
-.darkActive .container-galeri {
-    background-color: #7f83f7;
+.darkActive .container-galeri,
+.darkActive .container-galeris {
+    background-color: #363a9d;
 }
 .darkActive article,
 .darkActive .card-body {
@@ -124,6 +126,10 @@ nav .logo-nav {
 .darkActive .nav-item .nav-link:hover,
 .darkActive h1 {
     color: #fff;
+}
+
+.darkActive ::selection {
+    background-color: #00d0ff;
 }
 
 /* CSS Artikel */
@@ -477,7 +483,13 @@ article:hover .more {
 /* CSS Hal Galeri */
 .container-galeri {
     background-color: white;
+    border-radius: 20px;
+    overflow: auto;
     margin: 20px 0;
+    padding: 10px 0;
+}
+.container-galeris {
+    background-color: white;
     border-radius: 20px;
     display: flex;
     justify-content: space-evenly;
@@ -1040,5 +1052,13 @@ button#songButton:active {
     .tujuan-ngabar {
         margin-top: 80px;
         align-items: center;
+    }
+    .container-homes {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .container-homes img {
+        width: 80%;
+        order: -1;
     }
 }
