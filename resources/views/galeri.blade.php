@@ -9,7 +9,13 @@
 
             @foreach ($galeri as $item)
             <div class="boxImg m-4">
+                @if ($item->img)
+                
+                    <img src="{{ asset('storage/' . $item->img) }}"  alt="imgPost" class="img-fluid">
+                @else
+
                 <img src="https://source.unsplash.com/500x400?{{ ($item->kategoriGaleri->nama == 'Kegiatan') ? 'Wallpaper' : $item->kategoriGaleri->nama }}" alt="" class="img-fluid">
+                @endif
     
                 
                 <div class="galeriKategori"><a href="/kategoriGaleri/{{ $item->kategoriGaleri->slug }}" class="text-decoration-none text-white">{{ $item->kategoriGaleri->nama }}</a></div>

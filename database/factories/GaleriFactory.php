@@ -18,7 +18,6 @@ class GaleriFactory extends Factory
     {
         return [
             "judul" => $this->faker->sentence(),
-            "img" => $this->faker->word() . '.jpg',
             "kategoriGaleri_id" => mt_rand(1, 5),
             "user_id" => mt_rand(1, 5)
         ];

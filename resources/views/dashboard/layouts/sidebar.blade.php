@@ -73,7 +73,7 @@
           </li>
         </ul>
 
-        @can('admin')
+        @can('admin-superadmin')
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-white">
             <span>Administrator</span>
           </h6>
@@ -89,6 +89,12 @@
               <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/data') ? 'activeSidebar' : '' }}" href="/dashboard/data">
                 <i class="fa-solid fa-folder iconColor"></i> 
                 Data User
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/data') ? 'activeSidebar' : '' }}" href="/dashboard/data">
+                <i class="fa-solid fa-flag iconColor"></i> 
+                Laporan 
               </a>
             </li>
           </ul>

@@ -38,31 +38,41 @@
               Offline
           @endif
         </td>
-        <td>{{ $item->is_admin ? 'Admin' : 'Member' }}</td>
+        <td>{{ $item->role }}</td>
         <td>
-          @if (!$item->is_admin)
-              <!-- Form untuk mengubah status menjadi admin -->
-              <form action="/dashboard/makeAdmin" method="POST">
-                  @csrf
-                  <input type="hidden" name="user_id" value="{{ $item->id }}">
-                  <button class="text-decoration-none border-0 badge text-bg-success" type="submit" onclick="return confirm('Jadikan Admin?')">Jadi Admin</button>
-              </form>
-              @else
-              <!-- Form untuk mengubah status menjadi Member -->
-              <form action="/dashboard/makeMember" method="POST">
-                  @csrf
-                  <input type="hidden" name="user_id" value="{{ $item->id }}">
-                  <button class="text-decoration-none border-0 badge text-bg-primary" type="submit" onclick="return confirm('Jadikan Member?')">Jadi Member</button>
-              </form>
-          @endif
-          <!-- Form untuk menghapus user -->
-          <form action="/dashboard/deleteUser" method="POST">
-              @csrf
-              @method('DELETE')
-              <input type="hidden" name="user_id" value="{{ $item->id }}">
-              <button class="text-decoration-none border-0 badge text-bg-danger" type="submit" onclick="return confirm('Hapus User?')">Hapus User</button>
-          </form>
-      </td>
+    @if ($item->role == 'Super Admin')
+        <!-- Tidak ada tombol untuk Super Admin -->
+    @elseif ($item->role != 'Admin' && $item->role != 'Super Admin')
+        <!-- Form untuk mengubah status menjadi admin -->
+        <form action="/dashboard/makeAdmin" method="POST">
+            @csrf
+            <input type="hidden" name="user_id" value="{{ $item->id }}">
+            <button class="text-decoration-none border-0 badge text-bg-success" type="submit" onclick="return confirm('Jadikan Admin?')">Jadi Admin</button>
+        </form>
+        <!-- Form untuk menghapus user -->
+        <form action="/dashboard/deleteUser" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" name="user_id" value="{{ $item->id }}">
+            <button class="text-decoration-none border-0 badge text-bg-danger" type="submit" onclick="return confirm('Hapus User?')">Hapus User</button>
+        </form>
+    @else
+        <!-- Form untuk mengubah status menjadi Member -->
+        <form action="/dashboard/makeMember" method="POST">
+            @csrf
+            <input type="hidden" name="user_id" value="{{ $item->id }}">
+            <button class="text-decoration-none border-0 badge text-bg-primary" type="submit" onclick="return confirm('Jadikan Member?')">Jadi Member</button>
+        </form>
+        <!-- Form untuk menghapus user -->
+        <form action="/dashboard/deleteUser" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" name="user_id" value="{{ $item->id }}">
+            <button class="text-decoration-none border-0 badge text-bg-danger" type="submit" onclick="return confirm('Hapus User?')">Hapus User</button>
+        </form>
+    @endif
+</td>
+
       </tr>
       @endforeach
     </table>

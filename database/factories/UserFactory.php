@@ -37,7 +37,7 @@ class UserFactory extends Factory
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
             'noHp' => '08' . $this->faker->regexify('[0-9]{10}'),
-            'google_id' => $this->faker->numerify('########')
+            'google_id' => $this->faker->numerify('########'),
         ];
     }
 

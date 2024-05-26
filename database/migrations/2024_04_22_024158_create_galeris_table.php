@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('kategoriGaleri_id');
             $table->foreignId('user_id');
             $table->string("judul");
-            $table->string("img");
+            $table->string("img")->nullable();
             $table->timestamps();
         });
     }

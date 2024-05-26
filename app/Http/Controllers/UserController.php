@@ -41,7 +41,7 @@ class UserController extends Controller
     {
         $user = User::find($request->user_id);
         if ($user && !$this->isProtectedUser($user)) {
-            $user->is_admin = true;
+            $user->role = 'Admin';
             $user->save();
             return redirect()->back()->with('success', 'User telah menjadi Admin.');
         }
@@ -52,7 +52,7 @@ class UserController extends Controller
     {
         $user = User::find($request->user_id);
         if ($user && !$this->isProtectedUser($user)) {
-            $user->is_admin = false;
+            $user->role = 'Member';
             $user->save();
             return redirect()->back()->with('success', 'User kembali jadi Member.');
         }
@@ -94,6 +94,6 @@ class UserController extends Controller
     protected function isProtectedUser($user)
     {
         // Tambahkan logika untuk memeriksa apakah user tersebut adalah superadmin atau memiliki status tertentu yang tidak boleh diubah
-        return $user->is_admin || $user->status == 'protected';
+        return $user->role == 'Super Admin' || $user->status == 'protected';
     }
 }

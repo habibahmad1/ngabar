@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\GaleriPostController;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -141,7 +142,7 @@ Route::get('/dashboard/data', function () {
     return view('dashboard.data', [
         'data' => User::all()
     ]);
-})->middleware('admin');
+})->middleware(['role:Admin,Super Admin']);
 
 // Route untuk Redem Code
 Route::get('/dashboard/reedem', [ReedemController::class, 'index'])->middleware(['auth', 'member']);
@@ -150,16 +151,19 @@ Route::get('/dashboard/reedem', [ReedemController::class, 'index'])->middleware(
 Route::post('/dashboard/reedem', [ReedemController::class, 'reedem'])->name('reedem')->middleware('auth');
 
 // Route untuk Admin Category
-Route::resource('/dashboard/categories/', AdminCategoryController::class)->except('show')->middleware('admin');
+Route::resource('/dashboard/categories/', AdminCategoryController::class)->except('show')->middleware('role:Admin,Super Admin');
 
 // Route Member Online
 Route::get('/dashboard/member', [MemberController::class, 'getOnlineUsers'])->middleware(['member', 'auth']);
 
 // Route jadi Admin
-Route::post('/dashboard/makeAdmin', [UserController::class, 'makeAdmin'])->name('user.makeAdmin')->middleware('admin');
+Route::post('/dashboard/makeAdmin', [UserController::class, 'makeAdmin'])->name('user.makeAdmin')->middleware('role:Admin,Super Admin');
 
 // Route jadi Member
-Route::post('/dashboard/makeMember', [UserController::class, 'makeMember'])->name('user.makeMember')->middleware('admin');
+Route::post('/dashboard/makeMember', [UserController::class, 'makeMember'])->name('user.makeMember')->middleware('role:Admin,Super Admin');
 
 // Route Delete User
-Route::delete('/dashboard/deleteUser', [UserController::class, 'deleteUser'])->name('user.deleteUser')->middleware('admin');
+Route::delete('/dashboard/deleteUser', [UserController::class, 'deleteUser'])->name('user.deleteUser')->middleware('role:Admin,Super Admin');
+
+// Route Buat Galeri
+Route::resource('/dashboard/galeri', GaleriPostController::class)->middleware(['auth', 'member']);

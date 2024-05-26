@@ -30,9 +30,10 @@
             <!-- Example single danger button -->
             <li class="nav-item dropdown loginAuth d-block">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Hi, {{ auth()->user()->name }}
+                <i class="fa-regular fa-user"></i> 
               </a>
               <ul class="dropdown-menu text-center">
+                <li><a class="dropdown-item" href="/dashboard/profil"><i class="fa-solid fa-user"></i> {{ auth()->user()->name }}</a></li>
                 <li><a class="dropdown-item" href="/dashboard"><i class="fa-solid fa-book"></i> My Dashboard</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
