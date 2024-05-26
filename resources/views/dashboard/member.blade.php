@@ -16,7 +16,13 @@
       <tr>
         <td>{{ $loop->iteration }}</td>
         <td>{{ $item->name }}</td>
-        <td class="online"><i class="fa-solid fa-circle" style="font-size: 12px"></i> Online</td>
+        <td>
+          @if ($item->last_active && $item->last_active->diffInMinutes() < 1)
+              <p class="online d-inline">Online</p> 
+          @else
+              Offline
+          @endif
+        </td>
         <td><a href="#" onclick="alert('Dalam Pengembangan')" class="text-decoration-none"><i class="fa-brands fa-rocketchat"></i> Chat</a></td>
       </tr>
       @endforeach

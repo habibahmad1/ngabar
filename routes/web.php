@@ -32,35 +32,35 @@ Route::get('/', function () {
     return view('beranda', [
         'title' => 'Beranda'
     ]);
-});
+})->middleware('member');
 
 
 Route::get('/quran', function () {
     return view('quran',  [
         'title' => "Al-Qur'an"
     ]);
-});
+})->middleware('member');
 
 // Route ke semua galery
-Route::get('/galeri', [GaleriController::class, 'index']);
+Route::get('/galeri', [GaleriController::class, 'index'])->middleware('member');
 
 // Route ke semua KategoriGaleri
-Route::get('/kategoriGaleri', [KategoriGaleriController::class, 'allKategori']);
+Route::get('/kategoriGaleri', [KategoriGaleriController::class, 'allKategori'])->middleware('member');
 
 // Route ke tiap post KategoriGaleri
-Route::get('/kategoriGaleri/{kategoriGaleri:slug}', [KategoriGaleriController::class, 'index2']);
+Route::get('/kategoriGaleri/{kategoriGaleri:slug}', [KategoriGaleriController::class, 'index2'])->middleware('member');
 
 // Route ke detail galery
-Route::get('/detail/{galeri}', [GaleriController::class, 'detail']);
+Route::get('/detail/{galeri}', [GaleriController::class, 'detail'])->middleware('member');
 
 Route::get('/about', function () {
     return view('about', [
         "title" => "Tentang Kami",
     ]);
-});
+})->middleware('member');
 
 // Route semua artikel
-Route::get('/artikel', [ArtikelController::class, "index"]);
+Route::get('/artikel', [ArtikelController::class, "index"])->middleware('member');
 
 
 // Rute ke setiap artikel
@@ -107,14 +107,14 @@ Route::post('/register', [RegisterController::class, 'store']);
 // Route untuk Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard.index');
-})->middleware('auth');
+})->middleware(['auth', 'member']);
 
 
 // Route untuk slug
 Route::get('/dashboard/artikel/cekSlug', [DashboardPostController::class, 'cekSlug']);
 
 // Route untuk Dashboard pada hal My Artikel
-Route::resource('/dashboard/artikel', DashboardPostController::class)->middleware('auth');
+Route::resource('/dashboard/artikel', DashboardPostController::class)->middleware(['auth', 'member']);
 
 // Route untuk tampil form lupa pw
 Route::get('forgot-password', [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('password.request')->middleware('guest');
@@ -134,7 +134,7 @@ Route::get('/dashboard/profil', function () {
     return view('dashboard.profil', [
         'dataProfil' => User::all()
     ]);
-});
+})->middleware(['member', 'auth']);
 
 // Route untuk data page
 Route::get('/dashboard/data', function () {
@@ -144,7 +144,7 @@ Route::get('/dashboard/data', function () {
 })->middleware('admin');
 
 // Route untuk Redem Code
-Route::get('/dashboard/reedem', [ReedemController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/reedem', [ReedemController::class, 'index'])->middleware(['auth', 'member']);
 
 // Route untuk Form Redeem Code
 Route::post('/dashboard/reedem', [ReedemController::class, 'reedem'])->name('reedem')->middleware('auth');
@@ -153,4 +153,13 @@ Route::post('/dashboard/reedem', [ReedemController::class, 'reedem'])->name('ree
 Route::resource('/dashboard/categories/', AdminCategoryController::class)->except('show')->middleware('admin');
 
 // Route Member Online
-Route::get('/dashboard/member', [MemberController::class, 'getOnlineUsers'])->middleware('member');
+Route::get('/dashboard/member', [MemberController::class, 'getOnlineUsers'])->middleware(['member', 'auth']);
+
+// Route jadi Admin
+Route::post('/dashboard/makeAdmin', [UserController::class, 'makeAdmin'])->name('user.makeAdmin')->middleware('admin');
+
+// Route jadi Member
+Route::post('/dashboard/makeMember', [UserController::class, 'makeMember'])->name('user.makeMember')->middleware('admin');
+
+// Route Delete User
+Route::delete('/dashboard/deleteUser', [UserController::class, 'deleteUser'])->name('user.deleteUser')->middleware('admin');

@@ -4,6 +4,16 @@
 <center>
     <h1 class="my-2">Daftar Nama Member Ngabar</h1>
 </center>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 <div class="container-table">
     <table id="myTable" cellpadding="10">
       <tr>
@@ -11,6 +21,9 @@
         <th>Name</th>
         <th>Email</th>
         <th>No.Hp</th>
+        <th>Online Status</th>
+        <th>Status</th>
+        <th>Kelola</th>
       </tr>
       @foreach ($data as $item)
       <tr>
@@ -18,6 +31,38 @@
         <td>{{ $item->name }}</td>
         <td>{{ $item->email }}</td>
         <td>{{ $item->noHp }}</td>
+        <td>
+          @if ($item->last_active && $item->last_active->diffInMinutes() < 1)
+          <p class="online d-inline">Online</p>
+          @else
+              Offline
+          @endif
+        </td>
+        <td>{{ $item->is_admin ? 'Admin' : 'Member' }}</td>
+        <td>
+          @if (!$item->is_admin)
+              <!-- Form untuk mengubah status menjadi admin -->
+              <form action="/dashboard/makeAdmin" method="POST">
+                  @csrf
+                  <input type="hidden" name="user_id" value="{{ $item->id }}">
+                  <button class="text-decoration-none border-0 badge text-bg-success" type="submit" onclick="return confirm('Jadikan Admin?')">Jadi Admin</button>
+              </form>
+              @else
+              <!-- Form untuk mengubah status menjadi Member -->
+              <form action="/dashboard/makeMember" method="POST">
+                  @csrf
+                  <input type="hidden" name="user_id" value="{{ $item->id }}">
+                  <button class="text-decoration-none border-0 badge text-bg-primary" type="submit" onclick="return confirm('Jadikan Member?')">Jadi Member</button>
+              </form>
+          @endif
+          <!-- Form untuk menghapus user -->
+          <form action="/dashboard/deleteUser" method="POST">
+              @csrf
+              @method('DELETE')
+              <input type="hidden" name="user_id" value="{{ $item->id }}">
+              <button class="text-decoration-none border-0 badge text-bg-danger" type="submit" onclick="return confirm('Hapus User?')">Hapus User</button>
+          </form>
+      </td>
       </tr>
       @endforeach
     </table>

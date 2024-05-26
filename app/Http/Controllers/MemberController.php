@@ -13,7 +13,7 @@ class MemberController extends Controller
     {
         $usersOnline = User::where('last_active', '>=', Carbon::now()->subMinutes(1))->get();
         return view('dashboard.member', [
-            'data' => $usersOnline,
+            'data' => User::all(),
         ]);
     }
 }
