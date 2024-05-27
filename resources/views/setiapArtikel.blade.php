@@ -24,6 +24,39 @@
 
         <p>{!! $articlePost->artikelPost !!}</p>
         <a href="/artikel" class="kembaliButton">Back</a>
+        @if(session()->has('success')) 
+            <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+            </div>  
+        @endif
+        @auth
+        <form action="/artikel/{{ $articlePost->slug }}/komentar" method="POST" class="my-5">
+            @csrf
+            <div class="form-group">
+                <label for="content" class="my-3"><b>{{ $komentar->count() }} Komentar</b></label>
+                <textarea name="content" id="content" class="form-control" rows="3" required placeholder="Ketik Komentar disini"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2 float-end">Kirim</button>
+        </form>
+        
+        @else
+            <p>Silakan <a href="/login">Login</a> untuk menambahkan komentar.</p>
+        @endauth
+        @foreach ($komentar as $item)
+            <div>
+                <img src="../img/pw.jpg" alt="" class="imProfil"><p class="d-inline-block ml-3" style="margin-left: 10px">{{ $item->user->name }}</p>
+                <div class="komens">{{ $item->content }}</div>
+                @if (auth()->check() && auth()->user()->id === $item->user_id)
+                <form action="/artikel/{{ $item->id }}/deletekomen" method="POST" class="d-inline">
+                    @method('delete')
+                    @csrf
+                    <button class="badge bg-danger border-0 trash-icons" onclick="return confirm('Yakin Mau Hapus?')" type="submit"><i class="fa-solid fa-trash-can trash-icon"></i></button>
+                  </form>
+                @endif
+            </div>
+            <hr style="margin: 10px 0; background-color:grey">
+        @endforeach
+        
     </article>
 </div>
 @endsection

@@ -65,8 +65,11 @@
                             </div> 
                         @else
                             <div class="text-center gambarTiapPost">
-                                <img src="https://source.unsplash.com/500x400?{{ $post->category->nama }}"  alt="imgPost" class="rounded mb-3">
+                                <img src="./img/sample.jpg"  alt="imgPost" class="rounded mb-3">
                             </div>
+                            {{-- <div class="text-center gambarTiapPost">
+                                <img src="https://source.unsplash.com/500x400?{{ $post->category->nama }}"  alt="imgPost" class="rounded mb-3">
+                            </div> --}}
                         @endif
 
                         <a href="/artikel/{{ $post->slug }}">

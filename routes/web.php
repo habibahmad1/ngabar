@@ -1,21 +1,23 @@
 <?php
 
-use App\Http\Controllers\AdminCategoryController;
-use App\Http\Controllers\GaleriPostController;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Komentar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ReedemController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\KomentarController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\GaleriPostController;
 use App\Http\Controllers\GoogleLoginController;
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\KategoriGaleriController;
-use App\Http\Controllers\MemberController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -66,6 +68,13 @@ Route::get('/artikel', [ArtikelController::class, "index"])->middleware('member'
 
 // Rute ke setiap artikel
 Route::get('/artikel/{artikel:slug}', [ArtikelController::class, "show"]);
+
+// Rute ke simpan artikel komen
+Route::post('/artikel/{artikel:slug}/komentar', [ArtikelController::class, 'store']);
+
+// Rute ke delete artikel komen
+Route::delete('/artikel/{komentar:id}/deletekomen', [ArtikelController::class, 'destroy']);
+
 
 // Route ke category
 Route::get('/categories/{category:slug}', function (Category $category) {
@@ -125,7 +134,7 @@ Route::get('forgot-password', [ForgotPasswordController::class, 'showForgotPassw
 Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email')->middleware('guest');
 
 // Untuk tampil form Lupa PW
-Route::get('reset-password/{token}/{email}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::get('reset-password/{token}/{email}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset')->middleware('guest');
 
 // Untuk proses form lupa pw
 Route::post('reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
@@ -142,7 +151,7 @@ Route::get('/dashboard/data', function () {
     return view('dashboard.data', [
         'data' => User::all()
     ]);
-})->middleware(['role:Admin,Super Admin']);
+})->middleware(['role:Admin,Super Admin', 'member']);
 
 // Route untuk Redem Code
 Route::get('/dashboard/reedem', [ReedemController::class, 'index'])->middleware(['auth', 'member']);
@@ -151,7 +160,7 @@ Route::get('/dashboard/reedem', [ReedemController::class, 'index'])->middleware(
 Route::post('/dashboard/reedem', [ReedemController::class, 'reedem'])->name('reedem')->middleware('auth');
 
 // Route untuk Admin Category
-Route::resource('/dashboard/categories/', AdminCategoryController::class)->except('show')->middleware('role:Admin,Super Admin');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware(['role:Admin,Super Admin']);
 
 // Route Member Online
 Route::get('/dashboard/member', [MemberController::class, 'getOnlineUsers'])->middleware(['member', 'auth']);
@@ -166,4 +175,4 @@ Route::post('/dashboard/makeMember', [UserController::class, 'makeMember'])->nam
 Route::delete('/dashboard/deleteUser', [UserController::class, 'deleteUser'])->name('user.deleteUser')->middleware('role:Admin,Super Admin');
 
 // Route Buat Galeri
-Route::resource('/dashboard/galeri', GaleriPostController::class)->middleware(['auth', 'member']);
+Route::resource('/dashboard/galeri', GaleriPostController::class)->middleware(['auth', 'member', 'role:Admin,Super Admin']);

@@ -92,7 +92,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/data') ? 'activeSidebar' : '' }}" href="/dashboard/data">
+              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/lapor') ? 'activeSidebar' : '' }}" href="/dashboard/lapor">
                 <i class="fa-solid fa-flag iconColor"></i> 
                 Laporan 
               </a>

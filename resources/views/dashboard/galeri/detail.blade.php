@@ -7,8 +7,8 @@
         
         <h2>{{ $galeri->judul }}</h2>
 
-        <a href="/dashboard/galeri/{{ $galeri->slug }}/edit" class="badge bg-success py-2 text-decoration-none"><i class="fa-solid fa-pencil"></i> Edit</a>
-        <form action="/dashboard/galeri/{{ $galeri->slug }}" method="POST" class="d-inline">
+        <a href="/dashboard/galeri/{{ $galeri->id }}/edit" class="badge bg-success py-2 text-decoration-none"><i class="fa-solid fa-pencil"></i> Edit</a>
+        <form action="/dashboard/galeri/{{ $galeri->id }}" method="POST" class="d-inline">
             @method('delete')
             @csrf
             <button class="badge bg-danger border-0 py-2" onclick="return confirm('Yakin Mau Hapus?')"><i class="fa-solid fa-trash-can"></i> Delete</button>

@@ -31,4 +31,9 @@ class Galeri extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function komentar()
+    {
+        return $this->hasMany(Komentar::class);
+    }
 }
