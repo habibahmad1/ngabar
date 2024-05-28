@@ -10,8 +10,14 @@
 
             <span class="text-info fs-6 float-end">{{ $galeriDetail->created_at->diffForHumans() }}</span>
 
-            <div class="galeriTiapKategori"><a href="" class="text-decoration-none text-white">{{ $galeriDetail->kategoriGaleri->nama }}</a></div>
-            <img src="https://source.unsplash.com/1200x600?{{ $galeriDetail->kategoriGaleri->nama == 'Kegiatan' ? 'japan' : $galeriDetail->kategoriGaleri->nama }}" alt="">
+            <div class="galeriTiapKategori"><a href="/kategoriGaleri/{{ $galeriDetail->kategoriGaleri->slug }}" class="text-decoration-none text-white">{{ $galeriDetail->kategoriGaleri->nama }}</a>
+            </div>
+
+            @if ($galeriDetail->img)
+                <img src="{{ asset('storage/' . $galeriDetail->img) }}" alt="">
+            @else
+                <img src="https://picsum.photos/seed/{{ $galeriDetail->kategoriGaleri->nama }}/1200/600" alt="">
+            @endif
             
             {{-- unduh gambar --}}
             <a href="https://source.unsplash.com/1200x600?japan" target="_blank" class="downloadGambar" download> <i class="fa-solid fa-download"></i> Unduh</a>

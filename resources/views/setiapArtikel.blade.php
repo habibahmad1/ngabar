@@ -12,7 +12,7 @@
     
         @else
             <div class="text-center gambarTiapPost my-4">
-                <img src="https://source.unsplash.com/1200x400?{{ $articlePost->category->nama }}"  alt="imgPost" class="rounded mb-3">
+                <img src="https://picsum.photos/seed/{{ $articlePost->category->nama }}/1200/400"  alt="imgPost" class="rounded mb-3">
             </div> 
         @endif
 

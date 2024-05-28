@@ -16,7 +16,8 @@
       <div class="container mt-4">
         @yield('content')
       </div>
-
+    <div class="batasfooter"></div>
+    @include('./partials/footer')
     {{-- Font Awesome --}}
     <script src="https://kit.fontawesome.com/4f83e01807.js" crossorigin="anonymous"></script>
           
@@ -25,5 +26,12 @@
     {{-- My JS --}}
     {{-- <script src="../js/script.js"></script> --}}
     <script src="{{ asset('js/script.js') }}"></script>
+    {{-- Translate --}}
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'id', includedLanguages: 'en,es,fr,de,ja', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+      }
+      </script>
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html> 

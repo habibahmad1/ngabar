@@ -41,7 +41,7 @@
                         </div> 
                     
                     @else
-                        <img src="https://source.unsplash.com/1200x400?{{ $article[0]->category->nama }}" class="card-img-top" alt="{{ $article[0]->category->nama }}">
+                        <img src="https://picsum.photos/seed/{{ $article[0]->category->nama }}/1200/400" class="card-img-top" alt="{{ $article[0]->category->nama }}">
                     @endif
                     
                     <div class="card-body">
@@ -65,7 +65,7 @@
                             </div> 
                         @else
                             <div class="text-center gambarTiapPost">
-                                <img src="./img/sample.jpg"  alt="imgPost" class="rounded mb-3">
+                                <img src="https://picsum.photos/seed/{{ $post->category->nama }}/1200/600"  alt="imgPost" class="rounded mb-3">
                             </div>
                             {{-- <div class="text-center gambarTiapPost">
                                 <img src="https://source.unsplash.com/500x400?{{ $post->category->nama }}"  alt="imgPost" class="rounded mb-3">

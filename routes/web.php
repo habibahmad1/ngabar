@@ -10,6 +10,7 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ReedemController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\KomentarController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GaleriPostController;
@@ -176,3 +177,6 @@ Route::delete('/dashboard/deleteUser', [UserController::class, 'deleteUser'])->n
 
 // Route Buat Galeri
 Route::resource('/dashboard/galeri', GaleriPostController::class)->middleware(['auth', 'member', 'role:Admin,Super Admin']);
+
+// Route Settings
+Route::get('/dashboard/setting', [SettingController::class, 'index'])->name('settings')->middleware(['member', 'auth']);

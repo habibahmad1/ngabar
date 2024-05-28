@@ -14,7 +14,7 @@
                     <img src="{{ asset('storage/' . $item->img) }}"  alt="imgPost" class="img-fluid">
                 @else
 
-                <img src="https://source.unsplash.com/500x400?{{ ($item->kategoriGaleri->nama == 'Kegiatan') ? 'Wallpaper' : $item->kategoriGaleri->nama }}" alt="" class="img-fluid">
+                <img src="https://picsum.photos/seed/{{ $item->kategoriGaleri->nama }}/500/400" alt="" class="img-fluid">
                 @endif
     
                 

@@ -9,7 +9,7 @@
                 <article class="mb-5 mt-5 text-center position-relative">
                   <a href="/categories/{{ $category->slug }}"> 
                     <div class="text-center gambarTiapPost">
-                        <img src="https://source.unsplash.com/500x400?{{ ($category->nama == 'Kegiatan') ? 'Anime' : $category->nama }}" alt="imgPost" class="rounded">
+                        <img src="https://picsum.photos/seed/{{ $category->nama }}/600/400" alt="imgPost" class="rounded">
                     </div>
                     <div class="position-absolute top-50 start-50 translate-middle ">
                        <p>

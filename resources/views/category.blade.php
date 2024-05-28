@@ -8,7 +8,7 @@
             @foreach ($artikelPost as $post)
                 <article class="mb-5"> 
                   <div class="text-center gambarTiapPost">
-                        <img src="https://source.unsplash.com/500x400?{{ $post->category->nama }}"  alt="imgPost" class="rounded mb-3">
+                        <img src="https://picsum.photos/seed/{{ $post->category->nama }}/1200/600"  alt="imgPost" class="rounded mb-3">
                   </div>
                   <a href="/artikel/{{ $post->slug }}">
                       <h2 style="color: #41a77e">{{ $post->judul }}</h2>
@@ -22,7 +22,7 @@
                     
                   <p>{{ $post->excerpt }}</p>
 
-                  <a href="/artikel/{{ $post->slug }}" class="kembaliButton" style="color: white">Baca Selengkapnya</a>
+                  <a href="/artikel/{{ $post->slug }}" class="more" style="color: white">Baca Selengkapnya</a>
                 </article>
             @endforeach
         </div>

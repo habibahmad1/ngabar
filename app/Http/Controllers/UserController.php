@@ -28,7 +28,7 @@ class UserController extends Controller
     {
         $galeri = Galeri::with(['kategoriGaleri', 'user'])
             ->where('user_id', $uploaded->id)
-            ->get();
+            ->paginate(10);
 
         return view('galeri', [
             'title' => "Galeri",

@@ -10,6 +10,10 @@ body {
     background-color: #b5ffe1;
 }
 
+.batasfooter {
+    padding-bottom: 300px;
+}
+
 hr {
     border: none;
     height: 1px;
@@ -135,7 +139,7 @@ nav .logo-nav {
 
 /* CSS Artikel */
 .container-artikel {
-    padding-bottom: 700px;
+    padding-bottom: 20px;
 }
 .tag {
     display: flex;
@@ -970,6 +974,60 @@ button#songButton:active {
     }
 }
 
+/* CSS Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a133c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#d20859, #d400f9);
+    border-radius: 10px;
+}
+
+/* CSS Footer */
+.container-footer {
+    background: #2b2828;
+}
+
+.titleFooter {
+    text-align: start;
+    padding-top: 100px;
+    margin-left: 235px;
+}
+
+.container-tools {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.container-tools a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+.container-tools a:hover {
+    color: #00bbf9;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 100px 0 10px 0;
+    color: #666565;
+}
+
+#google_translate_element {
+    text-align: center;
+}
+
 /* Responsive hp */
 @media (max-width: 600px) {
     hr {
@@ -1030,6 +1088,10 @@ button#songButton:active {
         width: 100%;
         order: -1;
     }
+    .titleFooter {
+        margin: 0 0 30px 0;
+        text-align: center;
+    }
 }
 
 /* Responsive untuk tablet */
@@ -1079,5 +1141,9 @@ button#songButton:active {
     .container-homes img {
         width: 80%;
         order: -1;
+    }
+    .titleFooter {
+        margin: 0 0 30px 0;
+        text-align: center;
     }
 }

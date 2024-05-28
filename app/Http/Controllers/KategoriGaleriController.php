@@ -16,7 +16,7 @@ class KategoriGaleriController extends Controller
     {
         return view('galeriKategori',  [
             'title' => 'Galeri',
-            'galeri' => KategoriGaleri::get()
+            'galeri' => KategoriGaleri::paginate(10)
         ]);
     }
 
@@ -25,7 +25,7 @@ class KategoriGaleriController extends Controller
         return view('kategoriGaleri',  [
             'title' => 'Galeri',
             'judulPage' => 'Kategori Galeri',
-            'kategoriGaleri' => KategoriGaleri::all()
+            'kategoriGaleri' => KategoriGaleri::paginate(10)
 
         ]);
     }
@@ -34,7 +34,7 @@ class KategoriGaleriController extends Controller
 
         $kategori = Galeri::with(['kategoriGaleri', 'user'])
             ->where('kategoriGaleri_id', $kategoriGaleri->id)
-            ->get();
+            ->paginate(10);
 
         return view('Galeri', [
             'title' => 'Galeri',

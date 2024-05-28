@@ -60,7 +60,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2 iconColor" href="#">
+            <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/setting') ? 'activeSidebar' : '' }}" href="/dashboard/setting">
               <i class="fa-solid fa-gear iconColor"></i>
               Settings
             </a>
