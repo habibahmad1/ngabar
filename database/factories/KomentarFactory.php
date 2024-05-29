@@ -17,7 +17,6 @@ class KomentarFactory extends Factory
      */
     public function definition(): array
     {
-        $faker = Faker::create();
 
         $praises = [
             'Artikel ini sangat bagus!',

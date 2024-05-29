@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Clockwork\Request\Request;
 use Illuminate\Support\Str;
 
 

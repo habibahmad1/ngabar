@@ -163,9 +163,6 @@ Route::get('/dashboard/reedem', [ReedemController::class, 'index'])->middleware(
 // Route untuk Form Redeem Code
 Route::post('/dashboard/reedem', [ReedemController::class, 'reedem'])->name('reedem')->middleware('auth');
 
-// Route untuk Admin Category
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware(['role:Admin,Super Admin']);
-
 // Route Member Online
 Route::get('/dashboard/member', [MemberController::class, 'getOnlineUsers'])->middleware(['member', 'auth']);
 
@@ -179,7 +176,19 @@ Route::post('/dashboard/makeMember', [UserController::class, 'makeMember'])->nam
 Route::delete('/dashboard/deleteUser', [UserController::class, 'deleteUser'])->name('user.deleteUser')->middleware('role:Admin,Super Admin');
 
 // Route Buat Galeri
-Route::resource('/dashboard/galeri', GaleriPostController::class)->middleware(['auth', 'member', 'role:Admin,Super Admin']);
+Route::resource('/dashboard/galeri', GaleriPostController::class)->middleware(['auth', 'member']);
 
 // Route Settings
 Route::get('/dashboard/setting', [SettingController::class, 'index'])->name('settings')->middleware(['member', 'auth']);
+
+// Route Form Pengetahuan
+Route::get('/dashboard/pengetahuan', [ArtikelController::class, 'formPengetahuan']);
+
+// Route Konten Pengetahuan
+Route::post('/dashboard/addpengetahuan', [ArtikelController::class, 'addPengetahuan'])->middleware(['member', 'auth']);
+
+// Route Form Hiburan
+Route::get('/dashboard/hiburan', [ArtikelController::class, 'formHiburan'])->middleware(['member', 'auth', 'role:Admin,Super Admin']);
+
+// Route Konten Hiburan
+Route::post('/dashboard/addhiburan', [ArtikelController::class, 'addHiburan'])->middleware(['member', 'auth', 'role:Admin,Super Admin']);

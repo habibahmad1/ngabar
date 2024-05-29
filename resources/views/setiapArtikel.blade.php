@@ -25,7 +25,7 @@
         <h6 class="fw-bold mb-3">Penulis :<a href="/authors/{{ $articlePost->user->username }}" style="color: #41a77e" class="text-decoration-none"> {{ $articlePost->user->name }} </a>                         
                             
             <div class="badge text-bg-danger"><a href="/categories/{{ $articlePost->category->slug }}" class="text-white text-decoration-none">{{ $articlePost->category->nama }}</a></div>
-            <a class="text-info text-decoration-none">{{ $articlePost->created_at->diffForHumans() }}</a>
+            <a class="text-info text-decoration-none float-end">{{ $articlePost->created_at->diffForHumans() }}</a>
             </h6> 
 
         <p class="bodyArtikel">{!! $articlePost->artikelPost !!}</p>

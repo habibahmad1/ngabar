@@ -68,4 +68,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reedem::class);
     }
+
+    public function konten()
+    {
+        return $this->hasMany(Konten::class);
+    }
+
+    public function hiburan()
+    {
+        return $this->hasMany(Hiburan::class);
+    }
 }

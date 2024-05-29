@@ -80,9 +80,15 @@
 
           <ul class="nav flex-column mb-auto">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/categories') ? 'activeSidebar' : '' }}" href="/dashboard/categories">
-                <i class="fa-solid fa-border-none iconColor"></i>
-                Create Category
+              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/pengetahuan') ? 'activeSidebar' : '' }}" href="/dashboard/pengetahuan">
+                <i class="fa-solid fa-globe iconColor"></i>
+                Add Pengetahuan
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/hiburan') ? 'activeSidebar' : '' }}" href="/dashboard/hiburan">
+                <i class="fa-regular fa-face-laugh-squint iconColor"></i>
+                Add Hiburan
               </a>
             </li>
             <li class="nav-item">

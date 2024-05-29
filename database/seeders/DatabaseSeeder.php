@@ -53,6 +53,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call(KategoriGaleriSeeder::class);
 
+        $this->call(KontenSeeder::class);
+
+        $this->call(HiburanSeeder::class);
+
         // Category::create([
         //     "nama" => "Tutorial",
         //     "slug" => "tutorial",

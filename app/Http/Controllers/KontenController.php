@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Models\Konten;
+use App\Http\Requests\StoreKontenRequest;
+use App\Http\Requests\UpdateKontenRequest;
 
-class AdminCategoryController extends Controller
+class KontenController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('dashboard.admin.category', [
-            'category' => Category::all()
-        ]);
+        //
     }
 
     /**
@@ -28,7 +27,7 @@ class AdminCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreKontenRequest $request)
     {
         //
     }
@@ -36,7 +35,7 @@ class AdminCategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(Konten $konten)
     {
         //
     }
@@ -44,7 +43,7 @@ class AdminCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(Konten $konten)
     {
         //
     }
@@ -52,7 +51,7 @@ class AdminCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateKontenRequest $request, Konten $konten)
     {
         //
     }
@@ -60,7 +59,7 @@ class AdminCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Konten $konten)
     {
         //
     }
