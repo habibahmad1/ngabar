@@ -2,6 +2,12 @@
 @section('content')
 <div class="kanvasAll">
     <article class="setiapArtikel">
+
+        @if(session()->has('success')) 
+            <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+            </div>  
+        @endif
         
         <h2>{{ $articlePost->judul }}</h2>
         @if ($articlePost->image)
@@ -22,13 +28,9 @@
             <a class="text-info text-decoration-none">{{ $articlePost->created_at->diffForHumans() }}</a>
             </h6> 
 
-        <p>{!! $articlePost->artikelPost !!}</p>
+        <p class="bodyArtikel">{!! $articlePost->artikelPost !!}</p>
         <a href="/artikel" class="kembaliButton">Back</a>
-        @if(session()->has('success')) 
-            <div class="alert alert-success" role="alert">
-            {{ session('success') }}
-            </div>  
-        @endif
+        
         @auth
         <form action="/artikel/{{ $articlePost->slug }}/komentar" method="POST" class="my-5">
             @csrf
@@ -36,7 +38,7 @@
                 <label for="content" class="my-3"><b>{{ $komentar->count() }} Komentar</b></label>
                 <textarea name="content" id="content" class="form-control" rows="3" required placeholder="Ketik Komentar disini"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary mt-2 float-end">Kirim</button>
+            <button type="submit" class="btn btn-primary mt-2 float-end border-0">Kirim</button>
         </form>
         
         @else
@@ -44,15 +46,16 @@
         @endauth
         @foreach ($komentar as $item)
             <div>
-                <img src="../img/pw.jpg" alt="" class="imProfil"><p class="d-inline-block ml-3" style="margin-left: 10px">{{ $item->user->name }}</p>
+                <img src="../img/pw.jpg" alt="" class="imProfil"><p class="d-inline-block ml-3" style="margin-left: 10px">{{ $item->user->name }}</p> <span class="text-info fw-bold" style="float: right">{{ $item->created_at->diffForHumans() }}
+                </span>
                 <div class="komens">{{ $item->content }}</div>
                 @if (auth()->check() && auth()->user()->id === $item->user_id)
                 <form action="/artikel/{{ $item->id }}/deletekomen" method="POST" class="d-inline">
                     @method('delete')
                     @csrf
-                    <button class="badge bg-danger border-0 trash-icons" onclick="return confirm('Yakin Mau Hapus?')" type="submit"><i class="fa-solid fa-trash-can trash-icon"></i></button>
+                    <button class="badge bg-danger border-0 trash-icons" onclick="return confirm('Yakin Mau Hapus?')" type="submit"><i class="fa-solid fa-trash-can"></i></button>
                   </form>
-                @endif
+                  @endif
             </div>
             <hr style="margin: 10px 0; background-color:grey">
         @endforeach

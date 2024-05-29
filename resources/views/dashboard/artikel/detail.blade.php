@@ -17,12 +17,12 @@
         @if ($artikel->image)
 
             <div class="text-center gambarTiapPost mb-4 mt-1">
-                <img src="{{ asset('storage/' . $artikel->image) }}"  alt="imgPost" class="rounded mb-3">
+                <img src="{{ asset('storage/' . $artikel->image) }}"  alt="imgPost" class="rounded my-3">
             </div> 
         
         @else
             <div class="text-center gambarTiapPost mb-4 mt-1">
-                <img src="https://source.unsplash.com/1200x400?{{ $artikel->category->nama }}"  alt="imgPost" class="rounded mb-3">
+                <img src="https://picsum.photos/seed/{{ $artikel->category->nama }}/1200/600"  alt="imgPost" class="rounded my-3">
             </div> 
         @endif
 

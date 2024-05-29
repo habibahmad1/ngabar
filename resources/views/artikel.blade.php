@@ -9,7 +9,7 @@
     <div class="tag">
         <div class="informasi">Informasi</div>
         <div class="pengetahuan">Pengetahuan</div>
-        <div class="kuis">Kuis</div>
+        <div class="kuis">Hiburan</div>
         <div class="pemberitahuan">Pemberitahuan</div>
         <div class="modeGrid"><i class="fa-solid fa-border-all"></i></div>
         <div class="modeBar"><i class="fa-solid fa-bars"></i></div>
@@ -92,10 +92,43 @@
                 {{-- Content Pengetahuan --}}
                 <div class="content-pengetahuan">
                     <h1>Content Pengetahuan</h1>
+                    <div class="videos">
+                        <iframe class="videoList" src="https://www.youtube.com/embed/fJMklZ3Bo0c
+                        " frameborder="1" allowfullscreen></iframe>
+
+                        <iframe class="videoList" src="https://www.youtube.com/embed/GiuSig8yNok
+                        " frameborder="0" allowfullscreen></iframe>
+
+                        <iframe class="videoList" src="https://www.youtube.com/embed/_yugUpt3yqk
+                        " frameborder="0" allowfullscreen></iframe>
+                        
+                        <iframe class="videoList" src="https://www.youtube.com/embed/mseDuZB6RjE
+                        " frameborder="0" allowfullscreen></iframe>
+
+                        <iframe class="videoList" src="https://www.youtube.com/embed/weg-m0qD0l4
+                        " frameborder="0" allowfullscreen></iframe>
+                        
+                        <iframe class="videoList" src="https://www.youtube.com/embed/owC80a8xHT4
+                        " frameborder="0" allowfullscreen></iframe>
+                    </div>
                 </div>
                 {{-- Content kuis --}}
                 <div class="content-kuis">
-                    <h1>Content Kuis</h1>
+                    <h1>Content Hiburan</h1>
+                    <div class="videos">
+                        <iframe class="videoList" src="https://www.youtube.com/embed/2RjLFFUD8dk
+                        " frameborder="1" allowfullscreen></iframe>
+
+                        <iframe class="videoList" src="https://www.youtube.com/embed/1r1RIFLAWOQ
+                        " frameborder="0" allowfullscreen></iframe>
+
+                        <iframe class="videoList" src="https://www.youtube.com/embed/lapMx44bteE
+                        " frameborder="0" allowfullscreen></iframe>
+                        
+                        <iframe class="videoList" src="https://www.youtube.com/embed/4u9K-FJqMuw
+                        " frameborder="0" allowfullscreen></iframe>
+
+                    </div>
                 </div>
                 {{-- Content pemberitahuan --}}
                 <div class="content-pemberitahuan">

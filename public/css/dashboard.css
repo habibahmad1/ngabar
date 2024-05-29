@@ -137,6 +137,34 @@
     padding: 20px 0;
 }
 
+/* CSS Dashboard */
+.totalCreated {
+    display: flex;
+    text-align: center;
+}
+
+.artikels {
+    text-decoration: none;
+    background-color: #d400f9;
+    margin: 10px;
+    flex: 1;
+    color: #fff;
+    padding-top: 20px;
+    border-radius: 5px;
+    font-size: 26px;
+}
+
+.galeris {
+    text-decoration: none;
+    background-color: #ff8426;
+    margin: 10px;
+    flex: 1;
+    color: #fff;
+    padding-top: 20px;
+    border-radius: 5px;
+    font-size: 26px;
+}
+
 /* CSS Data Page */
 .container-table {
     display: flex;
@@ -268,7 +296,7 @@ th {
 .boxTema {
     border: 1px solid grey;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
     display: none;
     cursor: pointer;
     position: absolute;
@@ -278,7 +306,7 @@ th {
 .boxMusik {
     border: 1px solid grey;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
     display: none;
     cursor: pointer;
     position: absolute;
@@ -300,6 +328,42 @@ th {
 .darkActive .container-setting .boxMusik {
     background-color: #353535;
     color: #fff;
+}
+
+/* CSS Song */
+.songs {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.songs > div {
+    margin: 10px 0;
+}
+.songs > div img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.numberSong {
+    margin-right: 10px;
+}
+
+.titleSong {
+    margin-left: 20px;
+}
+
+.play {
+    float: right;
+    margin-right: 40px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.play:hover {
+    color: #00fd83;
 }
 
 @media (max-width: 600px) {

@@ -22,7 +22,7 @@
         
         @else
             <div class="text-center gambarTiapPost mb-4 mt-1">
-                <img src="https://source.unsplash.com/1200x400?{{ $galeri->kategoriGaleri->nama }}"  alt="imgPost" class="rounded mb-3">
+                <img src="https://picsum.photos/seed/{{ $galeri->kategoriGaleri->nama }}/1200/600"  alt="imgPost" class="rounded mb-3">
             </div> 
         @endif
 

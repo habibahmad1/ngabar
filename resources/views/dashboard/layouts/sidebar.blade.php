@@ -1,4 +1,4 @@
-<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+<div class="sidebar border border-right col-md-3 col-lg-2 p-0 ">
     <div class="offcanvas-md offcanvas-end bg-dark" style="height: 100vh; background: #caf0f8" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title fs-3" id="sidebarMenuLabel" style="color: white">Ngabar</h5>

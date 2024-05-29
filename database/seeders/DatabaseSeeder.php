@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
         //     "slug" => "personal",
         // ]);
 
-        Artikel::factory(20)->create();
+        Artikel::factory(40)->create();
 
         // Artikel::create([
         //     "judul" => "Judul Pertama",

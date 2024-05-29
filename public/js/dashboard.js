@@ -12,14 +12,10 @@ function capture() {
 }
 
 const modeTema = document.getElementById("modeTema");
-const modeMusik = document.getElementById("modeMusik");
 const boxTema = document.querySelector(".boxTema");
-const boxMusik = document.querySelector(".boxMusik");
 
 const light = document.querySelector(".light");
 const dark = document.querySelector(".dark");
-const off = document.querySelector(".off");
-const on = document.querySelector(".on");
 
 // Load theme from localStorage
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,6 +38,8 @@ if (modeTema) {
         document.body.classList.add("lightActive");
         localStorage.setItem("theme", "light");
         boxTema.style.display = "none"; // Hide the box after selection
+        modeTema.innerHTML =
+            "Light <i class='fa-solid fa-sun'></i> <i class='fa-solid fa-caret-down'></i>";
     });
 
     dark.addEventListener("click", () => {
@@ -49,22 +47,77 @@ if (modeTema) {
         document.body.classList.add("darkActive");
         localStorage.setItem("theme", "dark");
         boxTema.style.display = "none"; // Hide the box after selection
+        modeTema.innerHTML =
+            "Dark <i class='fa-solid fa-moon'></i> <i class='fa-solid fa-caret-down'></i>";
     });
 }
 
-if (modeMusik) {
-    modeMusik.addEventListener("click", () => {
-        boxMusik.style.display =
-            boxMusik.style.display === "block" ? "none" : "block";
-    });
+// Song Button
+const playSong1 = document.querySelector(".playSong1");
+const playSong2 = document.querySelector(".playSong2");
+const playSong3 = document.querySelector(".playSong3");
+const playSong4 = document.querySelector(".playSong4");
+const playSong5 = document.querySelector(".playSong5");
 
-    off.addEventListener("click", () => {
-        // Implement functionality for off
-        boxMusik.style.display = "none"; // Hide the box after selection
-    });
+// Song Playlist
+const play1 = document.querySelector(".play1");
+const play2 = document.querySelector(".play2");
+const play3 = document.querySelector(".play3");
+const play4 = document.querySelector(".play4");
+const play5 = document.querySelector(".play5");
 
-    on.addEventListener("click", () => {
-        // Implement functionality for on
-        boxMusik.style.display = "none"; // Hide the box after selection
-    });
+if (playSong1) {
+    let currentSong = null; // Menyimpan lagu yang sedang diputar
+    let isPlaying = false; // Menyimpan status apakah lagu sedang diputar atau tidak
+    let previousButton = null; // Menyimpan referensi ke tombol sebelumnya
+
+    function playLagu(playSong1, songElement) {
+        playSong1.addEventListener("click", function () {
+            // Jika lagu yang saat ini diputar berbeda dari yang dipilih
+            if (currentSong && currentSong !== songElement) {
+                currentSong.pause();
+                currentSong.currentTime = 0;
+
+                // Mengubah ikon tombol sebelumnya menjadi "play"
+                if (previousButton) {
+                    previousButton.innerHTML =
+                        "<i class='fa-solid fa-play'></i>";
+                }
+
+                currentSong = null;
+                isPlaying = false;
+            }
+
+            // Jika lagu yang dipilih adalah yang saat ini sedang diputar
+            if (currentSong === songElement) {
+                if (isPlaying) {
+                    songElement.pause();
+                    playSong1.innerHTML = "<i class='fa-solid fa-play'></i>";
+                    isPlaying = false;
+                } else {
+                    songElement.play();
+                    playSong1.innerHTML = "<i class='fa-solid fa-pause'></i>";
+                    isPlaying = true;
+                }
+            } else {
+                currentSong = songElement;
+                songElement.play();
+                playSong1.innerHTML = "<i class='fa-solid fa-pause'></i'>";
+                isPlaying = true;
+            }
+
+            // Menyimpan referensi ke tombol saat ini sebagai tombol sebelumnya
+            previousButton = playSong1;
+        });
+    }
+
+    function song(songElement) {
+        songElement.play();
+    }
+
+    playLagu(playSong1, play1);
+    playLagu(playSong2, play2);
+    playLagu(playSong3, play3);
+    playLagu(playSong4, play4);
+    playLagu(playSong5, play5);
 }

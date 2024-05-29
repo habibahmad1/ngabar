@@ -2,7 +2,8 @@
 
 use App\Models\User;
 use App\Models\Category;
-use App\Models\Komentar;
+use App\Models\Artikel;
+use App\Models\Galeri;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -11,7 +12,6 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ReedemController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\KomentarController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GaleriPostController;
 use App\Http\Controllers\GoogleLoginController;
@@ -117,7 +117,10 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 // Route untuk Dashboard
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
+    return view('dashboard.index', [
+        'data' => Artikel::where('user_id', auth()->user()->id)->get(),
+        'galeri' => Galeri::where('user_id', auth()->user()->id)->get()
+    ]);
 })->middleware(['auth', 'member']);
 
 

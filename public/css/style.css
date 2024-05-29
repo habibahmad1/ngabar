@@ -284,6 +284,8 @@ nav .logo-nav {
     justify-content: space-around;
 }
 
+/* CSS content Informasi */
+
 .artikelPost article {
     width: 380px;
     border: 1px solid black;
@@ -304,6 +306,20 @@ nav .logo-nav {
     transition: 0.5s;
 }
 
+/* CSS content Pengetahuan  */
+.videos {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.videoList {
+    width: 500px;
+    height: 300px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
 /* unutk search */
 .search {
     width: 800px;
@@ -321,16 +337,8 @@ nav .logo-nav {
 }
 
 .trash-icons {
-    display: flex;
-    justify-content: end;
-    align-items: end;
-}
-.trash-icon {
-    display: block;
-    font-size: 12px;
-    color: #ffffff;
-    cursor: pointer;
     float: right;
+    margin-top: -35px;
 }
 
 .komens {
@@ -342,6 +350,10 @@ nav .logo-nav {
     width: 800px;
     background-color: white;
     color: black;
+}
+
+.bodyArtikel {
+    text-align: justify;
 }
 
 .gambarTiapPost img {
@@ -1091,6 +1103,10 @@ footer {
     .titleFooter {
         margin: 0 0 30px 0;
         text-align: center;
+    }
+
+    .videoList {
+        width: 100%;
     }
 }
 
