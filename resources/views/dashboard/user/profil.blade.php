@@ -3,10 +3,23 @@
 @section('content')
 
 <div class="container-profil">
+    @if(session()->has('success')) 
+    <div class="alert alert-success" role="alert">
+      {{ session('success') }}
+    </div>  
+  @endif
     <h2 class="text-center my-3">Kartu Nama <br> <span style="color: #f68718"> {{ auth()->user()->name }}</span></h2>
+    
+    @if ($user->image)
     <div class="imgProfil">
-        <img src="../img/pw.jpg" alt="ProfilImg" >
+        <img src="{{ asset('storage/' . $user->image) }}" alt="image" >
     </div>
+    @else
+    <div class="imgProfil">
+        <img src="../img/pw.jpg" alt="image" >
+    </div>
+    @endif
+    
     <hr>
     <div class="infoProfil nama">
         <span for="namaProfil">Nama Lengkap</span>
@@ -26,7 +39,8 @@
     </div>
 </div>
 <div class="btn-edit">
-    <a href="/editprofil" class="btn btn-primary"><i class="fa-solid fa-pen"></i> Edit Profil </a>
+    <a href="{{ route('profil.edit', auth()->user()) }}" class="btn btn-primary"><i class="fa-solid fa-pen"></i> Edit Profil </a>
+
     <button class="btn btn-success mx-2" onclick="capture()"> <i class="fa-solid fa-camera"></i> Screenshot</button>
 </div>
 

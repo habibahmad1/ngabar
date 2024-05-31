@@ -56,44 +56,4 @@ class ArtikelController extends Controller
         // Redirect dengan pesan sukses
         return redirect()->back()->with('success', 'Komentar telah dihapus.');
     }
-
-    public function formPengetahuan()
-    {
-        return view('dashboard.pengetahuan');
-    }
-
-    public function addPengetahuan(Request $request, Konten $konten)
-    {
-        $validasiData = $request->validate([
-            'pengetahuan' => 'required|size:11',
-        ]);
-
-        $validasiData['user_id'] = auth()->id();
-
-        $pengetahuan = new Konten($validasiData);
-
-        $pengetahuan->save();
-
-        return redirect()->back()->with('success', 'Berhasil Ditambahkan');
-    }
-
-    public function formHiburan()
-    {
-        return view('dashboard.hiburan');
-    }
-
-    public function addHiburan(Request $request, Hiburan $hiburan)
-    {
-        $validasiData = $request->validate([
-            'hiburan' => 'required|size:11',
-        ]);
-
-        $validasiData['user_id'] = auth()->id();
-
-        $hiburan = new Hiburan($validasiData);
-
-        $hiburan->save();
-
-        return redirect()->back()->with('success', 'Berhasil Ditambahkan');
-    }
 }

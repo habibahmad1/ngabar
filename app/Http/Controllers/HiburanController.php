@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hiburan;
 use App\Http\Requests\StoreHiburanRequest;
 use App\Http\Requests\UpdateHiburanRequest;
+use Illuminate\Http\Request;
 
 class HiburanController extends Controller
 {
@@ -13,7 +14,8 @@ class HiburanController extends Controller
      */
     public function index()
     {
-        //
+        $hiburan = Hiburan::all();
+        return view('dashboard.hiburan.index', compact('hiburan'));
     }
 
     /**
@@ -21,15 +23,35 @@ class HiburanController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.hiburan.hiburan');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreHiburanRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validasiData = $request->validate([
+            'hiburan' => 'required|size:11',
+            'judul' => 'required',
+            'slug' => 'required'
+        ]);
+
+        $validasiData['user_id'] = auth()->id();
+
+        $slug = $request->slug;
+
+        while (Hiburan::where('slug', $slug)->exists()) {
+            $slug = $request->slug . '-' . str_pad(mt_rand(1, 999), 3, '0', STR_PAD_LEFT);
+        }
+
+        $validasiData['slug'] = $slug;
+
+        $pengetahuan = new Hiburan($validasiData);
+
+        $pengetahuan->save();
+
+        return redirect()->back()->with('success', 'Berhasil Ditambahkan');
     }
 
     /**
@@ -59,8 +81,10 @@ class HiburanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Hiburan $hiburan)
+    public function destroy($id)
     {
-        //
+        $hiburan = Hiburan::findOrFail($id);
+        $hiburan->delete();
+        return redirect()->back()->with('success', 'hiburan berhasil dihapus');
     }
 }

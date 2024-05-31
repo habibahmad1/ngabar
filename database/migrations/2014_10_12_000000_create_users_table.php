@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('role')->default('Member');
             $table->string('username')->unique();
-            $table->string("imgProfil")->nullable();
+            $table->string("image")->nullable();
             $table->string('email')->unique();
             $table->string('noHp')->nullable();
             $table->timestamp('email_verified_at')->nullable();

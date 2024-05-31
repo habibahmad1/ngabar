@@ -366,6 +366,35 @@ th {
     color: #00fd83;
 }
 
+/* CSS Edit Profil */
+.pentingIcon {
+    color: #f90074;
+}
+
+input[type="password"],
+[type="email"],
+.password [type="text"],
+.namaDaftar [type="text"],
+.usernamed [type="text"],
+[type="number"] {
+    width: 350px;
+    border: 2px solid #e09f3e;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 10px auto;
+}
+
+.editProfil {
+    width: 350px;
+    margin: 30px auto;
+}
+
+.editData {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 @media (max-width: 600px) {
     .container-profil {
         width: 100%;

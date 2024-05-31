@@ -26,8 +26,22 @@ class KontenFactory extends Factory
 
         $kontenPengetahuan = $randomPraise;
 
+        $judul = [
+            'Recomended Nih Konten',
+            'Bermanfaat buat Nanti',
+            'Tonton Jamin Seru',
+            'Jangan Sampe Kelewatan'
+        ];
+        $randomPraises = $judul[array_rand($judul)];
+
+        $JudulPengetahuan = $randomPraises;
+
+        $judulSlug = str_replace(' ', '-', $JudulPengetahuan);
+
         return [
             "user_id" => mt_rand(1, 5),
+            "judul" => $JudulPengetahuan,
+            "slug" => $judulSlug,
             "pengetahuan" => $kontenPengetahuan,
         ];
     }

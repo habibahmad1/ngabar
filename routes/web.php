@@ -1,25 +1,28 @@
 <?php
 
 use App\Models\User;
-use App\Models\Category;
-use App\Models\Artikel;
 use App\Models\Galeri;
+use App\Models\Artikel;
+use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\KontenController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ReedemController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\HiburanController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GaleriPostController;
 use App\Http\Controllers\GoogleLoginController;
-use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\KategoriGaleriController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -143,13 +146,6 @@ Route::get('reset-password/{token}/{email}', [ForgotPasswordController::class, '
 // Untuk proses form lupa pw
 Route::post('reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
 
-// Route untuk my profil
-Route::get('/dashboard/profil', function () {
-    return view('dashboard.profil', [
-        'dataProfil' => User::all()
-    ]);
-})->middleware(['member', 'auth']);
-
 // Route untuk data page
 Route::get('/dashboard/data', function () {
     return view('dashboard.data', [
@@ -181,14 +177,13 @@ Route::resource('/dashboard/galeri', GaleriPostController::class)->middleware(['
 // Route Settings
 Route::get('/dashboard/setting', [SettingController::class, 'index'])->name('settings')->middleware(['member', 'auth']);
 
-// Route Form Pengetahuan
-Route::get('/dashboard/pengetahuan', [ArtikelController::class, 'formPengetahuan']);
+// Route untuk my profil
+Route::resource('/dashboard/profil', ProfilController::class)->middleware(['member', 'auth']);
 
-// Route Konten Pengetahuan
-Route::post('/dashboard/addpengetahuan', [ArtikelController::class, 'addPengetahuan'])->middleware(['member', 'auth']);
+// Route Pengetahuan Index
+Route::resource('/dashboard/pengetahuan', KontenController::class)
+    ->middleware(['member', 'auth', 'role:Admin,Super Admin']);
 
-// Route Form Hiburan
-Route::get('/dashboard/hiburan', [ArtikelController::class, 'formHiburan'])->middleware(['member', 'auth', 'role:Admin,Super Admin']);
-
-// Route Konten Hiburan
-Route::post('/dashboard/addhiburan', [ArtikelController::class, 'addHiburan'])->middleware(['member', 'auth', 'role:Admin,Super Admin']);
+// Route Pengetahuan Index
+Route::resource('/dashboard/hiburan', HiburanController::class)
+    ->middleware(['member', 'auth', 'role:Admin,Super Admin']);

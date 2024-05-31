@@ -23,11 +23,23 @@ class HiburanFactory extends Factory
             '4u9K-FJqMuw'
         ];
         $randomPraise = $hiburan[array_rand($hiburan)];
-
         $kontenHiburan = $randomPraise;
+
+        $judul = [
+            'Serem nih Game nya',
+            'Game yang Lagi Viral',
+            'Yang Takut Horor Skip Ya!',
+            'Seru Banget nih Video'
+        ];
+        $randomPraises = $judul[array_rand($judul)];
+        $judulHiburan = $randomPraises;
+
+        $judulSlug = str_replace(' ', '-', $judulHiburan);
 
         return [
             "user_id" => mt_rand(1, 5),
+            "judul" => $judulHiburan,
+            "slug" => $judulSlug,
             "hiburan" => $kontenHiburan,
         ];
     }
