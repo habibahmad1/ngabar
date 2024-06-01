@@ -21,10 +21,18 @@
                 <div class="galeriKategori"><a href="/kategoriGaleri/{{ $item->kategoriGaleri->slug }}" class="text-decoration-none text-white">{{ $item->kategoriGaleri->nama }}</a></div>
     
                 <div class="judulGaleri">
-                    <a href="/detail/{{ $item->id }}" class="text-decoration-none text-white"><h5 class="mx-3 mt-2">{{ $item->judul }}</h5></a>
-    
-                    <a href="/uploaded/{{ $item->user->username }}" class="uploadBy"><img src="../img/pw.jpg" alt="" class="imProfil"> {{ $item->user->name }}</a>
-    
+                    <a href="/detail/{{ $item->id }}" class="text-decoration-none text-white">
+                        <h5 class="mx-3 mt-2">{{ $item->judul }}</h5>
+                    </a>
+                    
+                    <a href="/uploaded/{{ $item->user->username }}" class="uploadBy">
+                        @if ($item->user->image)
+                            <img src="{{ asset('storage/'.$item->user->image) }}" alt="" class="imProfil">
+                        @else
+                            <img src="{{ asset('img/pw.jpg') }}" alt="" class="imProfil">
+                        @endif
+                        {{ $item->user->name }}
+                    </a>
                     
     
                     <p>{{ $item->created_at->diffForHumans() }}</p>

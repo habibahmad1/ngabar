@@ -46,7 +46,13 @@
         @endauth
         @foreach ($komentar as $item)
             <div>
-                <img src="../img/pw.jpg" alt="" class="imProfil"><p class="d-inline-block ml-3" style="margin-left: 10px">{{ $item->user->name }}</p> <span class="text-info fw-bold" style="float: right">{{ $item->created_at->diffForHumans() }}
+                @if ($item->user->image)
+                    <img src="{{ asset('storage/' . $item->user->image) }}" alt="" class="imProfil">
+                @else
+                    <img src="../img/pw.jpg" alt="" class="imProfil">
+                @endif
+                
+                <p class="d-inline-block ml-3" style="margin-left: 10px">{{ $item->user->name }}</p> <span class="text-info fw-bold" style="float: right">{{ $item->created_at->diffForHumans() }}
                 </span>
                 <div class="komens">{{ $item->content }}</div>
                 @if (auth()->check() && auth()->user()->id === $item->user_id)

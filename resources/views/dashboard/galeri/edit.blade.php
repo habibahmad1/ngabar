@@ -66,7 +66,6 @@
       ofReader.onload = function (ofRevent){
         imagePreview.src = ofRevent.target.result;
       }
-
     }
 </script>
 @endsection

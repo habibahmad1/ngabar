@@ -6,6 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\RoundBlockSizeMode;
+use Endroid\QrCode\Writer\PngWriter;
+use Endroid\QrCode\Writer\ValidationException;
 
 
 class ProfilController extends Controller
@@ -13,7 +24,9 @@ class ProfilController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return view('dashboard.user.profil', compact('user'));
+        return view('dashboard.user.profil', [
+            'user' => $user
+        ]);
     }
 
     public function edit($id)
@@ -30,7 +43,7 @@ class ProfilController extends Controller
         // Membuat aturan validasi
         $rules = [
             'name' => 'required|max:255',
-            // 'image' => 'nullable|image|file|max:2048',
+            'image' => 'image|file|max:2048',
             'noHp' => 'required|regex:/^[0-9]{10,}$/',
         ];
 
@@ -48,14 +61,16 @@ class ProfilController extends Controller
         $validasiData = $request->validate($rules);
 
         // Menghandle upload gambar
-        // if ($request->file('image')) {
-        //     // Hapus gambar lama jika ada
-        //     if ($user->image) {
-        //         Storage::delete($user->image);
-        //     }
-        //     // Simpan gambar baru dan tambahkan path ke array validasi
-        //     $validasiData['image'] = $request->file('image')->store('user-image');
-        // }
+        if ($request->file('image')) {
+            // Hapus gambar lama jika ada
+            if ($user->image) {
+                Storage::delete($user->image);
+            }
+            // Simpan gambar baru dan tambahkan path ke array validasi
+            $validasiData['image'] = $request->file('image')->store('user-image');
+        }
+
+        Log::info('Validated Data:', $validasiData); // Debugging line
 
         // Memperbarui data user termasuk path gambar jika ada gambar baru
         $user->update($validasiData);
