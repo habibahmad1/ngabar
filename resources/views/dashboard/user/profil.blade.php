@@ -39,7 +39,7 @@
     </div>
 </div>
 <div class="btn-edit">
-    <a href="{{ route('profil.edit', auth()->user()) }}" class="btn btn-primary"><i class="fa-solid fa-pen"></i> Edit Profil </a>
+    <a href="{{ route('profil.edit', $user->id) }}" class="btn btn-primary"><i class="fa-solid fa-pen"></i> Edit Profil </a>
 
     <button class="btn btn-success mx-2" onclick="capture()"> <i class="fa-solid fa-camera"></i> Screenshot</button>
 </div>

@@ -98,9 +98,15 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/lapor') ? 'activeSidebar' : '' }}" href="/dashboard/lapor">
-                <i class="fa-solid fa-flag iconColor"></i> 
-                Laporan 
+              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/allartikel') ? 'activeSidebar' : '' }}" href="/dashboard/allartikel">
+                <i class="fa-solid fa-border-all iconColor"></i> 
+                All Artikels 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/allgaleri') ? 'activeSidebar' : '' }}" href="/dashboard/allgaleri">
+                <i class="fa-solid fa-border-all iconColor"></i> 
+                All Galeris 
               </a>
             </li>
           </ul>

@@ -17,6 +17,8 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\HiburanController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AllGaleriController;
+use App\Http\Controllers\AllArtikelController;
 use App\Http\Controllers\GaleriPostController;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\DashboardPostController;
@@ -187,3 +189,9 @@ Route::resource('/dashboard/pengetahuan', KontenController::class)
 // Route Pengetahuan Index
 Route::resource('/dashboard/hiburan', HiburanController::class)
     ->middleware(['member', 'auth', 'role:Admin,Super Admin']);
+
+//Route All Artikel User
+Route::resource('/dashboard/allartikel', AllArtikelController::class)->middleware(['member', 'auth', 'role:Admin,Super Admin']);
+
+//Route All Galeri User
+Route::resource('/dashboard/allgaleri', AllGaleriController::class)->middleware(['member', 'auth', 'role:Admin,Super Admin']);

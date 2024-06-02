@@ -6,18 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Log;
-
-use Endroid\QrCode\Color\Color;
-use Endroid\QrCode\Encoding\Encoding;
-use Endroid\QrCode\ErrorCorrectionLevel;
-use Endroid\QrCode\QrCode;
-use Endroid\QrCode\Label\Label;
-use Endroid\QrCode\Logo\Logo;
-use Endroid\QrCode\RoundBlockSizeMode;
-use Endroid\QrCode\Writer\PngWriter;
-use Endroid\QrCode\Writer\ValidationException;
-
+use Illuminate\Support\Facades\Auth;
 
 class ProfilController extends Controller
 {
@@ -29,9 +18,9 @@ class ProfilController extends Controller
         ]);
     }
 
-    public function edit($id)
+    public function edit()
     {
-        $user = User::findOrFail($id);
+        $user = Auth::user();
         return view('dashboard.user.edit', compact('user'));
     }
 
@@ -69,8 +58,6 @@ class ProfilController extends Controller
             // Simpan gambar baru dan tambahkan path ke array validasi
             $validasiData['image'] = $request->file('image')->store('user-image');
         }
-
-        Log::info('Validated Data:', $validasiData); // Debugging line
 
         // Memperbarui data user termasuk path gambar jika ada gambar baru
         $user->update($validasiData);

@@ -23,8 +23,12 @@
               Offline
           @endif
         </td>
-        <td><a href="#" onclick="alert('Dalam Pengembangan')" class="text-decoration-none"><i class="fa-brands fa-rocketchat"></i> Chat</a></td>
-      </tr>
+        <td>
+          @if(auth()->user()->id == $item->id )
+          @else
+          <a href="#" onclick="alert('Dalam Pengembangan')" class="text-decoration-none"><i class="fa-brands fa-rocketchat"></i> Chat</a></td>
+          @endif
+        </tr>
       @endforeach
     </table>
 </div>

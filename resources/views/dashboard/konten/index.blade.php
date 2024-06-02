@@ -16,6 +16,7 @@
           <th scope="col">Judul</th>
           <th scope="col">Kode</th>
           <th scope="col">URL</th>
+          <th scope="col">Uploaded</th>
           <th scope="col">Aksi</th>
         </tr>
       </thead>
@@ -27,6 +28,7 @@
           <td>{{ $konten->judul }}</td>
           <td>{{ $konten->pengetahuan }}</td>
           <td>{{ $konten->slug }}</td>
+          <td>{{ $konten->user->name }}</td>
           <td>
             <form action="{{ route('pengetahuan.destroy', $konten->id) }}" method="POST" class="d-inline">
               @method('delete')
