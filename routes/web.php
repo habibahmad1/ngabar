@@ -24,7 +24,7 @@ use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\KategoriGaleriController;
-
+use App\Http\Controllers\QuranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,11 +44,8 @@ Route::get('/', function () {
 })->middleware('member');
 
 
-Route::get('/quran', function () {
-    return view('quran',  [
-        'title' => "Al-Qur'an"
-    ]);
-})->middleware('member');
+Route::get('/quran', [QuranController::class, 'index'])->middleware('member');
+Route::get('/quran/detail/{id}', [QuranController::class, 'detailSurah'])->middleware('member');
 
 // Route ke semua galery
 Route::get('/galeri', [GaleriController::class, 'index'])->middleware('member');

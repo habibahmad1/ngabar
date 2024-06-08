@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 body {
     background-image: linear-gradient(to right, #2d3a3a, #41a77e);
     font-family: "Mukta", sans-serif;
@@ -1040,6 +1042,19 @@ footer {
     text-align: center;
 }
 
+/* CSS Page Quran */
+.cardSurah:hover {
+    transform: scale(0.9);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.ayatArab {
+    font-family: "Amiri Quran", serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 100px;
+}
 /* Responsive hp */
 @media (max-width: 600px) {
     hr {
