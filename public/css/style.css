@@ -1055,6 +1055,37 @@ footer {
     font-style: normal;
     line-height: 100px;
 }
+
+/* CSS Detail Quran */
+.detailQuran {
+    border: 5px solid transparent;
+    cursor: pointer;
+}
+
+.selected {
+    transform: scale(0.99);
+}
+
+.selected::before {
+    content: "Terakhir Dibaca 📌";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f10af5;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    animation: lastRead 2s infinite linear;
+    border: 2px solid #fff;
+}
+
+@keyframes lastRead {
+    10% {
+        transform: scale(0.9);
+    }
+}
+
 /* Responsive hp */
 @media (max-width: 600px) {
     hr {

@@ -7,7 +7,7 @@
     <div class="search">
         <form action="/quran">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Cari Surah atau Isi Surah, contoh: Surga" name="search" value="{{ request('search') }}">
+                <input type="text" class="form-control" placeholder="Cari Surah atau Isi Surah, Contoh: Surga" name="search" value="{{ request('search') }}">
                 <button class="btn btn-primary" type="submit" >Search</button>
               </div>
         </form>
@@ -24,7 +24,7 @@
                             
                             <p class="card-text" style="text-transform: uppercase">{{ $surah['tempat_turun'] }}</p>
         
-                            <p class="card-text badge rounded-pill text-bg-primary">{{ $surah['arti'] }}</p>
+                            <p class="card-text badge rounded-pill text-bg-warning">{{ $surah['arti'] }}</p>
                             
                             <p class="card-text">Jumlah Ayat : {{ $surah['jumlah_ayat'] }}</p>
                         </div>

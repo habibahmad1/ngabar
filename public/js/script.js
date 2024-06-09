@@ -301,3 +301,20 @@ if (slider) {
         localStorage.setItem("isDarkMode", isDarkMode); // Simpan status isDarkMode ke dalam localStorage
     });
 }
+
+// JS Detail Quran
+document.addEventListener("DOMContentLoaded", () => {
+    const detailQuran = document.querySelectorAll(".detailQuran");
+
+    if (detailQuran) {
+        detailQuran.forEach((card) => {
+            card.addEventListener("click", () => {
+                // Hapus kelas 'selected' dari semua card
+                detailQuran.forEach((c) => c.classList.remove("selected"));
+
+                // Tambahkan kelas 'selected' ke card yang diklik
+                card.classList.add("selected");
+            });
+        });
+    }
+});

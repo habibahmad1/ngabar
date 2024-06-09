@@ -21,7 +21,7 @@
     </div>
 
         @foreach ($surah['ayat'] as $ayat)
-        <div class="card my-3">
+        <div class="card my-3 detailQuran">
             <div class="card-body">
                 <p class="fs-2 fs-sm-1 ayatArab">
                     <span class="badge rounded-pill text-bg-light pb-4 border border-info">
