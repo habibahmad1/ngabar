@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\QuranController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\KontenController;
 use App\Http\Controllers\MemberController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\ReedemController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\HiburanController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CashNoteController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AllGaleriController;
 use App\Http\Controllers\AllArtikelController;
@@ -24,7 +26,6 @@ use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\KategoriGaleriController;
-use App\Http\Controllers\QuranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -192,3 +193,6 @@ Route::resource('/dashboard/allartikel', AllArtikelController::class)->middlewar
 
 //Route All Galeri User
 Route::resource('/dashboard/allgaleri', AllGaleriController::class)->middleware(['member', 'auth', 'role:Admin,Super Admin']);
+
+// Route CashNote
+Route::resource('/dashboard/cashnote', CashNoteController::class);

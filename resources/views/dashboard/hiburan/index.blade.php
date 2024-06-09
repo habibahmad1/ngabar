@@ -17,7 +17,6 @@
           <th scope="col">Kode</th>
           <th scope="col">URL</th>
           <th scope="col">Uploaded</th>
-          <th scope="col">Image</th>
           <th scope="col">Aksi</th>
         </tr>
       </thead>
@@ -30,14 +29,6 @@
           <td>{{ $konten->hiburan }}</td>
           <td>{{ $konten->slug }}</td>
           <td>{{ $konten->user->name }}</td>
-          <td>
-            @if ($konten->user->image)
-                <img src="{{ asset('storage/') . $konten->user->image }}" alt="">
-                
-              @else
-                <img src="../img/pw.jpg" alt="" width="50px" height="50px" class="rounded-circle border border-2 border-white">
-              @endif
-          </td>
           <td>
             <form action="{{ route('hiburan.destroy', $konten->id) }}" method="POST" class="d-inline">
               @method('delete')

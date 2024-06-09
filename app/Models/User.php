@@ -78,4 +78,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Hiburan::class);
     }
+
+    public function cashnote()
+    {
+        return $this->hasMany(Hiburan::class);
+    }
 }

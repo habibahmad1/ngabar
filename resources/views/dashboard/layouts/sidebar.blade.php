@@ -1,5 +1,5 @@
 <div class="sidebar border border-right col-md-3 col-lg-2 p-0 ">
-    <div class="offcanvas-md offcanvas-end bg-dark" style="height: 100vh; background: #caf0f8" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+    <div class="offcanvas-md offcanvas-end bg-dark" style="height: 120vh; background: #caf0f8" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title fs-3" id="sidebarMenuLabel" style="color: white">Ngabar</h5>
         <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -48,6 +48,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/cashnote') ? 'activeSidebar' : '' }}" href="/dashboard/cashnote">
+              <i class="fa-solid fa-note-sticky" style="font-size: 18px; color:white"></i>
+              Catatan Barang
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/profil') ? 'activeSidebar' : '' }}" href="/dashboard/profil">
                 <i class="fa-solid fa-user iconColor"></i>
               My Profile
@@ -73,40 +79,70 @@
           </li>
         </ul>
 
+        <hr class="my-3">
+
         @can('admin-superadmin')
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-white">
             <span>Administrator</span>
           </h6>
 
           <ul class="nav flex-column mb-auto">
+            
+            <li class="nav-item btnDrop">
+              <span class="nav-link d-flex align-items-center gap-2 iconColor">
+                <i class="fa-solid fa-tablet-screen-button iconColor"></i>
+                Add Content <i class="fa-solid fa-caret-down"></i></span>
+            </li>
+            
+            <div class="addContent bg-secondary">
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/pengetahuan') ? 'activeSidebar' : '' }}" href="/dashboard/pengetahuan">
+                  <i class="fa-solid fa-globe iconColor"></i>
+                  Add Pengetahuan
+                </a>
+              </li>
+  
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/hiburan') ? 'activeSidebar' : '' }}" href="/dashboard/hiburan">
+                  <i class="fa-regular fa-face-laugh-squint iconColor"></i>
+                  Add Hiburan
+                </a>
+              </li>
+            </div>
+            
+            <li class="nav-item btnDrop1">
+              <span class="nav-link d-flex align-items-center gap-2 iconColor">
+                <i class="fa-solid fa-border-all iconColor"></i>
+                Manage Article <i class="fa-solid fa-caret-down"></i></span>
+            </li>
+            
+            <div class="addArticle bg-secondary">
+                <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/allartikel') ? 'activeSidebar' : '' }}" href="/dashboard/allartikel">
+                  <i class="fa-regular fa-newspaper iconColor"></i>
+                  All Artikels 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/allgaleri') ? 'activeSidebar' : '' }}" href="/dashboard/allgaleri">
+                  <i class="fa-solid fa-images iconColor"></i> 
+                  All Galeris 
+                </a>
+              </li>
+            </div>
+            
+
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/pengetahuan') ? 'activeSidebar' : '' }}" href="/dashboard/pengetahuan">
-                <i class="fa-solid fa-globe iconColor"></i>
-                Add Pengetahuan
+              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/cashnote') ? 'activeSidebar' : '' }}" href="/dashboard/cashnote">
+                <i class="fa-solid fa-money-bill-1-wave iconColor"></i> 
+                Cash Note
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/hiburan') ? 'activeSidebar' : '' }}" href="/dashboard/hiburan">
-                <i class="fa-regular fa-face-laugh-squint iconColor"></i>
-                Add Hiburan
-              </a>
-            </li>
+            
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/data') ? 'activeSidebar' : '' }}" href="/dashboard/data">
-                <i class="fa-solid fa-folder iconColor"></i> 
+                <i class="fa-solid fa-users-viewfinder iconColor"></i> 
                 Data User
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/allartikel') ? 'activeSidebar' : '' }}" href="/dashboard/allartikel">
-                <i class="fa-solid fa-border-all iconColor"></i> 
-                All Artikels 
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 iconColor {{ Request::is('dashboard/allgaleri') ? 'activeSidebar' : '' }}" href="/dashboard/allgaleri">
-                <i class="fa-solid fa-border-all iconColor"></i> 
-                All Galeris 
               </a>
             </li>
           </ul>

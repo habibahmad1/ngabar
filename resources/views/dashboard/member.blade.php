@@ -15,7 +15,17 @@
       @foreach ($data as $item)
       <tr>
         <td>{{ $loop->iteration }}</td>
-        <td>{{ $item->name }}</td>
+        
+        <td class="text-start">
+          @if ($item->image)
+              <img src="{{ asset('storage/'.$item->image) }}" alt="" class="rounded-circle" width="50px" height="50px">
+          @else
+          <img src="../img/pw.jpg" alt="" class="rounded-circle" width="50px" height="50px">
+          @endif
+
+          {{ $item->name }}
+        </td>
+
         <td>
           @if ($item->last_active && $item->last_active->diffInMinutes() < 1)
               <p class="online d-inline">Online</p> 

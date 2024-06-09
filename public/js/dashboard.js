@@ -121,3 +121,21 @@ if (playSong1) {
     playLagu(playSong4, play4);
     playLagu(playSong5, play5);
 }
+
+// dropdown
+const buttonDrop = document.querySelector(".btnDrop");
+const buttonDrop1 = document.querySelector(".btnDrop1");
+const addContent = document.querySelector(".addContent");
+const addArticle = document.querySelector(".addArticle");
+
+if (buttonDrop) {
+    buttonDrop.addEventListener("click", () => {
+        addContent.classList.toggle("dropdownActive");
+    });
+}
+
+if (buttonDrop1) {
+    buttonDrop1.addEventListener("click", () => {
+        addArticle.classList.toggle("dropdownActive");
+    });
+}

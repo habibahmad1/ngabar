@@ -28,12 +28,12 @@ class DatabaseSeeder extends Seeder
         //     "password" => bcrypt("123"),
         // ]);
         User::create([
-            "name" => "Robin",
-            "username" => "Robin",
+            "name" => "Habib Ahmad",
+            "username" => "habib",
             "google_id" => "1231723",
             "noHp" => "0837727272",
             "role" => "Super Admin",
-            "email" => "robin@gmail.com",
+            "email" => "habib@habibahmad.my.id",
             "password" => bcrypt("password"),
         ]);
 

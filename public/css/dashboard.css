@@ -237,7 +237,7 @@ th {
 
 /* CSS Scrollbar */
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -381,7 +381,7 @@ input[type="password"],
 .password [type="text"],
 .namaDaftar [type="text"],
 .usernamed [type="text"],
-[type="number"] {
+.noHp[type="number"] {
     width: 350px;
     border: 2px solid #e09f3e;
     border-radius: 10px;
@@ -398,6 +398,35 @@ input[type="password"],
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+/* Dropdown */
+.btnDrop {
+    cursor: pointer;
+    user-select: none;
+}
+.btnDrop1 {
+    cursor: pointer;
+    user-select: none;
+}
+
+.addContent {
+    display: none;
+    transform: scale(0.9);
+}
+.addArticle {
+    display: none;
+    transform: scale(0.9);
+}
+
+.dropdownActive {
+    display: block;
+}
+
+/* CSS CashNote */
+.container-cash-note {
+    overflow: auto;
+    text-align: center;
 }
 
 @media (max-width: 600px) {
