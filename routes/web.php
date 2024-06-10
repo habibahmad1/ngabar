@@ -44,8 +44,10 @@ Route::get('/', function () {
     ]);
 })->middleware('member');
 
-
+// Route ke Alquran
 Route::get('/quran', [QuranController::class, 'index'])->middleware('member');
+
+// Route ke Alquran Detail
 Route::get('/quran/detail/{id}', [QuranController::class, 'detailSurah'])->middleware('member');
 
 // Route ke semua galery
@@ -202,11 +204,11 @@ Route::get('/ourprofil', function () {
     return view('ourprofil', [
         'title' => 'Profil Kami'
     ]);
-});
+})->middleware('member');
 
 // Route Refrence
 Route::get('/refrence', function () {
     return view('refrence', [
         'title' => 'Refrence'
     ]);
-});
+})->middleware('member');
