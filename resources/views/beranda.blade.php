@@ -17,7 +17,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const typed = new Typed('#element', {
-                strings: ["Welcome","Nice To Meet You"],
+                strings: ["Welcome To Ngabar","Nice To Meet You"],
                 typeSpeed: 150,
                 backSpeed: 150,
                 loop: true,

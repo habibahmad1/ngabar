@@ -1034,12 +1034,20 @@ button#songButton:active {
 footer {
     display: flex;
     justify-content: center;
-    padding: 100px 0 10px 0;
+    padding: 50px 0 10px 0;
     color: #666565;
 }
 
 #google_translate_element {
     text-align: center;
+}
+
+.service_product h5 {
+    color: #00fd83;
+}
+
+.darkActive .service_product h5 {
+    color: #00d0ff;
 }
 
 /* CSS Page Quran */
@@ -1083,6 +1091,74 @@ footer {
 @keyframes lastRead {
     10% {
         transform: scale(0.9);
+    }
+}
+
+/* CSS Our Profil */
+.container-ourProfil {
+    padding: 20px;
+}
+
+.ourProfil {
+    display: flex;
+    margin: 80px auto;
+    text-align: justify;
+    align-items: center;
+}
+
+.content-profil {
+    margin: 0 40px;
+}
+
+.content-profil h3 {
+    margin: 20px 0;
+    text-align: center;
+    animation: lompat 5s infinite linear;
+    color: #6dfc77;
+}
+
+.darkActive .content-profil h3 {
+    color: #00d0ff;
+}
+
+@keyframes lompat {
+    10% {
+        transform: translateY(20px);
+    }
+    20% {
+        transform: translateX(20px);
+    }
+}
+
+.ourProfil img {
+    width: 300px;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.ourProfil img:hover {
+    animation: getar 2s linear;
+    cursor: pointer;
+}
+
+@keyframes getar {
+    10% {
+        transform: rotate(5deg);
+    }
+}
+
+.rightPic {
+    order: 1;
+}
+
+/* CSS Refrence */
+.img-source img {
+    animation: putarflip 7s infinite forwards;
+}
+
+@keyframes putarflip {
+    10% {
+        transform: rotateY(180deg);
     }
 }
 

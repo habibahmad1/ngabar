@@ -5,7 +5,7 @@
     <h1 class="h2">My Galeri</h1>
   </div>
  
-  <div class="table-responsive small col-lg-6">
+  <div class="table-responsive small col-lg-8">
     @if(session()->has('success')) 
     <div class="alert alert-success" role="alert">
       {{ session('success') }}

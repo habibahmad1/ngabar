@@ -26,7 +26,7 @@
         @foreach ($allartikel as $artikel)
             
         <tr>
-          <td>{{ $loop->iteration }}</td>
+          <td>{{ ($allartikel->currentPage() - 1) * $allartikel->perPage() + $loop->iteration }}</td>
           <td>{{ $artikel->judul }}</td>
           <td>{{ $artikel->category->nama }}</td>
           <td>{{ $artikel->user->name }}</td>
@@ -43,5 +43,6 @@
         @endforeach
       </tbody>
     </table>
+    {{ $allartikel->links() }}
   </div>
 @endsection

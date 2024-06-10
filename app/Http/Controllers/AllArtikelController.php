@@ -13,7 +13,7 @@ class AllArtikelController extends Controller
      */
     public function index()
     {
-        $allartikel = Artikel::all();
+        $allartikel = Artikel::paginate(10);
         return view('dashboard.allartikel.index', compact('allartikel'));
     }
 

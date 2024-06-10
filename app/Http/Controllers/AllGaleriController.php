@@ -13,7 +13,7 @@ class AllGaleriController extends Controller
      */
     public function index()
     {
-        $allgaleri = Galeri::all();
+        $allgaleri = Galeri::paginate(10);
         return view('dashboard.allgaleri.index', compact('allgaleri'));
     }
 

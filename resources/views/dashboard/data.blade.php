@@ -78,18 +78,18 @@
     </table>
 </div>
 <div class="buttonExport">
-    <button class="btn btn-success" onclick="exportToExcel()"><i class="fa-solid fa-file-excel"></i> Export to Excel</button>
-    <button class="btn btn-danger" onclick="exportToPDF()"><i class="fa-solid fa-file-pdf"></i> Export to PDF</button>
-    <button class="btn btn-primary" onclick="exportToWord()"><i class="fa-solid fa-file-word"></i> Export to Word</button>
+    <button class="btn btn-success" onclick="confirmExportExcel()"><i class="fa-solid fa-file-excel"></i> Export to Excel</button>
+    <button class="btn btn-danger" onclick="confirmExportPDF()"><i class="fa-solid fa-file-pdf"></i> Export to PDF</button>
+    <button class="btn btn-primary" onclick="confirmExportWord()"><i class="fa-solid fa-file-word"></i> Export to Word</button>
 </div>
+
   <script>
     function exportToWord() {
       const content = document.getElementById('myTable').outerHTML;
       const converted = htmlDocx.asBlob(content);
       saveAs(converted, 'table.docx');
     }
-  </script>
-  <script>
+
     window.jsPDF = window.jspdf.jsPDF;
     function exportToPDF() {
       const content = document.getElementById('myTable');
@@ -100,8 +100,7 @@
         pdf.save('table.pdf');
       });
     }
-  </script>
-  <script>
+
     function exportToExcel() {
       const table = document.getElementById('myTable');
       const rows = Array.from(table.querySelectorAll('tr'));
@@ -111,6 +110,22 @@
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
       XLSX.writeFile(wb, 'data.xlsx');
+    }
+
+    function confirmExportExcel() {
+    if (confirm("Apakah Anda yakin ingin mengekspor data ke Excel?")) {
+        exportToExcel();
+      }
+    }
+    function confirmExportPDF() {
+    if (confirm("Apakah Anda yakin ingin mengekspor data ke PDF?")) {
+        exportToPDF();
+      }
+    }
+    function confirmExportWord() {
+    if (confirm("Apakah Anda yakin ingin mengekspor data ke Word?")) {
+        exportToWord();
+      }
     }
   </script>
 

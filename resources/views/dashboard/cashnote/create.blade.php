@@ -17,15 +17,15 @@
                     @endif
 
                     <label for="nama_barang" class="form-label">Nama Barang <span style="color: red">*</span></label>
-                    <input type="text" class="form-control" id="nama_barang" name="nama_barang[]" placeholder="Pulpen">
+                    <input type="text" class="form-control" id="nama_barang" name="nama_barang[]" placeholder="Pulpen" required>
                 </div>
                 <div class="form-group col-lg-4">
                     <label for="jumlah_barang" class="form-label">Jumlah Barang <span style="color: red">*</span></label>
-                    <input type="number" class="form-control" id="jumlah_barang" name="jumlah_barang[]" placeholder="10">
+                    <input type="number" class="form-control" id="jumlah_barang" name="jumlah_barang[]" placeholder="10" required>
                 </div>
                 <div class="form-group col-lg-4">
                     <label for="harga_satuan" class="form-label">Harga Satuan (jangan pakai titik atau koma) <span style="color: red">*</span></label>
-                    <input type="number" class="form-control" id="harga_satuan" name="harga_satuan[]" placeholder="2000">
+                    <input type="number" class="form-control" id="harga_satuan" name="harga_satuan[]" placeholder="2000" required>
                 </div>
                 <div class="form-group col-lg-2 d-flex align-items-end">
                     <button type="button" class="btn btn-danger remove-row my-3">Hapus</button>

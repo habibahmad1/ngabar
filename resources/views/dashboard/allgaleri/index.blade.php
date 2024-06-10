@@ -26,7 +26,7 @@
         @foreach ($allgaleri as $galeri)
             
         <tr>
-          <td>{{ $loop->iteration }}</td>
+          <td>{{ ($allgaleri->currentPage() - 1) * $allgaleri->perPage() + $loop->iteration }}</td>
           <td>{{ $galeri->judul }}</td>
           <td>{{ $galeri->kategoriGaleri->nama }}</td>
           <td>{{ $galeri->user->name }}</td>
@@ -43,5 +43,6 @@
         @endforeach
       </tbody>
     </table>
+    {{ $allgaleri->links() }}
   </div>
 @endsection

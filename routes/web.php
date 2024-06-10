@@ -196,3 +196,17 @@ Route::resource('/dashboard/allgaleri', AllGaleriController::class)->middleware(
 
 // Route CashNote
 Route::resource('/dashboard/cashnote', CashNoteController::class);
+
+// Route OurProfil
+Route::get('/ourprofil', function () {
+    return view('ourprofil', [
+        'title' => 'Profil Kami'
+    ]);
+});
+
+// Route Refrence
+Route::get('/refrence', function () {
+    return view('refrence', [
+        'title' => 'Refrence'
+    ]);
+});
