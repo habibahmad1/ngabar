@@ -37,7 +37,7 @@
                 <tr class="table-warning">
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $cashnote->user->name }}</td>
-                    <td>{{ $cashnote->nama_barang }}</td>
+                    <td style="text-transform: capitalize;">{{ $cashnote->nama_barang }}</td>
                     <td>{{ $cashnote->jumlah_barang }}</td>
                     <td>{{ $cashnote->harga_satuan }}</td>
                     <td>{{ $cashnote->jumlah_barang * $cashnote->harga_satuan }}</td>
