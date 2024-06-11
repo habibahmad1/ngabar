@@ -11,6 +11,8 @@ class Komentar extends Model
 
     protected $guarded = ['id'];
 
+    protected $with = ['user', 'artikel'];
+
     public function artikel()
     {
         return $this->belongsTo(Artikel::class);

@@ -9,6 +9,9 @@ class CashNote extends Model
 {
     use HasFactory;
 
+    protected $with = "user";
+
+
     protected $fillable = [
         'user_id',
         'nama_barang',

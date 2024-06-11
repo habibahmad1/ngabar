@@ -7,7 +7,7 @@
         <div class="content-informasi">
             @foreach ($kategoriGaleri as $category)
                 <article class="mb-5 mt-5 text-center position-relative">
-                  <a href="/categories/{{ $category->slug }}"> 
+                  <a href="/kategoriGaleri/{{ $category->slug }}"> 
                     <div class="text-center gambarTiapPost">
                         <img src="https://picsum.photos/seed/{{ $category->nama }}/600/400" alt="imgPost" class="rounded">
                     </div>

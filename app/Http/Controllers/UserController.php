@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Artikel;
+use App\Models\Konten;
+use App\Models\Hiburan;
 use App\Models\Galeri;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,6 +22,8 @@ class UserController extends Controller
         return view('artikel', [
             'title' => "Artikel By: $author->name",
             'article' => $articles,
+            'pengetahuan' => Konten::latest()->get(),
+            'hiburan' => Hiburan::latest()->get(),
         ]);
     }
 
