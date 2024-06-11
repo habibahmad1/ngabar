@@ -3,7 +3,7 @@
 <h3 class="my-3">Catatan Keuangan</h3>
 <hr>
 <div class="container-cashNote mt-3">
-    <form action="/dashboard/cashnote/" method="POST">
+    <form action="/dashboard/cashnote" method="POST">
         @csrf
         <button type="button" id="addRow" class="btn btn-primary my-3">Tambah Barang</button>
         <div id="dynamicForm">
