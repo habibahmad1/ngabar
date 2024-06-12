@@ -7,10 +7,10 @@
 <div class="container-artikel">
     
     <div class="tag">
-        <div class="informasi">Informasi</div>
-        <div class="pengetahuan">Pengetahuan</div>
-        <div class="kuis">Hiburan</div>
-        <div class="pemberitahuan">Pemberitahuan</div>
+        <div class="informasi"><small>Informasi</small></div>
+        <div class="pengetahuan"><small>Pengetahuan</small></div>
+        <div class="kuis"><small>Hiburan</small></div>
+        <div class="pemberitahuan"><small>Pemberitahuan</small></div>
         <div class="modeGrid"><i class="fa-solid fa-border-all"></i></div>
         <div class="modeBar"><i class="fa-solid fa-bars"></i></div>
     </div>
