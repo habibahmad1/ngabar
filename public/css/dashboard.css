@@ -171,26 +171,6 @@
 }
 
 /* CSS Data Page */
-.container-table {
-    display: flex;
-    overflow: auto;
-    text-align: center;
-    justify-content: center;
-}
-table {
-    margin-top: 10px;
-    border: 1px solid black;
-}
-table th {
-    color: #fff;
-    background-color: #2470dc;
-}
-
-table tr,
-td,
-th {
-    border: 1px solid black;
-}
 
 .buttonExport {
     display: flex;
