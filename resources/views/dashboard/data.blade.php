@@ -77,7 +77,7 @@
       @endforeach
     </table>
 </div>
-<div class="buttonExport">
+<div class="buttonExport my-3">
     <button class="btn btn-success" onclick="confirmExportExcel()"><i class="fa-solid fa-file-excel"></i> Export to Excel</button>
     <button class="btn btn-danger" onclick="confirmExportPDF()"><i class="fa-solid fa-file-pdf"></i> Export to PDF</button>
     <button class="btn btn-primary" onclick="confirmExportWord()"><i class="fa-solid fa-file-word"></i> Export to Word</button>

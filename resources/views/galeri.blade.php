@@ -22,7 +22,7 @@
     
                 <div class="judulGaleri">
                     <a href="/detail/{{ $item->id }}" class="text-decoration-none text-white">
-                        <h5 class="mx-3 mt-2">{{ $item->judul }}</h5>
+                        <h6 class="mx-3 mt-2">{{ $item->judul }}</h6>
                     </a>
                     
                     <a href="/uploaded/{{ $item->user->username }}" class="uploadBy">
